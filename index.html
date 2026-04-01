@@ -196,20 +196,25 @@ body {
 
 /* 採買指南表格圖片樣式 */
 .shop-table img {
-  width: 60px; /* 固定預覽寬度 */
+  width: 60px;
   height: 60px;
-  object-fit: cover; /* 確保圖片不變形 */
+  object-fit: cover;
   border-radius: 6px;
   cursor: zoom-in;
-  transition: transform 0.3s ease; /* 平滑放大動畫 */
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 /* 滑過或點擊時放大特效 */
 .shop-table img:hover, .shop-table img:active {
-  transform: scale(2.5); /* 放大 2.5 倍 */
-  position: relative;
-  z-index: 100; /* 確保在最上層 */
-  box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+  position: fixed; /* 脫離表格，相對於螢幕定位 */
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(5); /* 置中並放大 5 倍 */
+  width: 15vw; /* 基礎寬度 */
+  height: auto;
+  z-index: 9999; /* 確保在最上層 */
+  box-shadow: 0 0 50px rgba(0,0,0,0.8);
+  border: 2px solid white;
 }
 
 /* 針對手機端的優化 */
@@ -219,10 +224,12 @@ body {
   .ap { font-size: 18px; }
 }
 @media (max-width: 600px) {
-  .shop-table th:nth-child(1), .shop-table td:nth-child(1) { width: 70px; } /* 調整圖片欄寬度 */
-  .shop-table img { width: 50px; height: 50px; }
-  .shop-table img:active { transform: scale(3); } /* 手機按住時放大更多 */
-}
+  .shop-table img:active {
+    width: 85vw; /* 寬度佔螢幕 85% */
+    height: auto;
+    transform: translate(-50%, -50%) scale(1); /* 手機端直接用寬度撐大，不需 scale 避免失真 */
+    border-radius: 12px;
+  }
   
 
 </style>
