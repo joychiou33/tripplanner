@@ -224,52 +224,77 @@ body {
 
 <!-- ========== TAB 1: 航班穿搭 ========== -->
 <div id="tab-flight" class="panel active">
-
-  <div class="sec">去程航班</div>
+  
+  <div class="sec">✈️ 去程：中華航空 CI 053</div>
   <div class="card">
-    <div class="card-title">✈️ CI 053 台北 → 奧克蘭（中停布里斯本）</div>
-    <div class="flight-block">
-      <div><div class="ap">TPE</div><div class="ft">桃園機場</div><div class="ft">04/01（三）23:55</div></div>
-      <div class="line-wrap">
-        <div class="fn">CI 053</div>
-        <div class="line"></div>
-        <div class="dur">總飛行 14h05m</div>
+    <div class="card-title">台北 (TPE) ➔ 奧克蘭 (AKL)｜經停布里斯本</div>
+    <div style="padding:10px; line-height:1.6; font-size:14px; color:#2c3e50;">
+      <p style="margin-top:0;"><strong>● 第一段：台北 ➔ 布里斯本</strong><br>
+      出發：04/01 (三) 23:55 (台北時間)<br>
+      抵達：04/02 (四) 10:35 (布里斯本時間)<br>
+      <span style="color:var(--sky);">⏱ 飛行時間：約 8 小時 40 分</span></p>
+
+      <div style="background:var(--sky-light); border-left:4px solid var(--sky); padding:8px 12px; margin:10px 0;">
+        <strong>⏳ 中停布里斯本 (BNE) 候機</strong><br>
+        時間：10:35 - 12:55 (約 2 小時 20 分)<br>
+        說明：需帶齊隨身行李下機至候機室，不需通關，待整備後原機登機。
       </div>
-      <div style="text-align:right"><div class="ap">BNE</div><div class="ft">布里斯本</div><div class="ft">04/02 約05:30</div></div>
-    </div>
-    <div class="layover-bar">⏱ 布里斯本中停約 2 小時 20 分 — 需下機至候機室，不用通關</div>
-    <div class="flight-block">
-      <div><div class="ap">BNE</div><div class="ft">布里斯本</div><div class="ft">04/02 約07:50</div></div>
-      <div class="line-wrap">
-        <div class="fn">CI 053 續</div>
-        <div class="line"></div>
-        <div class="dur">約3h</div>
-      </div>
-      <div style="text-align:right"><div class="ap">AKL</div><div class="ft">奧克蘭機場</div><div class="ft">04/02（四）19:00</div></div>
+
+      <p><strong>● 第二段：布里斯本 ➔ 奧克蘭</strong><br>
+      出發：04/02 (四) 12:55 (布里斯本時間)<br>
+      抵達：04/02 (四) 19:00 (奧克蘭時間)<br>
+      <span style="color:var(--sky);">⏱ 飛行時間：約 3 小時 05 分</span></p>
+      
+      <hr style="border:0; border-top:1px dashed #ccc; margin:10px 0;">
+      <p style="font-size:13px; margin-bottom:0;">
+        📌 <strong>總行程時長：</strong>14 小時 05 分 (含中停)<br>
+        📌 <strong>執飛機型：</strong>Airbus A350-900 (A359)<br>
+        📌 <strong>時差提醒：</strong>布里斯本 +2hr / 奧克蘭 +5hr (日光節約時)
+      </p>
     </div>
     <div class="collect-bar">📍 集合：04/01 21:25 桃園第二航廈 華航 7 號櫃台</div>
   </div>
 
-  <div class="sec">國內線</div>
+  <div class="sec">✈️ 紐西蘭國內線：紐西蘭航空</div>
   <div class="card">
-    <div class="flight-block">
-      <div><div class="ap">AKL</div><div class="ft">奧克蘭</div><div class="ft">04/03（五）09:00</div></div>
-      <div class="line-wrap"><div class="fn">NZ 527</div><div class="line"></div><div class="dur">1h25m</div></div>
-      <div style="text-align:right"><div class="ap">CHC</div><div class="ft">基督城</div><div class="ft">10:25</div></div>
-    </div>
-    <div class="flight-block">
-      <div><div class="ap">CHC</div><div class="ft">基督城</div><div class="ft">04/10（五）08:40</div></div>
-      <div class="line-wrap"><div class="fn">NZ 5616</div><div class="line"></div><div class="dur">1h50m</div></div>
-      <div style="text-align:right"><div class="ap">HLZ</div><div class="ft">漢彌爾頓</div><div class="ft">10:30</div></div>
+    <div style="padding:10px; line-height:1.6; font-size:14px;">
+      <div style="margin-bottom:12px;">
+        <strong>04/03 (五) NZ 527：奧克蘭 ➔ 基督城</strong><br>
+        09:00 起飛 / 10:25 抵達 <span style="color:var(--kiwi);">⏱ 飛行 1h 25m</span>
+      </div>
+      <div>
+        <strong>04/10 (五) NZ 5616：基督城 ➔ 漢彌爾頓</strong><br>
+        08:40 起飛 / 10:30 抵達 <span style="color:var(--kiwi);">⏱ 飛行 1h 50m</span><br>
+        <small style="color:var(--danger);">* 此時已結束日光節約，時差縮小為 +4hr</small>
+      </div>
     </div>
   </div>
 
-  <div class="sec">回程航班</div>
+  <div class="sec">✈️ 回程：中華航空 CI 054</div>
   <div class="card">
-    <div class="flight-block">
-      <div><div class="ap">AKL</div><div class="ft">奧克蘭機場</div><div class="ft">04/11（六）19:30</div></div>
-      <div class="line-wrap"><div class="fn">CI 054</div><div class="line"></div><div class="dur">14h10m</div></div>
-      <div style="text-align:right"><div class="ap">TPE</div><div class="ft">桃園機場</div><div class="ft">04/12（日）05:40</div></div>
+    <div class="card-title">奧克蘭 (AKL) ➔ 台北 (TPE)｜經停布里斯本</div>
+    <div style="padding:10px; line-height:1.6; font-size:14px; color:#2c3e50;">
+      <p style="margin-top:0;"><strong>● 第一段：奧克蘭 ➔ 布里斯本</strong><br>
+      出發：04/11 (六) 19:30 (奧克蘭時間)<br>
+      抵達：04/11 (六) 21:20 (布里斯本時間)<br>
+      <span style="color:var(--sky);">⏱ 飛行時間：約 3 小時 50 分</span></p>
+
+      <div style="background:var(--sky-light); border-left:4px solid var(--sky); padding:8px 12px; margin:10px 0;">
+        <strong>⏳ 中停布里斯本 (BNE) 候機</strong><br>
+        時間：21:20 - 23:05 (約 1 小時 45 分)
+      </div>
+
+      <p><strong>● 第二段：布里斯本 ➔ 台北</strong><br>
+      出發：04/11 (六) 23:05 (布里斯本時間)<br>
+      抵達：04/12 (日) 05:40 (台北時間)<br>
+      <span style="color:var(--sky);">⏱ 飛行時間：約 8 小時 35 分</span></p>
+      
+      <hr style="border:0; border-top:1px dashed #ccc; margin:10px 0;">
+      <p style="font-size:13px; margin-bottom:0;">
+        📌 <strong>總行程時長：</strong>14 小時 10 分 (含中停)<br>
+        📌 <strong>執飛機型：</strong>Airbus A350-900 (A359)<br>
+        📌 <strong>時差提醒：</strong>奧克蘭 +4hr / 布里斯本 +2hr
+      </p>
     </div>
   </div>
 
