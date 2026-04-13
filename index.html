@@ -6,278 +6,119 @@
 <title>🥝 紐西蘭12日行前攻略</title>
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700&family=Nunito:wght@600;800&display=swap');
-
-:root {
-  --kiwi: #4a7c59;
-  --kiwi-light: #e8f4ec;
-  --kiwi-dark: #2d5238;
-  --sky: #2e86c1;
-  --sky-light: #eaf4fb;
-  --amber: #d68910;
-  --amber-light: #fef9e7;
-  --danger: #c0392b;
-  --danger-light: #fdedec;
-  --purple: #7d3c98;
-  --purple-light: #f4ecf7;
-  --gray: #5d6d7e;
-  --gray-light: #f2f3f4;
-  --white: #ffffff;
-  --text: #1a252f;
-  --text-muted: #5d6d7e;
-  --border: #e8ecef;
-  --shadow: 0 2px 12px rgba(0,0,0,0.08);
-  --radius: 12px;
-}
-
-* { box-sizing: border-box; margin: 0; padding: 0; }
-
-body {
-  font-family: 'Noto Sans TC', sans-serif;
-  background: #f0f4f0;
-  color: var(--text);
-  min-height: 100vh;
-}
-
-.hero {
-  background: linear-gradient(135deg, var(--kiwi-dark) 0%, var(--kiwi) 50%, #6aaa7a 100%);
-  color: white;
-  padding: 36px 24px 28px;
-  text-align: center;
-  position: relative;
-  overflow: hidden;
-}
-.hero::before {
-  content: '';
-  position: absolute; inset: 0;
-  background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.04'%3E%3Ccircle cx='30' cy='30' r='20'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
-}
-.hero-emoji { font-size: 52px; display: block; margin-bottom: 8px; position: relative; }
-.hero h1 { font-family: 'Nunito', sans-serif; font-size: 22px; font-weight: 800; margin-bottom: 6px; position: relative; }
-.hero p { font-size: 13px; opacity: 0.85; position: relative; }
-.hero-tags { display: flex; justify-content: center; gap: 8px; margin-top: 12px; flex-wrap: wrap; position: relative; }
-.hero-tag { background: rgba(255,255,255,0.2); border: 1px solid rgba(255,255,255,0.3); border-radius: 999px; padding: 4px 12px; font-size: 12px; }
-
-.tab-nav {
-  display: flex; overflow-x: auto; background: white;
-  border-bottom: 2px solid var(--border);
-  position: sticky; top: 0; z-index: 100;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.06);
-}
-.tab-nav::-webkit-scrollbar { height: 0; }
-.tab-btn {
-  flex-shrink: 0; padding: 14px 18px;
-  border: none; background: none; cursor: pointer;
-  font-size: 13px; font-family: 'Noto Sans TC', sans-serif;
-  color: var(--text-muted); font-weight: 500;
-  border-bottom: 3px solid transparent;
-  transition: all .2s; white-space: nowrap;
-}
-.tab-btn.active { color: var(--kiwi-dark); border-bottom-color: var(--kiwi); }
-.tab-btn:hover { background: var(--gray-light); }
-
-.panel { display: none; padding: 20px 16px; max-width: 760px; margin: 0 auto; }
-.panel.active { display: block; }
-
-.card {
-  background: white; border-radius: var(--radius);
-  box-shadow: var(--shadow); padding: 16px 18px;
-  margin-bottom: 14px; border: 1px solid var(--border);
-}
-.card-title {
-  font-size: 14px; font-weight: 700; margin-bottom: 12px;
-  display: flex; align-items: center; gap: 6px;
-  color: var(--kiwi-dark);
-}
-
-.sec { font-size: 13px; font-weight: 700; color: var(--text-muted); text-transform: uppercase; letter-spacing: .08em; margin: 20px 0 10px; }
-.sec:first-child { margin-top: 0; }
-
-.flight-block { display: flex; align-items: center; gap: 10px; padding: 10px 0; }
-.flight-block + .flight-block { border-top: 1px solid var(--border); }
-.ap { font-size: 22px; font-weight: 800; font-family: 'Nunito', sans-serif; color: var(--kiwi-dark); line-height: 1; }
-.ft { font-size: 12px; color: var(--text-muted); margin-top: 2px; }
-.line-wrap { flex: 1; display: flex; flex-direction: column; align-items: center; gap: 2px; }
-.fn { font-size: 11px; font-weight: 700; color: var(--sky); background: var(--sky-light); padding: 2px 7px; border-radius: 999px; }
-.line { width: 100%; height: 1px; background: var(--border); position: relative; }
-.line::after { content: '▸'; position: absolute; right: -5px; top: -9px; font-size: 11px; color: var(--text-muted); }
-.dur { font-size: 11px; color: var(--text-muted); }
-.layover-bar {
-  background: var(--amber-light); border-left: 3px solid var(--amber);
-  border-radius: 6px; padding: 7px 12px; font-size: 12px;
-  color: var(--amber); margin: 6px 0; font-weight: 500;
-}
-.collect-bar {
-  background: var(--kiwi-light); border-radius: 8px;
-  padding: 8px 12px; font-size: 12px; color: var(--kiwi-dark);
-  margin-top: 8px; display: flex; align-items: center; gap: 6px;
-}
-
-.outfit-table { width: 100%; border-collapse: collapse; font-size: 13px; }
-.outfit-table th { background: var(--kiwi-light); color: var(--kiwi-dark); padding: 8px 10px; text-align: left; font-size: 12px; font-weight: 700; }
-.outfit-table td { padding: 9px 10px; border-bottom: 1px solid var(--border); vertical-align: top; line-height: 1.5; }
-.outfit-table tr:last-child td { border-bottom: none; }
-.outfit-table tr:hover td { background: #fafafa; }
-.temp { display: inline-block; font-size: 11px; font-weight: 700; padding: 2px 7px; border-radius: 999px; margin-top: 3px; }
-.temp-cold { background: var(--sky-light); color: var(--sky); }
-.temp-warn { background: var(--amber-light); color: var(--amber); }
-.temp-danger { background: var(--danger-light); color: var(--danger); }
-
-.map-card { background: white; border-radius: var(--radius); box-shadow: var(--shadow); border: 1px solid var(--border); overflow: hidden; margin-bottom: 14px; }
-.map-card svg { display: block; width: 100%; }
-
-.region-table { width: 100%; border-collapse: collapse; font-size: 13px; }
-.region-table th { background: var(--kiwi-light); color: var(--kiwi-dark); padding: 8px 10px; text-align: left; font-size: 12px; font-weight: 700; }
-.region-table td { padding: 9px 10px; border-bottom: 1px solid var(--border); vertical-align: top; line-height: 1.6; }
-.region-table tr:last-child td { border-bottom: none; }
-.region-table tr:hover td { background: #fafafa; }
-
-.day-item { display: flex; gap: 12px; padding: 12px 0; border-bottom: 1px solid var(--border); align-items: flex-start; }
-.day-item:last-child { border-bottom: none; }
-.day-badge {
-  min-width: 46px; text-align: center; padding: 6px 4px;
-  border-radius: 8px; background: var(--kiwi-light); color: var(--kiwi-dark);
-  font-weight: 700; font-size: 13px; line-height: 1.3;
-}
-.day-content { flex: 1; }
-.day-loc { font-size: 11px; color: var(--text-muted); margin-bottom: 3px; font-weight: 500; text-transform: uppercase; letter-spacing: .04em; }
-.day-desc { font-size: 13px; line-height: 1.6; }
-.day-hotel {
-  font-size: 12px; color: var(--sky); margin-top: 5px;
-  padding: 4px 10px; background: var(--sky-light);
-  border-radius: 6px; display: inline-block;
-}
-.day-shop-reminder {
-  font-size: 12px; color: var(--kiwi-dark); margin-top: 5px;
-  padding: 5px 10px; background: var(--kiwi-light);
-  border-radius: 6px; line-height: 1.6; border-left: 3px solid var(--kiwi);
-}
-.day-shop-reminder a {
-  color: var(--kiwi-dark); font-weight: 700; text-decoration: underline dotted;
-}
-.tags { display: flex; flex-wrap: wrap; gap: 5px; margin-top: 6px; }
-.tag { font-size: 11px; font-weight: 600; padding: 2px 8px; border-radius: 999px; display: inline-flex; align-items: center; gap: 3px; }
-.tag-cold { background: var(--sky-light); color: var(--sky); }
-.tag-pill { background: var(--danger-light); color: var(--danger); }
-.tag-shop { background: var(--kiwi-light); color: var(--kiwi-dark); }
-.tag-warn { background: var(--amber-light); color: var(--amber); }
-.tag-star { background: var(--purple-light); color: var(--purple); }
-
-.shop-section { margin-bottom: 6px; }
-.shop-city { font-size: 13px; font-weight: 700; color: var(--kiwi-dark); margin-bottom: 10px; padding: 8px 12px; background: var(--kiwi-light); border-radius: 8px; }
-.store { padding: 10px 0; border-bottom: 1px solid var(--border); }
-.store:last-child { border-bottom: none; }
-.store-name { font-size: 13px; font-weight: 600; display: flex; align-items: center; gap: 6px; flex-wrap: wrap; }
-.store-addr { font-size: 12px; color: var(--text-muted); margin-top: 2px; }
-.store-hours { font-size: 12px; color: var(--kiwi); margin-top: 2px; font-weight: 500; }
-.badge { font-size: 11px; font-weight: 700; padding: 2px 8px; border-radius: 999px; }
-.badge-green { background: var(--kiwi-light); color: var(--kiwi-dark); }
-.badge-blue { background: var(--sky-light); color: var(--sky); }
-.badge-amber { background: var(--amber-light); color: var(--amber); }
-
-.buy-table { width: 100%; border-collapse: collapse; font-size: 12.5px; }
-.buy-table th { background: var(--kiwi-light); color: var(--kiwi-dark); padding: 8px 10px; text-align: left; font-size: 12px; font-weight: 700; }
-.buy-table td { padding: 8px 10px; border-bottom: 1px solid var(--border); vertical-align: top; line-height: 1.5; }
-.buy-table tr:last-child td { border-bottom: none; }
-.buy-table tr:hover td { background: #fafafa; }
-.buy-table tr.total td { background: var(--kiwi-light); font-weight: 700; color: var(--kiwi-dark); }
-
-.metrics { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-bottom: 14px; }
-.metric { background: white; border-radius: var(--radius); box-shadow: var(--shadow); border: 1px solid var(--border); padding: 14px 16px; text-align: center; }
-.metric-val { font-size: 22px; font-weight: 800; font-family: 'Nunito', sans-serif; color: var(--kiwi-dark); }
-.metric-lbl { font-size: 12px; color: var(--text-muted); margin-top: 4px; }
-
-.alert { border-radius: 8px; padding: 10px 14px; font-size: 13px; margin-bottom: 10px; line-height: 1.6; }
-.alert-amber { background: var(--amber-light); color: #7d6608; border-left: 3px solid var(--amber); }
-.alert-sky { background: var(--sky-light); color: #1a5276; border-left: 3px solid var(--sky); }
-.alert-danger { background: var(--danger-light); color: var(--danger); border-left: 3px solid var(--danger); }
-.alert-kiwi { background: var(--kiwi-light); color: var(--kiwi-dark); border-left: 3px solid var(--kiwi); }
-
-/* 書籤錨點區塊 */
-.shop-anchor { display: block; height: 0; }
-
-/* ── 採買表格縮圖 ── */
-.shop-table { width: 100%; border-collapse: collapse; font-size: 13px; }
-.shop-table th { padding: 10px; border-bottom: 2px solid var(--border); background: #f8f9fa; text-align: left; }
-.shop-table td { padding: 9px 10px; border-bottom: 1px solid var(--border); vertical-align: middle; }
-.shop-table tr:last-child td { border-bottom: none; }
-
-/* 縮圖：靜止不動，完全不用 CSS hover 特效 */
-.shop-thumb {
-  width: 58px;
-  height: 58px;
-  object-fit: cover;
-  border-radius: 8px;
-  cursor: zoom-in;
-  display: block;
-  /* 阻止 iOS 長按彈出系統選單（複製/存圖）*/
-  -webkit-touch-callout: none;
-  -webkit-user-select: none;
-  user-select: none;
-  pointer-events: auto;
-}
-
-/* ── Lightbox 遮罩 ── */
-#img-overlay {
-  display: none;
-  position: fixed;
-  inset: 0;
-  z-index: 9999;
-  background: rgba(0,0,0,0.85);
-  /* flex 置中，點擊遮罩關閉 */
-  align-items: center;
-  justify-content: center;
-  cursor: pointer;
-  /* 防止遮罩本身觸發 iOS 長按系統選單 */
-  -webkit-touch-callout: none;
-  -webkit-user-select: none;
-  user-select: none;
-}
-#img-overlay.open { display: flex; }
-
-/* 放大圖：手機幾乎佔滿螢幕，桌機最大 480px */
-#overlay-img {
-  max-width: min(92vw, 480px);
-  max-height: 85vh;
-  width: auto;
-  height: auto;
-  border-radius: 14px;
-  box-shadow: 0 8px 40px rgba(0,0,0,0.6);
-  object-fit: contain;
-  cursor: default;
-  /* 讓點擊穿透到遮罩，方便點任意處關閉 */
-  pointer-events: none;
-  -webkit-touch-callout: none;
-  -webkit-user-select: none;
-  user-select: none;
-}
-
-/* 關閉提示 */
-#overlay-hint {
-  position: absolute;
-  bottom: 22px;
-  left: 50%;
-  transform: translateX(-50%);
-  color: rgba(255,255,255,0.6);
-  font-size: 13px;
-  pointer-events: none;
-  white-space: nowrap;
-}
-
-@media (max-width: 480px) {
-  .hero h1 { font-size: 18px; }
-  .outfit-table, .region-table, .buy-table { font-size: 12px; }
-  .ap { font-size: 18px; }
-  #overlay-img { max-width: 94vw; max-height: 82vh; }
-}
+:root{--kiwi:#4a7c59;--kiwi-light:#e8f4ec;--kiwi-dark:#2d5238;--sky:#2e86c1;--sky-light:#eaf4fb;--amber:#d68910;--amber-light:#fef9e7;--danger:#c0392b;--danger-light:#fdedec;--purple:#7d3c98;--purple-light:#f4ecf7;--gray:#5d6d7e;--gray-light:#f2f3f4;--text:#1a252f;--text-muted:#5d6d7e;--border:#e8ecef;--shadow:0 2px 12px rgba(0,0,0,0.08);--radius:12px}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'Noto Sans TC',sans-serif;background:#f0f4f0;color:var(--text);min-height:100vh}
+.hero{background:linear-gradient(135deg,var(--kiwi-dark) 0%,var(--kiwi) 50%,#6aaa7a 100%);color:white;padding:36px 24px 28px;text-align:center;position:relative;overflow:hidden}
+.hero::before{content:'';position:absolute;inset:0;background:url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.04'%3E%3Ccircle cx='30' cy='30' r='20'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")}
+.hero-emoji{font-size:52px;display:block;margin-bottom:8px;position:relative}
+.hero h1{font-family:'Nunito',sans-serif;font-size:22px;font-weight:800;margin-bottom:6px;position:relative}
+.hero p{font-size:13px;opacity:0.85;position:relative}
+.hero-tags{display:flex;justify-content:center;gap:8px;margin-top:12px;flex-wrap:wrap;position:relative}
+.hero-tag{background:rgba(255,255,255,0.2);border:1px solid rgba(255,255,255,0.3);border-radius:999px;padding:4px 12px;font-size:12px}
+.tab-nav{display:flex;overflow-x:auto;background:white;border-bottom:2px solid var(--border);position:sticky;top:0;z-index:100;box-shadow:0 2px 8px rgba(0,0,0,0.06)}
+.tab-nav::-webkit-scrollbar{height:0}
+.tab-btn{flex-shrink:0;padding:13px 15px;border:none;background:none;cursor:pointer;font-size:13px;font-family:'Noto Sans TC',sans-serif;color:var(--text-muted);font-weight:500;border-bottom:3px solid transparent;transition:all .2s;white-space:nowrap}
+.tab-btn.active{color:var(--kiwi-dark);border-bottom-color:var(--kiwi)}
+.tab-btn:hover{background:var(--gray-light)}
+.panel{display:none;padding:20px 16px;max-width:760px;margin:0 auto}
+.panel.active{display:block}
+.card{background:white;border-radius:var(--radius);box-shadow:var(--shadow);padding:16px 18px;margin-bottom:14px;border:1px solid var(--border)}
+.card-title{font-size:14px;font-weight:700;margin-bottom:12px;display:flex;align-items:center;gap:6px;color:var(--kiwi-dark)}
+.sec{font-size:13px;font-weight:700;color:var(--text-muted);text-transform:uppercase;letter-spacing:.08em;margin:20px 0 10px}
+.sec:first-child{margin-top:0}
+.collect-bar{background:var(--kiwi-light);border-radius:8px;padding:8px 12px;font-size:12px;color:var(--kiwi-dark);margin-top:8px}
+.outfit-table{width:100%;border-collapse:collapse;font-size:13px}
+.outfit-table th{background:var(--kiwi-light);color:var(--kiwi-dark);padding:8px 10px;text-align:left;font-size:12px;font-weight:700}
+.outfit-table td{padding:9px 10px;border-bottom:1px solid var(--border);vertical-align:top;line-height:1.5}
+.outfit-table tr:last-child td{border-bottom:none}
+.outfit-table tr:hover td{background:#fafafa}
+.temp{display:inline-block;font-size:11px;font-weight:700;padding:2px 7px;border-radius:999px;margin-top:3px}
+.temp-cold{background:var(--sky-light);color:var(--sky)}
+.temp-danger{background:var(--danger-light);color:var(--danger)}
+.map-card{background:white;border-radius:var(--radius);box-shadow:var(--shadow);border:1px solid var(--border);overflow:hidden;margin-bottom:14px}
+.map-card svg{display:block;width:100%}
+.region-table{width:100%;border-collapse:collapse;font-size:13px}
+.region-table th{background:var(--kiwi-light);color:var(--kiwi-dark);padding:8px 10px;text-align:left;font-size:12px;font-weight:700}
+.region-table td{padding:9px 10px;border-bottom:1px solid var(--border);vertical-align:top;line-height:1.6}
+.region-table tr:last-child td{border-bottom:none}
+.region-table tr:hover td{background:#fafafa}
+.day-item{display:flex;gap:12px;padding:12px 0;border-bottom:1px solid var(--border);align-items:flex-start}
+.day-item:last-child{border-bottom:none}
+.day-badge{min-width:46px;text-align:center;padding:6px 4px;border-radius:8px;background:var(--kiwi-light);color:var(--kiwi-dark);font-weight:700;font-size:13px;line-height:1.3}
+.day-content{flex:1}
+.day-loc{font-size:11px;color:var(--text-muted);margin-bottom:3px;font-weight:500;text-transform:uppercase;letter-spacing:.04em}
+.day-desc{font-size:13px;line-height:1.6}
+.day-hotel{font-size:12px;color:var(--sky);margin-top:5px;padding:4px 10px;background:var(--sky-light);border-radius:6px;display:inline-block}
+.day-shop-reminder{font-size:12px;color:var(--kiwi-dark);margin-top:5px;padding:5px 10px;background:var(--kiwi-light);border-radius:6px;line-height:1.6;border-left:3px solid var(--kiwi)}
+.day-shop-reminder a{color:var(--kiwi-dark);font-weight:700;text-decoration:underline dotted}
+.tags{display:flex;flex-wrap:wrap;gap:5px;margin-top:6px}
+.tag{font-size:11px;font-weight:600;padding:2px 8px;border-radius:999px;display:inline-flex;align-items:center;gap:3px}
+.tag-cold{background:var(--sky-light);color:var(--sky)}
+.tag-pill{background:var(--danger-light);color:var(--danger)}
+.tag-shop{background:var(--kiwi-light);color:var(--kiwi-dark)}
+.tag-warn{background:var(--amber-light);color:var(--amber)}
+.tag-star{background:var(--purple-light);color:var(--purple)}
+.shop-anchor{display:block;height:0}
+.shop-city{font-size:13px;font-weight:700;color:var(--kiwi-dark);margin-bottom:10px;padding:8px 12px;background:var(--kiwi-light);border-radius:8px}
+.store{padding:10px 0;border-bottom:1px solid var(--border)}
+.store:last-child{border-bottom:none}
+.store-name{font-size:13px;font-weight:600;display:flex;align-items:center;gap:6px;flex-wrap:wrap}
+.store-addr{font-size:12px;color:var(--text-muted);margin-top:2px}
+.store-hours{font-size:12px;color:var(--kiwi);margin-top:2px;font-weight:500}
+.badge{font-size:11px;font-weight:700;padding:2px 8px;border-radius:999px}
+.badge-green{background:var(--kiwi-light);color:var(--kiwi-dark)}
+.badge-blue{background:var(--sky-light);color:var(--sky)}
+.badge-amber{background:var(--amber-light);color:var(--amber)}
+.shop-table{width:100%;border-collapse:collapse;font-size:13px}
+.shop-table th{padding:10px;border-bottom:2px solid var(--border);background:#f8f9fa;text-align:left}
+.shop-table td{padding:9px 10px;border-bottom:1px solid var(--border);vertical-align:middle}
+.shop-table tr:last-child td{border-bottom:none}
+.shop-thumb{width:58px;height:58px;object-fit:cover;border-radius:8px;cursor:zoom-in;display:block;-webkit-touch-callout:none;-webkit-user-select:none;user-select:none}
+#img-overlay{display:none;position:fixed;inset:0;z-index:9999;background:rgba(0,0,0,0.85);align-items:center;justify-content:center;cursor:pointer;-webkit-touch-callout:none;-webkit-user-select:none;user-select:none}
+#img-overlay.open{display:flex}
+#overlay-img{max-width:min(92vw,480px);max-height:85vh;width:auto;height:auto;border-radius:14px;box-shadow:0 8px 40px rgba(0,0,0,0.6);object-fit:contain;cursor:default;pointer-events:none;-webkit-touch-callout:none;-webkit-user-select:none;user-select:none}
+#overlay-hint{position:absolute;bottom:22px;left:50%;transform:translateX(-50%);color:rgba(255,255,255,0.6);font-size:13px;pointer-events:none;white-space:nowrap}
+.buy-table{width:100%;border-collapse:collapse;font-size:13px}
+.buy-table th{background:var(--kiwi-light);color:var(--kiwi-dark);padding:8px 10px;text-align:left;font-size:12px;font-weight:700}
+.buy-table td{padding:9px 10px;border-bottom:1px solid var(--border);vertical-align:top;line-height:1.5}
+.buy-table tr:last-child td{border-bottom:none}
+.buy-table tr:hover td{background:#fafafa}
+.alert{border-radius:8px;padding:10px 14px;font-size:13px;margin-bottom:10px;line-height:1.6}
+.alert-amber{background:var(--amber-light);color:#7d6608;border-left:3px solid var(--amber)}
+.alert-sky{background:var(--sky-light);color:#1a5276;border-left:3px solid var(--sky)}
+.alert-kiwi{background:var(--kiwi-light);color:var(--kiwi-dark);border-left:3px solid var(--kiwi)}
+/* Portfolio */
+.portfolio-hero{background:linear-gradient(135deg,#1a252f 0%,#2d3e50 100%);border-radius:var(--radius);padding:28px 24px;margin-bottom:16px;color:white;position:relative;overflow:hidden}
+.portfolio-hero::before{content:'';position:absolute;inset:0;background:url("data:image/svg+xml,%3Csvg width='40' height='40' viewBox='0 0 40 40' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23ffffff' fill-opacity='0.03'%3E%3Crect x='0' y='0' width='20' height='20'/%3E%3Crect x='20' y='20' width='20' height='20'/%3E%3C/g%3E%3C/svg%3E")}
+.portfolio-hero h2{font-family:'Nunito',sans-serif;font-size:20px;font-weight:800;margin-bottom:6px;position:relative}
+.portfolio-hero p{font-size:13px;opacity:0.8;line-height:1.6;position:relative}
+.flow-step{display:flex;gap:14px;padding:14px 0;border-bottom:1px solid var(--border);align-items:flex-start}
+.flow-step:last-child{border-bottom:none}
+.flow-num{min-width:36px;height:36px;border-radius:50%;background:var(--kiwi);color:white;display:flex;align-items:center;justify-content:center;font-weight:800;font-size:15px;font-family:'Nunito',sans-serif;flex-shrink:0}
+.flow-body{flex:1}
+.flow-title{font-size:14px;font-weight:700;color:var(--text);margin-bottom:4px}
+.flow-desc{font-size:13px;color:var(--text-muted);line-height:1.6}
+.flow-tools{display:flex;flex-wrap:wrap;gap:5px;margin-top:6px}
+.tool-chip{font-size:11px;font-weight:600;padding:2px 9px;border-radius:999px;border:1px solid}
+.chip-ai{background:var(--purple-light);color:var(--purple);border-color:#d7bde2}
+.chip-dev{background:var(--sky-light);color:var(--sky);border-color:#a9cce3}
+.chip-data{background:var(--amber-light);color:var(--amber);border-color:#f0b27a}
+.chip-design{background:var(--kiwi-light);color:var(--kiwi-dark);border-color:#a9dfbf}
+.tech-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:14px}
+.tech-card{background:white;border-radius:var(--radius);box-shadow:var(--shadow);border:1px solid var(--border);padding:14px 16px}
+.tech-card-icon{font-size:22px;margin-bottom:6px}
+.tech-card-title{font-size:13px;font-weight:700;color:var(--text);margin-bottom:4px}
+.tech-card-desc{font-size:12px;color:var(--text-muted);line-height:1.5}
+.alert-dark{background:#1a252f;color:#aed6f1;border-left:3px solid #2e86c1;border-radius:8px;padding:10px 14px;font-size:13px;margin-bottom:10px;line-height:1.6}
+@media(max-width:480px){.hero h1{font-size:18px}.outfit-table,.region-table,.buy-table{font-size:12px}#overlay-img{max-width:94vw;max-height:82vh}.tech-grid{grid-template-columns:1fr}}
 </style>
 </head>
 <body>
-
 <div id="img-overlay" onclick="closeLightbox()">
   <img id="overlay-img" src="" alt="">
   <span id="overlay-hint">點任意處關閉</span>
 </div>
-
 <div class="hero">
   <span class="hero-emoji">🥝</span>
   <h1>紐西蘭南北島 12日行前攻略</h1>
@@ -289,692 +130,271 @@ body {
     <span class="hero-tag">🏨 升等五星</span>
   </div>
 </div>
-
 <nav class="tab-nav">
   <button class="tab-btn active" onclick="showTab('flight',this)">✈️ 航班穿搭</button>
   <button class="tab-btn" onclick="showTab('map',this)">🗺️ 路線圖</button>
   <button class="tab-btn" onclick="showTab('daily',this)">📅 每日備忘</button>
   <button class="tab-btn" onclick="showTab('shop',this)">🛒 採買地圖</button>
-  <button class="tab-btn" onclick="showTab('budget',this)">💰 預算清單</button>
+  <button class="tab-btn" onclick="showTab('haul',this)">🧳 戰利品</button>
+  <button class="tab-btn" onclick="showTab('portfolio',this)">⚙️ 製作歷程</button>
 </nav>
 
+<!-- TAB 1 FLIGHT -->
 <div id="tab-flight" class="panel active">
-  
-  <div class="sec">✈️ 去程：中華航空 CI 053</div>
-  <div class="card">
-    <div class="card-title">台北 (TPE) ➔ 奧克蘭 (AKL)｜經停布里斯本</div>
-    <div style="padding:10px; line-height:1.6; font-size:14px; color:#2c3e50;">
-      <p style="margin-top:0;"><strong>● 第一段：台北 ➔ 布里斯本</strong><br>
-      出發：04/01 (三) 23:55 (台北時間)<br>
-      抵達：04/02 (四) 10:35 (布里斯本時間)<br>
-      <span style="color:var(--sky);">⏱ 飛行時間：約 8 小時 40 分</span></p>
-
-      <div style="background:var(--sky-light); border-left:4px solid var(--sky); padding:8px 12px; margin:10px 0;">
-        <strong>⏳ 中停布里斯本 (BNE) 候機</strong><br>
-        時間：10:35 - 12:55 (約 2 小時 20 分)<br>
-        說明：需帶齊隨身行李下機至候機室，不需通關，待整備後原機登機。
-      </div>
-
-      <p><strong>● 第二段：布里斯本 ➔ 奧克蘭</strong><br>
-      出發：04/02 (四) 12:55 (布里斯本時間)<br>
-      抵達：04/02 (四) 19:00 (奧克蘭時間)<br>
-      <span style="color:var(--sky);">⏱ 飛行時間：約 3 小時 05 分</span></p>
-      
-      <hr style="border:0; border-top:1px dashed #ccc; margin:10px 0;">
-      <p style="font-size:13px; margin-bottom:0;">
-        📌 <strong>總行程時長：</strong>14 小時 05 分 (含中停)<br>
-        📌 <strong>執飛機型：</strong>Airbus A350-900 (A359)<br>
-        📌 <strong>時差提醒：</strong>布里斯本 +2hr / 奧克蘭 +5hr (日光節約時)
-      </p>
-    </div>
-    <div class="collect-bar">📍 集合：04/01 21:25 桃園第二航廈 華航 7 號櫃台</div>
+<div class="sec">✈️ 去程：中華航空 CI 053</div>
+<div class="card">
+  <div class="card-title">台北 (TPE) ➔ 奧克蘭 (AKL)｜經停布里斯本</div>
+  <div style="padding:10px;line-height:1.7;font-size:14px;color:#2c3e50;">
+    <p style="margin-top:0;"><strong>● 第一段：台北 ➔ 布里斯本</strong><br>出發：04/01 (三) 23:55 台北時間<br>抵達：04/02 (四) 10:35 布里斯本時間<br><span style="color:var(--sky);">⏱ 飛行時間：約 8 小時 40 分</span></p>
+    <div style="background:var(--sky-light);border-left:4px solid var(--sky);padding:8px 12px;margin:10px 0;border-radius:6px;"><strong>⏳ 中停布里斯本 (BNE) 候機</strong><br>時間：10:35 – 12:55（約 2 小時 20 分）<br>說明：需帶隨身行李下機至候機室，不需通關，整備後原機登機。</div>
+    <p><strong>● 第二段：布里斯本 ➔ 奧克蘭</strong><br>出發：04/02 (四) 12:55 布里斯本時間<br>抵達：04/02 (四) 19:00 奧克蘭時間<br><span style="color:var(--sky);">⏱ 飛行時間：約 3 小時 05 分</span></p>
+    <hr style="border:0;border-top:1px dashed #ccc;margin:10px 0;">
+    <p style="font-size:13px;margin-bottom:0;">📌 <strong>總行程時長：</strong>14h05m（含中停）｜ 📌 <strong>機型：</strong>Airbus A350-900｜ 📌 <strong>時差：</strong>布里斯本 +2hr / 奧克蘭 +5hr</p>
   </div>
-
-  <div class="sec">✈️ 紐西蘭國內線：紐西蘭航空</div>
-  <div class="card">
-    <div style="padding:10px; line-height:1.6; font-size:14px;">
-      <div style="margin-bottom:12px;">
-        <strong>04/03 (五) NZ 527：奧克蘭 ➔ 基督城</strong><br>
-        09:00 起飛 / 10:25 抵達 <span style="color:var(--kiwi);">⏱ 飛行 1h 25m</span>
-      </div>
-      <div>
-        <strong>04/10 (五) NZ 5616：基督城 ➔ 漢彌爾頓</strong><br>
-        08:40 起飛 / 10:30 抵達 <span style="color:var(--kiwi);">⏱ 飛行 1h 50m</span><br>
-        <small style="color:var(--danger);">* 此時已結束日光節約，時差縮小為 +4hr</small>
-      </div>
-    </div>
-  </div>
-
-  <div class="sec">✈️ 回程：中華航空 CI 054</div>
-  <div class="card">
-    <div class="card-title">奧克蘭 (AKL) ➔ 台北 (TPE)｜經停布里斯本</div>
-    <div style="padding:10px; line-height:1.6; font-size:14px; color:#2c3e50;">
-      <p style="margin-top:0;"><strong>● 第一段：奧克蘭 ➔ 布里斯本</strong><br>
-      出發：04/11 (六) 19:30 (奧克蘭時間)<br>
-      抵達：04/11 (六) 21:20 (布里斯本時間)<br>
-      <span style="color:var(--sky);">⏱ 飛行時間：約 3 小時 50 分</span></p>
-
-      <div style="background:var(--sky-light); border-left:4px solid var(--sky); padding:8px 12px; margin:10px 0;">
-        <strong>⏳ 中停布里斯本 (BNE) 候機</strong><br>
-        時間：21:20 - 23:05 (約 1 小時 45 分)
-      </div>
-
-      <p><strong>● 第二段：布里斯本 ➔ 台北</strong><br>
-      出發：04/11 (六) 23:05 (布里斯本時間)<br>
-      抵達：04/12 (日) 05:40 (台北時間)<br>
-      <span style="color:var(--sky);">⏱ 飛行時間：約 8 小時 35 分</span></p>
-      
-      <hr style="border:0; border-top:1px dashed #ccc; margin:10px 0;">
-      <p style="font-size:13px; margin-bottom:0;">
-        📌 <strong>總行程時長：</strong>14 小時 10 分 (含中停)<br>
-        📌 <strong>執飛機型：</strong>Airbus A350-900 (A359)<br>
-        📌 <strong>時差提醒：</strong>奧克蘭 +4hr / 布里斯本 +2hr
-      </p>
-    </div>
-  </div>
-
-  <div class="sec">體力狀態 & 穿搭建議</div>
-  <div class="card" style="padding:0;overflow:hidden">
-    <table class="outfit-table">
-      <tr><th>時段</th><th>氣溫 / 狀態</th><th>穿搭建議</th></tr>
-      <tr>
-        <td><b>今晚出發</b><br>台灣→機場</td>
-        <td>台灣 25-28°C<br>精神佳</td>
-        <td>短袖＋薄針織外套隨身<br>厚外套塞進隨身行李</td>
-      </tr>
-      <tr>
-        <td><b>去程機上</b><br>跨夜飛行</td>
-        <td>機艙冷乾<br>困倦、易渴</td>
-        <td>換寬鬆長袖，帶頸枕、保濕乳液<br>餐食機上提供，帶水壺裝溫水</td>
-      </tr>
-      <tr>
-        <td><b>布里斯本中停</b><br>2h20m</td>
-        <td>早晨疲倦<br>候機室冷</td>
-        <td>薄外套防候機室冷氣<br>可活動筋骨、買點心</td>
-      </tr>
-      <tr>
-        <td><b>抵達奧克蘭</b><br>D2 晚 19:00</td>
-        <td><span class="temp temp-cold">14-19°C</span></td>
-        <td>出機場即穿薄中層＋防風外套<br>直接入住飯店，晚餐在飯店</td>
-      </tr>
-      <tr>
-        <td><b>南島冰河區</b><br>D4-D5</td>
-        <td><span class="temp temp-cold">8-14°C 多雨</span></td>
-        <td>防水外層（雨衣/衝鋒衣）＋羊毛中層<br>備折疊傘，西海岸隨時變天</td>
-      </tr>
-      <tr>
-        <td><b>皇后鎮</b><br>D5-D7</td>
-        <td><span class="temp temp-cold">10-16°C</span></td>
-        <td>洋蔥三層：保暖底層＋fleece＋防風外套<br>纜車頂端風大，加層</td>
-      </tr>
-      <tr>
-        <td><b>🧊 蒂卡波觀星</b><br>D7 深夜</td>
-        <td><span class="temp temp-danger">3-8°C 最冷！</span></td>
-        <td><b>最厚羽絨全套上陣</b>，毛帽、手套、<br>保暖襪缺一不可，久站戶外</td>
-      </tr>
-      <tr>
-        <td><b>回程</b><br>D11 晚 19:30</td>
-        <td><span class="temp temp-cold">奧克蘭 14-19°C</span></td>
-        <td>舒適便於行動，厚外套穿身上<br>減少托運行李重量</td>
-      </tr>
-    </table>
+  <div class="collect-bar">📍 集合：04/01 21:25 桃園第二航廈 華航 7 號櫃台</div>
+</div>
+<div class="sec">✈️ 紐西蘭國內線</div>
+<div class="card">
+  <div style="padding:10px;line-height:1.7;font-size:14px;">
+    <div style="margin-bottom:12px;"><strong>04/03 (五) NZ 527：奧克蘭 ➔ 基督城</strong><br>09:00 起飛 / 10:25 抵達 <span style="color:var(--kiwi);">⏱ 1h 25m</span></div>
+    <div><strong>04/10 (五) NZ 5616：基督城 ➔ 漢彌爾頓</strong><br>08:40 起飛 / 10:30 抵達 <span style="color:var(--kiwi);">⏱ 1h 50m</span><br><small style="color:var(--danger);">* 此時日光節約已結束，時差縮為 +4hr</small></div>
   </div>
 </div>
+<div class="sec">✈️ 回程：中華航空 CI 054</div>
+<div class="card">
+  <div class="card-title">奧克蘭 (AKL) ➔ 台北 (TPE)｜經停布里斯本</div>
+  <div style="padding:10px;line-height:1.7;font-size:14px;color:#2c3e50;">
+    <p style="margin-top:0;"><strong>● 第一段：奧克蘭 ➔ 布里斯本</strong><br>出發：04/11 (六) 19:30 奧克蘭時間<br>抵達：04/11 (六) 21:20 布里斯本時間<br><span style="color:var(--sky);">⏱ 約 3 小時 50 分</span></p>
+    <div style="background:var(--sky-light);border-left:4px solid var(--sky);padding:8px 12px;margin:10px 0;border-radius:6px;"><strong>⏳ 中停布里斯本</strong>：21:20 – 23:05（約 1 小時 45 分）</div>
+    <p><strong>● 第二段：布里斯本 ➔ 台北</strong><br>出發：04/11 (六) 23:05 布里斯本時間<br>抵達：04/12 (日) 05:40 台北時間<br><span style="color:var(--sky);">⏱ 約 8 小時 35 分</span></p>
+    <hr style="border:0;border-top:1px dashed #ccc;margin:10px 0;">
+    <p style="font-size:13px;margin-bottom:0;">📌 <strong>總行程時長：</strong>14h10m（含中停）</p>
+  </div>
+</div>
+<div class="sec">體力狀態 &amp; 穿搭建議</div>
+<div class="card" style="padding:0;overflow:hidden">
+  <table class="outfit-table">
+    <tr><th>時段</th><th>氣溫 / 狀態</th><th>穿搭建議</th></tr>
+    <tr><td><b>今晚出發</b><br>台灣→機場</td><td>台灣 25-28°C<br>精神佳</td><td>短袖＋薄針織外套隨身<br>厚外套塞進隨身行李</td></tr>
+    <tr><td><b>去程機上</b><br>跨夜飛行</td><td>機艙冷乾<br>困倦、易渴</td><td>換寬鬆長袖，帶頸枕保濕乳液<br>帶空水壺過安檢後裝溫水</td></tr>
+    <tr><td><b>布里斯本中停</b><br>2h20m</td><td>早晨疲倦<br>候機室冷</td><td>薄外套防候機室冷氣<br>可活動筋骨、買點心</td></tr>
+    <tr><td><b>抵達奧克蘭</b><br>D2 晚 19:00</td><td><span class="temp temp-cold">14-19°C</span></td><td>出機場即穿薄中層＋防風外套<br>直接入住飯店，晚餐在飯店</td></tr>
+    <tr><td><b>南島冰河區</b><br>D4-D5</td><td><span class="temp temp-cold">8-14°C 多雨</span></td><td>防水外層（雨衣/衝鋒衣）＋羊毛中層<br>備折疊傘，西海岸隨時變天</td></tr>
+    <tr><td><b>皇后鎮</b><br>D5-D7</td><td><span class="temp temp-cold">10-16°C</span></td><td>洋蔥三層：保暖底層＋fleece＋防風外套<br>纜車頂端風大要加層</td></tr>
+    <tr><td><b>🧊 蒂卡波觀星</b><br>D7 深夜</td><td><span class="temp temp-danger">3-8°C 最冷！</span></td><td><b>最厚羽絨全套上陣</b>，毛帽、手套、<br>保暖襪缺一不可，久站戶外</td></tr>
+    <tr><td><b>回程</b><br>D11 晚 19:30</td><td><span class="temp temp-cold">奧克蘭 14-19°C</span></td><td>舒適便於行動，厚外套穿身上<br>減少托運行李重量</td></tr>
+  </table>
+</div>
+</div>
 
+<!-- TAB 2 MAP -->
 <div id="tab-map" class="panel">
-  <div class="sec">南北島路線示意</div>
-  <div class="map-card">
-    <svg viewBox="0 0 360 520" xmlns="http://www.w3.org/2000/svg">
-      <defs>
-        <marker id="arr" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse">
-          <path d="M2 2L8 5L2 8" fill="none" stroke="context-stroke" stroke-width="1.5" stroke-linecap="round"/>
-        </marker>
-      </defs>
-      <rect width="360" height="520" fill="#f0f8f2"/>
-      <text x="20" y="270" font-size="10" fill="#b0c4b8" font-family="sans-serif">塔斯曼海</text>
-      <text x="295" y="200" font-size="10" fill="#b0c4b8" font-family="sans-serif">太平洋</text>
-      <path d="M130 30 C155 25,200 32,225 52 C250 72,255 105,240 128 C225 148,190 162,170 180 C148 196,132 205,128 220 C124 235,140 245,130 265" fill="#c8e6c9" stroke="#81c784" stroke-width="1.5" stroke-linejoin="round"/>
-      <path d="M90 300 C110 282,155 278,188 285 C225 292,258 308,272 330 C286 352,282 385,268 408 C250 432,205 448,168 445 C130 442,100 428,88 405 C76 382,72 325,90 300Z" fill="#c8e6c9" stroke="#81c784" stroke-width="1.5"/>
-      <path d="M175 75 Q130 175 140 275" fill="none" stroke="#ff8f00" stroke-width="2" stroke-dasharray="6 4" marker-end="url(#arr)"/>
-      <path d="M175 310 Q215 200 175 85" fill="none" stroke="#2e7d32" stroke-width="2" stroke-dasharray="6 4" marker-end="url(#arr)"/>
-      <path d="M175 82 Q100 180 140 275" fill="none" stroke="#1565c0" stroke-width="2.5" stroke-dasharray="9 5" marker-end="url(#arr)"/>
-      <text x="82" y="195" font-size="10" fill="#1565c0" font-family="sans-serif" font-weight="bold">✈ D3</text>
-      <path d="M188 295 Q250 200 185 90" fill="none" stroke="#1565c0" stroke-width="2.5" stroke-dasharray="9 5" marker-end="url(#arr)"/>
-      <text x="252" y="200" font-size="10" fill="#1565c0" font-family="sans-serif" font-weight="bold">✈ D10</text>
-      <g><circle cx="175" cy="75" r="10" fill="#ff8f00" stroke="white" stroke-width="2"/><text x="192" y="79" font-size="11" fill="#e65100" font-family="sans-serif" font-weight="bold">奧克蘭</text><text x="192" y="91" font-size="10" fill="#795548" font-family="sans-serif">D2/D10/D11</text></g>
-      <g><circle cx="160" cy="130" r="7" fill="#7b1fa2" stroke="white" stroke-width="2"/><text x="175" y="134" font-size="10" fill="#6a1b9a" font-family="sans-serif">懷托摩 D10路過</text></g>
-      <g><circle cx="175" cy="298" r="10" fill="#1565c0" stroke="white" stroke-width="2"/><text x="192" y="302" font-size="11" fill="#0d47a1" font-family="sans-serif" font-weight="bold">基督城</text><text x="192" y="314" font-size="10" fill="#795548" font-family="sans-serif">D3/D8/D9</text></g>
-      <g><circle cx="112" cy="340" r="7" fill="#00838f" stroke="white" stroke-width="2"/><text x="82" y="330" font-size="10" fill="#006064" font-family="sans-serif">冰河區</text><text x="82" y="342" font-size="10" fill="#795548" font-family="sans-serif">D4-D5</text></g>
-      <g><circle cx="125" cy="395" r="9" fill="#2e7d32" stroke="white" stroke-width="2"/><text x="82" y="386" font-size="11" fill="#1b5e20" font-family="sans-serif" font-weight="bold">皇后鎮</text><text x="82" y="398" font-size="10" fill="#795548" font-family="sans-serif">D5/D6/D7</text></g>
-      <g><circle cx="190" cy="358" r="7" fill="#c62828" stroke="white" stroke-width="2"/><text x="204" y="362" font-size="10" fill="#b71c1c" font-family="sans-serif">蒂卡波/翠佐</text><text x="204" y="374" font-size="10" fill="#795548" font-family="sans-serif">D7/D8</text></g>
-      <rect x="10" y="448" width="340" height="62" rx="8" fill="white" fill-opacity="0.9" stroke="#e0e0e0" stroke-width="0.5"/>
-      <line x1="20" y1="464" x2="50" y2="464" stroke="#ff8f00" stroke-width="2" stroke-dasharray="5 3"/>
-      <text x="56" y="468" font-size="10" fill="#5d6d7e" font-family="sans-serif">南下路線（陸路）</text>
-      <line x1="130" y1="464" x2="160" y2="464" stroke="#2e7d32" stroke-width="2" stroke-dasharray="5 3"/>
-      <text x="166" y="468" font-size="10" fill="#5d6d7e" font-family="sans-serif">北上路線（陸路）</text>
-      <line x1="240" y1="464" x2="270" y2="464" stroke="#1565c0" stroke-width="2.5" stroke-dasharray="7 4"/>
-      <text x="276" y="468" font-size="10" fill="#5d6d7e" font-family="sans-serif">國內線飛機</text>
-      <text x="20" y="500" font-size="11" fill="#4a7c59" font-family="sans-serif" font-weight="bold">整體路線呈「8字型」：北島→飛→南島繞一圈→飛→北島</text>
-    </svg>
-  </div>
-
-  <div class="sec">各區域亮點摘要</div>
-  <div class="card" style="padding:0;overflow:hidden">
-    <table class="region-table">
-      <tr><th>區域</th><th>天數</th><th>必看亮點</th></tr>
-      <tr><td><b>北島：奧克蘭</b></td><td>D2/D10/D11</td><td>抵達、螢火蟲洞後、港灣大橋、德文港渡輪、維多利亞山</td></tr>
-      <tr><td><b>北島：懷托摩</b></td><td>D10 路過</td><td>⭐螢火蟲洞（禁拍照！搭船靜默欣賞藍光）</td></tr>
-      <tr><td><b>南島：基督城</b></td><td>D3/D8/D9</td><td>奇異鳥保育區、植物園、Riverside河濱市集、紙教堂</td></tr>
-      <tr><td><b>南島：阿爾卑斯山脈</b></td><td>D4 亞瑟隘口路過</td><td>⭐TranzAlpine高山觀景火車（去開放車廂拍照！）</td></tr>
-      <tr><td><b>南島：西海岸冰河區</b></td><td>D4-D5</td><td>Franz Josef冰河國家公園、哈斯特公路</td></tr>
-      <tr><td><b>南島：皇后鎮</b></td><td>D5-D7</td><td>纜車+溜溜車Luge、海鮮宴（龍蝦/黑金鮑魚）、箭鎮淘金古鎮</td></tr>
-      <tr><td><b>南島：麥肯錫盆地</b></td><td>D7-D8</td><td>高地賽車公園F1博物館、普卡基湖牛奶藍、蒂卡波觀星（最冷！）</td></tr>
-    </table>
-  </div>
+<div class="sec">南北島路線示意</div>
+<div class="map-card">
+<svg viewBox="0 0 360 520" xmlns="http://www.w3.org/2000/svg">
+  <defs><marker id="arr" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse"><path d="M2 2L8 5L2 8" fill="none" stroke="context-stroke" stroke-width="1.5" stroke-linecap="round"/></marker></defs>
+  <rect width="360" height="520" fill="#f0f8f2"/>
+  <text x="20" y="270" font-size="10" fill="#b0c4b8" font-family="sans-serif">塔斯曼海</text>
+  <text x="295" y="200" font-size="10" fill="#b0c4b8" font-family="sans-serif">太平洋</text>
+  <path d="M130 30 C155 25,200 32,225 52 C250 72,255 105,240 128 C225 148,190 162,170 180 C148 196,132 205,128 220 C124 235,140 245,130 265" fill="#c8e6c9" stroke="#81c784" stroke-width="1.5" stroke-linejoin="round"/>
+  <path d="M90 300 C110 282,155 278,188 285 C225 292,258 308,272 330 C286 352,282 385,268 408 C250 432,205 448,168 445 C130 442,100 428,88 405 C76 382,72 325,90 300Z" fill="#c8e6c9" stroke="#81c784" stroke-width="1.5"/>
+  <path d="M175 75 Q130 175 140 275" fill="none" stroke="#ff8f00" stroke-width="2" stroke-dasharray="6 4" marker-end="url(#arr)"/>
+  <path d="M175 310 Q215 200 175 85" fill="none" stroke="#2e7d32" stroke-width="2" stroke-dasharray="6 4" marker-end="url(#arr)"/>
+  <path d="M175 82 Q100 180 140 275" fill="none" stroke="#1565c0" stroke-width="2.5" stroke-dasharray="9 5" marker-end="url(#arr)"/>
+  <text x="82" y="195" font-size="10" fill="#1565c0" font-family="sans-serif" font-weight="bold">✈ D3</text>
+  <path d="M188 295 Q250 200 185 90" fill="none" stroke="#1565c0" stroke-width="2.5" stroke-dasharray="9 5" marker-end="url(#arr)"/>
+  <text x="252" y="200" font-size="10" fill="#1565c0" font-family="sans-serif" font-weight="bold">✈ D10</text>
+  <g><circle cx="175" cy="75" r="10" fill="#ff8f00" stroke="white" stroke-width="2"/><text x="192" y="79" font-size="11" fill="#e65100" font-family="sans-serif" font-weight="bold">奧克蘭</text><text x="192" y="91" font-size="10" fill="#795548" font-family="sans-serif">D2/D10/D11</text></g>
+  <g><circle cx="160" cy="130" r="7" fill="#7b1fa2" stroke="white" stroke-width="2"/><text x="175" y="134" font-size="10" fill="#6a1b9a" font-family="sans-serif">懷托摩 D10路過</text></g>
+  <g><circle cx="175" cy="298" r="10" fill="#1565c0" stroke="white" stroke-width="2"/><text x="192" y="302" font-size="11" fill="#0d47a1" font-family="sans-serif" font-weight="bold">基督城</text><text x="192" y="314" font-size="10" fill="#795548" font-family="sans-serif">D3/D8/D9</text></g>
+  <g><circle cx="112" cy="340" r="7" fill="#00838f" stroke="white" stroke-width="2"/><text x="82" y="330" font-size="10" fill="#006064" font-family="sans-serif">冰河區</text><text x="82" y="342" font-size="10" fill="#795548" font-family="sans-serif">D4-D5</text></g>
+  <g><circle cx="125" cy="395" r="9" fill="#2e7d32" stroke="white" stroke-width="2"/><text x="82" y="386" font-size="11" fill="#1b5e20" font-family="sans-serif" font-weight="bold">皇后鎮</text><text x="82" y="398" font-size="10" fill="#795548" font-family="sans-serif">D5/D6/D7</text></g>
+  <g><circle cx="190" cy="358" r="7" fill="#c62828" stroke="white" stroke-width="2"/><text x="204" y="362" font-size="10" fill="#b71c1c" font-family="sans-serif">蒂卡波/翠佐</text><text x="204" y="374" font-size="10" fill="#795548" font-family="sans-serif">D7/D8</text></g>
+  <rect x="10" y="448" width="340" height="62" rx="8" fill="white" fill-opacity="0.9" stroke="#e0e0e0" stroke-width="0.5"/>
+  <line x1="20" y1="464" x2="50" y2="464" stroke="#ff8f00" stroke-width="2" stroke-dasharray="5 3"/><text x="56" y="468" font-size="10" fill="#5d6d7e" font-family="sans-serif">南下路線（陸路）</text>
+  <line x1="130" y1="464" x2="160" y2="464" stroke="#2e7d32" stroke-width="2" stroke-dasharray="5 3"/><text x="166" y="468" font-size="10" fill="#5d6d7e" font-family="sans-serif">北上路線（陸路）</text>
+  <line x1="240" y1="464" x2="270" y2="464" stroke="#1565c0" stroke-width="2.5" stroke-dasharray="7 4"/><text x="276" y="468" font-size="10" fill="#5d6d7e" font-family="sans-serif">國內線飛機</text>
+  <text x="20" y="500" font-size="11" fill="#4a7c59" font-family="sans-serif" font-weight="bold">整體路線呈「8字型」：北島 → 飛 → 南島繞一圈 → 飛 → 北島</text>
+</svg>
+</div>
+<div class="sec">各區域亮點摘要</div>
+<div class="card" style="padding:0;overflow:hidden">
+  <table class="region-table">
+    <tr><th>區域</th><th>天數</th><th>必看亮點</th></tr>
+    <tr><td><b>北島：奧克蘭</b></td><td>D2/D10/D11</td><td>抵達、港灣大橋、德文港渡輪、維多利亞山</td></tr>
+    <tr><td><b>北島：懷托摩</b></td><td>D10 路過</td><td>⭐螢火蟲洞（禁拍照！搭船靜默欣賞藍光）</td></tr>
+    <tr><td><b>南島：基督城</b></td><td>D3/D8/D9</td><td>奇異鳥保育區、植物園、Riverside河濱市集、紙教堂</td></tr>
+    <tr><td><b>南島：阿爾卑斯山脈</b></td><td>D4 亞瑟隘口路過</td><td>⭐TranzAlpine高山觀景火車（去開放車廂拍照！）</td></tr>
+    <tr><td><b>南島：西海岸冰河區</b></td><td>D4-D5</td><td>Franz Josef冰河國家公園、哈斯特公路</td></tr>
+    <tr><td><b>南島：皇后鎮</b></td><td>D5-D7</td><td>纜車+溜溜車Luge、海鮮宴（龍蝦/黑金鮑魚）、箭鎮淘金古鎮</td></tr>
+    <tr><td><b>南島：麥肯錫盆地</b></td><td>D7-D8</td><td>高地賽車公園F1博物館、普卡基湖牛奶藍、蒂卡波觀星（最冷！）</td></tr>
+  </table>
+</div>
 </div>
 
+<!-- TAB 3 DAILY -->
 <div id="tab-daily" class="panel">
-  <div class="alert alert-kiwi" style="margin-bottom:14px">
-    🗒️ <b>標注說明</b>：⭐亮點 &nbsp;|&nbsp; 🧊最冷 &nbsp;|&nbsp; 💊暈車藥 &nbsp;|&nbsp; 🛒採買機會 &nbsp;|&nbsp; ⚠️注意事項<br>
-    🏨 藍色區塊為當晚飯店 &nbsp;|&nbsp; 🟢 綠色區塊為採買提醒（點連結跳採買地圖）
-  </div>
-
-  <div class="card" style="padding: 12px 16px">
-
-    <div class="day-item">
-      <div class="day-badge">D1<br>4/1</div>
-      <div class="day-content">
-        <div class="day-loc">台灣 → 出發</div>
-        <div class="day-desc">21:25 集合桃園T2 華航7號 → 23:55 起飛。晚餐機上套餐。</div>
-        <div class="tags"><span class="tag tag-warn">穿薄外套，厚外套進隨身行李</span></div>
-        <div class="day-hotel">🏨 無住宿（搭機中）</div>
-      </div>
-    </div>
-
-    <div class="day-item">
-      <div class="day-badge">D2<br>4/2</div>
-      <div class="day-content">
-        <div class="day-loc">✈ 抵達奧克蘭</div>
-        <div class="day-desc">布里斯本中停2h20m（下機候機室）→ 19:00 抵達奧克蘭。晚餐：飯店西式套餐。</div>
-        <div class="tags"><span class="tag tag-cold">🧊 落地14-19°C，出機場即穿外套</span></div>
-        <div class="day-hotel">🏨 Novotel Auckland Airport（機場飯店，35 Tom Pearce Drive）</div>
-      </div>
-    </div>
-
-    <div class="day-item">
-      <div class="day-badge">D3<br>4/3</div>
-      <div class="day-content">
-        <div class="day-loc">✈ 奧克蘭 → 基督城</div>
-        <div class="day-desc">09:00 飛基督城（1h25m）→ ⭐柳岸野生動物保育區（奇異鳥！）→ 基督城美術館 → 市區觀光。晚餐：紐式牛排。</div>
-        <div class="tags"><span class="tag tag-shop">🛒 飯店周邊可採買</span></div>
-        <div class="day-hotel">🏨 Chateau on the Park DoubleTree Hilton（189 Deans Ave, Riccarton）</div>
-        <div class="day-shop-reminder">🛒 採買提醒：<a href="#" onclick="jumpShop('shop-chc-chateau');return false;">New World Durham St 飯店步行5-8分</a>（07:00-22:00）、<a href="#" onclick="jumpShop('shop-chc-cw');return false;">Chemist Warehouse High St 步行約10分</a>（08:00-21:00）。Kathmandu CBD 在 Colombo St，步行約5分，但本日行程較緊湊，建議 D9 再買。</div>
-      </div>
-    </div>
-
-    <div class="day-item">
-      <div class="day-badge">D4<br>4/4</div>
-      <div class="day-content">
-        <div class="day-loc">基督城 → 冰河區</div>
-        <div class="day-desc">⭐TranzAlpine高山觀景火車（記得去開放車廂拍照！）→ 亞瑟隘口（路過）→ 格雷矛斯 → Franz Josef冰河區。晚餐：飯店西式。</div>
-        <div class="tags"><span class="tag tag-warn">⚠️ 西海岸多雨，備雨衣/折疊傘</span><span class="tag tag-cold">冰河區 8-14°C</span></div>
-        <div class="day-hotel">🏨 Scenic Franz Josef Glacier（36 Main Road, Franz Josef Glacier）</div>
-      </div>
-    </div>
-
-    <div class="day-item">
-      <div class="day-badge">D5<br>4/5</div>
-      <div class="day-content">
-        <div class="day-loc">冰河區 → 皇后鎮</div>
-        <div class="day-desc">冰河區出發 → 哈斯特公路（路過亞斯比靈山國家公園）→ 皇后鎮。午餐：飯店內自助。晚餐：得獎羊肉料理。</div>
-        <div class="tags"><span class="tag tag-pill">💊 最建議服用暈車藥！121km蜿蜒山路約2.5h</span></div>
-        <div class="day-hotel">🏨 Sudima Queenstown Five Mile（20 Grant Road, Frankton）</div>
-        <div class="day-shop-reminder">🛒 採買提醒：<a href="#" onclick="jumpShop('shop-qt-woolworths');return false;">Woolworths Queenstown 飯店步行3分</a>（30 Grant Rd）🕐 週二-四 07:00-22:00；週一/五-日 08:00-20:00。抵達後如時間允許，晚上可去逛。</div>
-      </div>
-    </div>
-
-    <div class="day-item">
-      <div class="day-badge">D6<br>4/6</div>
-      <div class="day-content">
-        <div class="day-loc">皇后鎮（自由活動）</div>
-        <div class="day-desc">上午悠閒自由活動（午餐NZD$30自理）→ 下午 ⭐纜車+溜溜車Luge → 晚餐 ⭐龍蝦+黑金鮑魚海鮮宴！</div>
-        <div class="tags"><span class="tag tag-star">⭐ 皇后鎮最佳採買日！上午自由</span></div>
-        <div class="day-hotel">🏨 Sudima Queenstown Five Mile（20 Grant Road, Frankton）</div>
-        <div class="day-shop-reminder">🛒 採買提醒（上午自由時間）：<a href="#" onclick="jumpShop('shop-qt-woolworths');return false;">Woolworths 步行3分</a> 買零食補給；<a href="#" onclick="jumpShop('shop-qt-icebreaker');return false;">Icebreaker Queenstown 市中心步行</a>（25 Ballarat St，09:00-19:00）→ 羊毛衣85折以下可入手。市中心搭車約10分。</div>
-      </div>
-    </div>
-
-    <div class="day-item">
-      <div class="day-badge">D7<br>4/7</div>
-      <div class="day-content">
-        <div class="day-loc">皇后鎮 → 翠佐/蒂卡波</div>
-        <div class="day-desc">箭鎮淘金古鎮（下車參觀）→ 克倫威爾水果鎮（路過）→ ⭐高地賽車公園F1博物館（午餐）→ 普卡基湖（路過）→ 蒂卡波 ⭐觀星夜遊。</div>
-        <div class="tags">
-          <span class="tag tag-cold">🧊 最冷一天！觀星3-8°C，帶最厚羽絨、毛帽手套</span>
-          <span class="tag tag-pill">💊 建議備暈車藥（部分山路）</span>
-        </div>
-        <div class="day-hotel">🏨 Distinction MacKenzie Country Hotel Twizel（Cnr Ostler & Wairepo Rd, Twizel）</div>
-      </div>
-    </div>
-
-    <div class="day-item">
-      <div class="day-badge">D8<br>4/8</div>
-      <div class="day-content">
-        <div class="day-loc">翠佐 → 基督城</div>
-        <div class="day-desc">蒂卡波湖觀景 → 好牧羊人教堂 → ⭐特產店採買 → 回基督城。午餐：湖畔冰河鮭魚。晚餐：中式料理七菜一湯。</div>
-        <div class="day-hotel">🏨 Crowne Plaza Christchurch（764 Colombo Street, Christchurch）</div>
-        <div class="day-shop-reminder">🛒 採買提醒：<a href="#" onclick="jumpShop('shop-tekapo');return false;">蒂卡波特產店</a>（行程安排停留）→ Barker's果醬、羊毛香皂在此買！基督城飯店入住後，Kathmandu CBD 步行5分，若時間充裕可先探路。</div>
-      </div>
-    </div>
-
-    <div class="day-item">
-      <div class="day-badge">D9<br>4/9</div>
-      <div class="day-content">
-        <div class="day-loc">基督城（自由活動）</div>
-        <div class="day-desc">植物園 → 藝術中心 → ⭐Riverside河濱市集（午餐NZD$30自理）→ 紙教堂（外觀）→ 新攝政街。晚餐：中式料理七菜一湯。</div>
-        <div class="tags"><span class="tag tag-star">⭐ 全行程最佳採買日！多間店步行可達</span></div>
-        <div class="day-hotel">🏨 Crowne Plaza Christchurch（764 Colombo Street, Christchurch）</div>
-        <div class="day-shop-reminder">🛒 採買提醒（今日重點！Crowne Plaza 在 Colombo St）：<br>
-          • <a href="#" onclick="jumpShop('shop-chc-cw');return false;">Chemist Warehouse High St 步行8分</a>（08:00-21:00）→ Manuka喉糖、保健品<br>
-          • <a href="#" onclick="jumpShop('shop-chc-kathmandu');return false;">Kathmandu CBD 步行5分</a>（673 Colombo St，10:00-17:30）→ 85折以下保暖衣入手<br>
-          • <a href="#" onclick="jumpShop('shop-chc-unichem');return false;">Unichem Cashel St 步行10分</a>（111 Cashel St，10:00-17:00）→ 藥妝補充<br>
-          • <a href="#" onclick="jumpShop('shop-chc-newworld');return false;">New World Durham St 步行5-8分</a>（07:00-22:00）→ Whittaker's巧克力、Red Seal茶包
-        </div>
-      </div>
-    </div>
-
-    <div class="day-item">
-      <div class="day-badge">D10<br>4/10</div>
-      <div class="day-content">
-        <div class="day-loc">✈ 基督城 → 奧克蘭</div>
-        <div class="day-desc">08:40 飛漢彌爾頓（1h50m）→ ⭐懷托摩螢火蟲洞（禁拍照！搭小船靜默欣賞）→ 奧克蘭港灣大橋（路過）。晚餐：五星飯店西式套餐。</div>
-        <div class="tags"><span class="tag tag-warn">⚠️ 洞內絕對禁止拍照及使用手機</span></div>
-        <div class="day-hotel">🏨 Movenpick Hotel Auckland（8 Customs Street East, Auckland CBD）</div>
-      </div>
-    </div>
-
-    <div class="day-item">
-      <div class="day-badge">D11<br>4/11</div>
-      <div class="day-content">
-        <div class="day-loc">奧克蘭 → 返台</div>
-        <div class="day-desc">搭渡輪至德文港 → 維多利亞山觀景（360度視野！）→ 19:30 奧克蘭搭機返台。午晚餐各NZD$30自理。</div>
-        <div class="day-hotel">🏨 無住宿（19:30 起飛返台）</div>
-        <div class="day-shop-reminder">🛒 採買提醒（最後機會！）：<br>
-          • <a href="#" onclick="jumpShop('shop-akl-life');return false;">Life Pharmacy Commercial Bay 步行5分</a>（7 Queen St，10:00-19:00）→ 保健品<br>
-          • <a href="#" onclick="jumpShop('shop-akl-icebreaker');return false;">Icebreaker Commercial Bay 步行5分</a>（21 Queen St，10:00-19:00）<br>
-          • <a href="#" onclick="jumpShop('shop-akl-dutyfree');return false;">奧克蘭機場免稅 Icebreaker</a> → 回程登機後買，省13%！（05:00-24:00）
-        </div>
-      </div>
-    </div>
-
-    <div class="day-item">
-      <div class="day-badge">D12<br>4/12</div>
-      <div class="day-content">
-        <div class="day-loc">✈ 返抵台灣</div>
-        <div class="day-desc">05:40 抵達桃園機場。早餐機上，午晚餐自理。旅程結束！</div>
-        <div class="day-hotel">🏨 返家 🎉</div>
-      </div>
-    </div>
-
-  </div>
+<div class="alert alert-kiwi" style="margin-bottom:14px">🗒️ <b>標注說明</b>：⭐亮點 &nbsp;|&nbsp; 🧊最冷 &nbsp;|&nbsp; 💊暈車藥 &nbsp;|&nbsp; 🛒採買機會 &nbsp;|&nbsp; ⚠️注意事項<br>🏨 藍色區塊為當晚飯店 &nbsp;|&nbsp; 🟢 綠色區塊為採買提醒</div>
+<div class="card" style="padding:12px 16px">
+  <div class="day-item"><div class="day-badge">D1<br>4/1</div><div class="day-content"><div class="day-loc">台灣 → 出發</div><div class="day-desc">21:25 集合桃園T2 華航7號 → 23:55 起飛。晚餐機上套餐。</div><div class="tags"><span class="tag tag-warn">穿薄外套，厚外套進隨身行李</span></div><div class="day-hotel">🏨 無住宿（搭機中）</div></div></div>
+  <div class="day-item"><div class="day-badge">D2<br>4/2</div><div class="day-content"><div class="day-loc">✈ 抵達奧克蘭</div><div class="day-desc">布里斯本中停2h20m（下機候機室）→ 19:00 抵達奧克蘭。晚餐：飯店西式套餐。</div><div class="tags"><span class="tag tag-cold">🧊 落地14-19°C，出機場即穿外套</span></div><div class="day-hotel">🏨 Novotel Auckland Airport（35 Tom Pearce Drive）</div></div></div>
+  <div class="day-item"><div class="day-badge">D3<br>4/3</div><div class="day-content"><div class="day-loc">✈ 奧克蘭 → 基督城</div><div class="day-desc">09:00 飛基督城（1h25m）→ ⭐柳岸野生動物保育區（奇異鳥！）→ 基督城美術館 → 市區觀光。晚餐：紐式牛排。</div><div class="tags"><span class="tag tag-shop">🛒 飯店周邊可採買</span></div><div class="day-hotel">🏨 Chateau on the Park DoubleTree Hilton（189 Deans Ave, Riccarton）</div><div class="day-shop-reminder">🛒 New World Durham St 步行5-8分（07:00-22:00）、Chemist Warehouse High St 步行10分（08:00-21:00）。Kathmandu 建議 D9 再買。</div></div></div>
+  <div class="day-item"><div class="day-badge">D4<br>4/4</div><div class="day-content"><div class="day-loc">基督城 → 冰河區</div><div class="day-desc">⭐TranzAlpine高山觀景火車（記得去開放車廂拍照！）→ 亞瑟隘口（路過）→ 格雷矛斯 → Franz Josef冰河區。晚餐：飯店西式。</div><div class="tags"><span class="tag tag-warn">⚠️ 西海岸多雨，備雨衣/折疊傘</span><span class="tag tag-cold">冰河區 8-14°C</span></div><div class="day-hotel">🏨 Scenic Franz Josef Glacier（36 Main Road, Franz Josef Glacier）</div></div></div>
+  <div class="day-item"><div class="day-badge">D5<br>4/5</div><div class="day-content"><div class="day-loc">冰河區 → 皇后鎮</div><div class="day-desc">冰河區出發 → 哈斯特公路（路過亞斯比靈山國家公園）→ 皇后鎮。午餐：飯店內自助。晚餐：得獎羊肉料理。</div><div class="tags"><span class="tag tag-pill">💊 最建議服用暈車藥！121km蜿蜒山路約2.5h</span></div><div class="day-hotel">🏨 Sudima Queenstown Five Mile（20 Grant Road, Frankton）</div><div class="day-shop-reminder">🛒 Woolworths Queenstown 飯店步行3分（30 Grant Rd）🕐 週二-四 07:00-22:00；週一/五-日 08:00-20:00。抵達後時間允許可去逛。</div></div></div>
+  <div class="day-item"><div class="day-badge">D6<br>4/6</div><div class="day-content"><div class="day-loc">皇后鎮（自由活動）</div><div class="day-desc">上午悠閒自由活動（午餐NZD$30自理）→ 下午 ⭐纜車+溜溜車Luge → 晚餐 ⭐龍蝦+黑金鮑魚海鮮宴！</div><div class="tags"><span class="tag tag-star">⭐ 皇后鎮最佳採買日！上午自由</span></div><div class="day-hotel">🏨 Sudima Queenstown Five Mile（20 Grant Road, Frankton）</div><div class="day-shop-reminder">🛒 Woolworths 步行3分買零食；Icebreaker Queenstown 市中心（25 Ballarat St，09:00-19:00）→ 羊毛衣85折以下可入手。</div></div></div>
+  <div class="day-item"><div class="day-badge">D7<br>4/7</div><div class="day-content"><div class="day-loc">皇后鎮 → 翠佐/蒂卡波</div><div class="day-desc">箭鎮淘金古鎮 → 克倫威爾水果鎮（路過）→ ⭐高地賽車公園F1博物館（午餐）→ 普卡基湖（路過）→ 蒂卡波 ⭐觀星夜遊。</div><div class="tags"><span class="tag tag-cold">🧊 最冷一天！觀星3-8°C，帶最厚羽絨、毛帽手套</span><span class="tag tag-pill">💊 建議備暈車藥（部分山路）</span></div><div class="day-hotel">🏨 Distinction MacKenzie Country Hotel Twizel</div></div></div>
+  <div class="day-item"><div class="day-badge">D8<br>4/8</div><div class="day-content"><div class="day-loc">翠佐 → 基督城</div><div class="day-desc">蒂卡波湖觀景 → 好牧羊人教堂 → ⭐特產店採買 → 回基督城。午餐：湖畔冰河鮭魚。晚餐：中式料理七菜一湯。</div><div class="day-hotel">🏨 Crowne Plaza Christchurch（764 Colombo Street）</div><div class="day-shop-reminder">🛒 蒂卡波特產店（行程停留）→ Barker's果醬、羊毛香皂在此買！基督城入住後 Kathmandu 步行5分可先探路。</div></div></div>
+  <div class="day-item"><div class="day-badge">D9<br>4/9</div><div class="day-content"><div class="day-loc">基督城（自由活動）</div><div class="day-desc">植物園 → 藝術中心 → ⭐Riverside河濱市集（午餐NZD$30自理）→ 紙教堂（外觀）→ 新攝政街。晚餐：中式料理七菜一湯。</div><div class="tags"><span class="tag tag-star">⭐ 全行程最佳採買日！多間店步行可達</span></div><div class="day-hotel">🏨 Crowne Plaza Christchurch（764 Colombo Street）</div><div class="day-shop-reminder">🛒 今日重點！<br>• Chemist Warehouse High St 步行8分（08:00-21:00）→ Manuka喉糖<br>• Kathmandu CBD 步行5分（09:00-17:30）→ 85折以下保暖衣<br>• Unichem Cashel St 步行10分（10:00-17:00）→ 藥妝補充<br>• New World Durham St 步行5-8分（07:00-22:00）→ Whittaker's巧克力、Red Seal茶包</div></div></div>
+  <div class="day-item"><div class="day-badge">D10<br>4/10</div><div class="day-content"><div class="day-loc">✈ 基督城 → 奧克蘭</div><div class="day-desc">08:40 飛漢彌爾頓（1h50m）→ ⭐懷托摩螢火蟲洞（禁拍照！搭小船靜默欣賞）→ 奧克蘭港灣大橋（路過）。晚餐：五星飯店西式套餐。</div><div class="tags"><span class="tag tag-warn">⚠️ 洞內絕對禁止拍照及使用手機</span></div><div class="day-hotel">🏨 Movenpick Hotel Auckland（8 Customs Street East, Auckland CBD）</div></div></div>
+  <div class="day-item"><div class="day-badge">D11<br>4/11</div><div class="day-content"><div class="day-loc">奧克蘭 → 返台</div><div class="day-desc">搭渡輪至德文港 → 維多利亞山觀景（360度視野！）→ 19:30 奧克蘭搭機返台。午晚餐各NZD$30自理。</div><div class="day-hotel">🏨 無住宿（19:30 起飛返台）</div><div class="day-shop-reminder">🛒 最後機會！Life Pharmacy Commercial Bay 步行5分（10:00-19:00）；Icebreaker Commercial Bay 步行5分（10:00-19:00）；奧克蘭機場免稅 Icebreaker → 省13%（05:00-24:00）。</div></div></div>
+  <div class="day-item"><div class="day-badge">D12<br>4/12</div><div class="day-content"><div class="day-loc">✈ 返抵台灣</div><div class="day-desc">05:40 抵達桃園機場。早餐機上，午晚餐自理。旅程結束！</div><div class="day-hotel">🏨 返家 🎉</div></div></div>
+</div>
 </div>
 
+<!-- TAB 4 SHOP -->
 <div id="tab-shop" class="panel">
-
-  <div class="alert alert-sky">💡 最佳採買日：<b>D9 基督城自由日</b>（多間店步行可達）、<b>D6 皇后鎮上午自由</b>、<b>D11 奧克蘭機場免稅</b></div>
-
-  <div class="sec">🏙️ 基督城（D3/D8/D9）</div>
-  <div class="card">
-    <div class="shop-city">D3 飯店：Chateau on the Park（Deans Ave, Riccarton）| D8-D9 飯店：Crowne Plaza（764 Colombo St）</div>
-
-    <span id="shop-chc-newworld" class="shop-anchor"></span>
-    <div class="store">
-      <div class="store-name">🔴 New World Durham St <span class="badge badge-blue">Crowne Plaza步行5-8分</span></div>
-      <div class="store-addr">175 Durham Street South, Christchurch Central</div>
-      <div class="store-hours">🕐 每天 07:00-22:00（Crowne Plaza 步行可達，D9 最方便）</div>
-    </div>
-
-    <div class="store">
-      <div class="store-name">🟡 PAK'nSave Moorhouse <span class="badge badge-green">最便宜</span></div>
-      <div class="store-addr">297 Moorhouse Ave — Crowne Plaza 步行約15分</div>
-      <div class="store-hours">🕐 每天 07:00-22:00（步行15分邊界，D9自由日可考慮）</div>
-    </div>
-
-    <span id="shop-chc-cw" class="shop-anchor"></span>
-    <div class="store">
-      <div class="store-name">💊 Chemist Warehouse City Centre <span class="badge badge-green">全週最晚關</span></div>
-      <div class="store-addr">254 High Street, Level 1 — Crowne Plaza 步行約8分</div>
-      <div class="store-hours">🕐 每天 08:00-21:00（週末 09:00起）</div>
-    </div>
-
-    <span id="shop-chc-unichem" class="shop-anchor"></span>
-    <div class="store">
-      <div class="store-name">💊 Unichem Cashel St <span class="badge badge-blue">步行10分</span></div>
-      <div class="store-addr">111 Cashel St — Crowne Plaza 步行約10分</div>
-      <div class="store-hours">🕐 週二-四 08:30-17:30；週一、五-日 10:00-17:00</div>
-    </div>
-
-    <span id="shop-chc-kathmandu" class="shop-anchor"></span>
-    <div class="store">
-      <div class="store-name">🎽 Kathmandu CBD <span class="badge badge-blue">Crowne Plaza步行5分</span></div>
-      <div class="store-addr">673 Colombo St — Crowne Plaza 步行約5分（同路段！）</div>
-      <div class="store-hours">🕐 週一-六 09:00-17:30（週日 10:00-17:00）</div>
-    </div>
-
-    <div class="alert alert-amber" style="margin-top:10px; margin-bottom:0;">
-      ⚠️ <b>基督城不納入</b>：Icebreaker Outlet（Hornby 需搭車15分）、Cookie Time 工廠店（Templeton 需搭車）→ 跟團無法自行前往。
-    </div>
-  </div>
-
-  <div class="sec">🏔️ 皇后鎮（D5-D7，D6上午自由）</div>
-  <div class="card">
-    <div class="shop-city">飯店：Sudima Queenstown Five Mile（20 Grant Rd, Frankton）</div>
-
-    <span id="shop-qt-woolworths" class="shop-anchor"></span>
-    <div class="store">
-      <div class="store-name">🟢 Woolworths Queenstown <span class="badge badge-blue">飯店步行3分 ⭐最近</span></div>
-      <div class="store-addr">30 Grant Rd, Frankton — 緊鄰 Sudima 飯店</div>
-      <div class="store-hours">🕐 週二-四 07:00-22:00；週一/五-日 08:00-20:00</div>
-    </div>
-
-    <span id="shop-qt-icebreaker" class="shop-anchor"></span>
-    <div class="store">
-      <div class="store-name">🎽 Icebreaker Queenstown <span class="badge badge-amber">市中心（需搭車約10分）</span></div>
-      <div class="store-addr">25 Ballarat St — 皇后鎮市中心</div>
-      <div class="store-hours">🕐 每天 09:00-19:00（D6 上午自由活動時可去市區）</div>
-    </div>
-
-    <div class="alert alert-amber" style="margin-top:10px; margin-bottom:0;">
-      ⚠️ <b>皇后鎮不納入</b>：New World Remarkables Park（開車10分，跟團無法自行前往）。
-    </div>
-  </div>
-
-  <div class="sec">🌌 蒂卡波／翠佐（D7-D8）</div>
-  <div class="card">
-    <div class="shop-city">飯店：Distinction MacKenzie Country Hotel（Twizel）</div>
-
-    <span id="shop-tekapo" class="shop-anchor"></span>
-    <div class="store">
-      <div class="store-name">🧀 蒂卡波特產店 <span class="badge badge-amber">D8 行程安排停留</span></div>
-      <div class="store-addr">蒂卡波湖畔 — 行程安排下車，領隊帶領進店</div>
-      <div class="store-hours">🕐 依行程安排（通常上午停留）</div>
-      <div style="font-size:12px; color:var(--kiwi); margin-top:4px;">✅ 推薦：Barker's果醬（$6-9）、羊毛香皂（$3-6）、麥盧卡蜂蜜相關食品（注意：蜂蜜本身禁帶回台！喉糖可以）</div>
-    </div>
-  </div>
-
-  <div class="sec">🌊 奧克蘭（D2/D10/D11）</div>
-  <div class="card">
-    <div class="shop-city">D2 飯店：Novotel Airport | D10 飯店：Movenpick Hotel（8 Customs St East, CBD）</div>
-
-    <span id="shop-akl-life" class="shop-anchor"></span>
-    <div class="store">
-      <div class="store-name">💊 Life Pharmacy Commercial Bay <span class="badge badge-blue">Movenpick步行5分</span></div>
-      <div class="store-addr">Commercial Bay Level 1, 7 Queen St — 步行約5分</div>
-      <div class="store-hours">🕐 週一-三 10:00-18:00；週四-六 10:00-19:00；週日 10:00-17:00</div>
-    </div>
-
-    <span id="shop-akl-icebreaker" class="shop-anchor"></span>
-    <div class="store">
-      <div class="store-name">🎽 Icebreaker Commercial Bay <span class="badge badge-blue">步行5分</span></div>
-      <div class="store-addr">Commercial Bay Level 1, 21 Queen St</div>
-      <div class="store-hours">🕐 週一-三 10:00-18:00；週四-六 10:00-19:00；週日 10:00-17:00</div>
-    </div>
-
-    <div class="store">
-      <div class="store-name">🔴 New World Metro Queen St <span class="badge badge-blue">步行8分</span></div>
-      <div class="store-addr">125 Queen St, Auckland CBD</div>
-      <div class="store-hours">🕐 週一-六 07:00-21:00（D11 早上可去）</div>
-    </div>
-
-    <span id="shop-akl-dutyfree" class="shop-anchor"></span>
-    <div class="store">
-      <div class="store-name">🎽 Icebreaker 奧克蘭機場免稅 <span class="badge badge-green">省13%！回程必逛</span></div>
-      <div class="store-addr">Auckland Airport 國際出境免稅區</div>
-      <div class="store-hours">🕐 05:00-24:00（幾乎全天，D11 19:30 起飛前可逛）</div>
-    </div>
-
-    <div class="alert alert-amber" style="margin-top:10px; margin-bottom:0;">
-      ⚠️ <b>奧克蘭不納入</b>：Woolworths Auckland City（步行約15分，D11行程緊湊）。
-    </div>
-  </div>
-
-  <div class="sec">🛒 超市 vs 藥妝：分類採買指南</div>
-  <div class="card">
-    <table class="shop-table">
-      <thead>
-        <tr>
-          <th style="width:70px;">圖片<br><small style="font-weight:400;color:var(--text-muted);">點放大</small></th>
-          <th>品項</th>
-          <th>推薦地點 (含購買決策)</th>
-          <th style="white-space:nowrap;">價位 (NZD)</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td><img class="shop-thumb" src="img/shop/whittakers_choc.jpg" alt="Whittaker's" onclick="openLightbox(this)"></td>
-          <td><strong>Whittaker's 巧克力</strong></td>
-          <td style="color:var(--kiwi);">PAK'nSave / New World (D9 基督城)。口味最齊、最便宜。</td>
-          <td>$4.00 - $6.50</td>
-        </tr>
-        <tr>
-          <td><img class="shop-thumb" src="img/shop/cookietime_biscuits.jpg" alt="Cookie Time" onclick="openLightbox(this)"></td>
-          <td><strong>Cookie Time 餅乾</strong></td>
-          <td style="color:var(--kiwi);">各大超市均有。在 New World / Woolworths 買即可。</td>
-          <td>$1.00 - $5.00</td>
-        </tr>
-        <tr>
-          <td><img class="shop-thumb" src="img/shop/red_seal_tea.jpg" alt="Red Seal" onclick="openLightbox(this)"></td>
-          <td><strong>Red Seal 茶包</strong></td>
-          <td style="color:var(--kiwi);">三家超市均有。推薦冷泡系列，看到約 $4 即可買。</td>
-          <td>$3.50 - $5.00</td>
-        </tr>
-        <tr>
-          <td><img class="shop-thumb" src="img/shop/manuka_drops.jpg" alt="Manuka Drops" onclick="openLightbox(this)"></td>
-          <td><strong>Manuka Honey 喉糖</strong></td>
-          <td style="color:var(--sky);">Chemist Warehouse (D9 基督城)。藥妝保健區選擇多且划算。Life Pharmacy (D11 奧克蘭) 備用。</td>
-          <td>$10.00 - $18.00</td>
-        </tr>
-        <tr>
-          <td><img class="shop-thumb" src="img/shop/alpine_silk_cream.jpg" alt="Alpine Silk" onclick="openLightbox(this)"></td>
-          <td><strong>Alpine Silk 綿羊油</strong></td>
-          <td style="color:var(--kiwi);">Woolworths / New World 超市均有。D9 基督城採買。</td>
-          <td>$5.00 - $12.00</td>
-        </tr>
-        <tr>
-          <td><img class="shop-thumb" src="img/shop/barkers_jam.jpg" alt="Barker's" onclick="openLightbox(this)"></td>
-          <td><strong>Barker's 果醬</strong></td>
-          <td style="color:var(--amber);">蒂卡波特產店 (D8)。產地限定口味，具紀念性。</td>
-          <td>$6.00 - $9.00</td>
-        </tr>
-        <tr>
-          <td><img class="shop-thumb" src="img/shop/wool_soap.jpg" alt="Wool Soap" onclick="openLightbox(this)"></td>
-          <td><strong>羊毛香皂</strong></td>
-          <td style="color:var(--amber);">D8 蒂卡波特產店。在地特色，適合送禮。</td>
-          <td>$3.00 - $6.00</td>
-        </tr>
-        <tr>
-          <td><img class="shop-thumb" src="img/shop/villa_maria_wine.jpg" alt="Villa Maria" onclick="openLightbox(this)"></td>
-          <td><strong>Sauvignon Blanc Villa Maria</strong></td>
-          <td style="color:var(--kiwi);">PAK'nSave (D9 基督城)。$12-15 即可入手。<b>(包毛巾託運)</b></td>
-          <td>$12.00 - $18.00</td>
-        </tr>
-        <tr>
-          <td><img class="shop-thumb" src="img/shop/icebreaker_thermal.jpg" alt="Icebreaker" onclick="openLightbox(this)"></td>
-          <td><strong>Icebreaker Oasis / 脖圍</strong></td>
-          <td style="color:var(--purple);">D6 皇后鎮市區門市（85折以下）；或 D11 機場免稅（省13%）。衣&lt;$100 / 脖圍&lt;$35 可入手。</td>
-          <td>$35.0 - $150.0</td>
-        </tr>
-        <tr>
-          <td><img class="shop-thumb" src="img/shop/kathmandu_merino.jpg" alt="Kathmandu" onclick="openLightbox(this)"></td>
-          <td><strong>Kathmandu 排汗保暖衣</strong></td>
-          <td style="color:var(--purple);">D9 基督城 CBD 店（Colombo St 步行5分）。<b>85折以下或低於 $28</b> 必入。</td>
-          <td>$28.00 - $55.00</td>
-        </tr>
-      </tbody>
-    </table>
-    <div style="padding:10px 0 2px; font-size:12px; color:var(--text-muted);">💡 點選縮圖可放大查看。酒類每人免稅限1公升，務必包毛巾雙重保護後託運。🚫 蜂蜜本身禁帶回台，喉糖、茶包、巧克力、果醬OK。</div>
-  </div>
+<div class="alert alert-sky">💡 最佳採買日：<b>D9 基督城自由日</b>（多間店步行可達）、<b>D6 皇后鎮上午自由</b>、<b>D11 奧克蘭機場免稅</b></div>
+<div class="sec">🏙️ 基督城（D3/D8/D9）</div>
+<div class="card">
+  <div class="shop-city">D3 飯店：Chateau on the Park（Deans Ave）| D8-D9 飯店：Crowne Plaza（764 Colombo St）</div>
+  <span id="shop-chc-newworld" class="shop-anchor"></span>
+  <div class="store"><div class="store-name">🔴 New World Durham St <span class="badge badge-blue">Crowne Plaza步行5-8分</span></div><div class="store-addr">175 Durham Street South</div><div class="store-hours">🕐 每天 07:00-22:00</div></div>
+  <div class="store"><div class="store-name">🟡 PAK'nSave Moorhouse <span class="badge badge-green">最便宜</span></div><div class="store-addr">297 Moorhouse Ave — 步行約15分</div><div class="store-hours">🕐 每天 07:00-22:00</div></div>
+  <span id="shop-chc-cw" class="shop-anchor"></span>
+  <div class="store"><div class="store-name">💊 Chemist Warehouse City Centre <span class="badge badge-green">全週最晚關</span></div><div class="store-addr">254 High Street, Level 1 — 步行約8分</div><div class="store-hours">🕐 每天 08:00-21:00（週末 09:00起）</div></div>
+  <span id="shop-chc-unichem" class="shop-anchor"></span>
+  <div class="store"><div class="store-name">💊 Unichem Cashel St</div><div class="store-addr">111 Cashel St — 步行約10分</div><div class="store-hours">🕐 週二-四 08:30-17:30；週一、五-日 10:00-17:00</div></div>
+  <span id="shop-chc-kathmandu" class="shop-anchor"></span>
+  <div class="store"><div class="store-name">🎽 Kathmandu CBD <span class="badge badge-blue">Crowne Plaza步行5分</span></div><div class="store-addr">673 Colombo St — 同路段！</div><div class="store-hours">🕐 週一-六 09:00-17:30（週日 10:00-17:00）</div></div>
+  <div class="alert alert-amber" style="margin-top:10px;margin-bottom:0;">⚠️ 跟團無法自行前往：Icebreaker Outlet（Hornby 需搭車15分）、Cookie Time 工廠店（Templeton 需搭車）</div>
+</div>
+<div class="sec">🏔️ 皇后鎮（D5-D7，D6上午自由）</div>
+<div class="card">
+  <div class="shop-city">飯店：Sudima Queenstown Five Mile（20 Grant Rd, Frankton）</div>
+  <span id="shop-qt-woolworths" class="shop-anchor"></span>
+  <div class="store"><div class="store-name">🟢 Woolworths Queenstown <span class="badge badge-blue">飯店步行3分</span></div><div class="store-addr">30 Grant Rd, Frankton — 緊鄰 Sudima 飯店</div><div class="store-hours">🕐 週二-四 07:00-22:00；週一/五-日 08:00-20:00</div></div>
+  <span id="shop-qt-icebreaker" class="shop-anchor"></span>
+  <div class="store"><div class="store-name">🎽 Icebreaker Queenstown <span class="badge badge-amber">市中心（搭車約10分）</span></div><div class="store-addr">25 Ballarat St — 皇后鎮市中心</div><div class="store-hours">🕐 每天 09:00-19:00</div></div>
+</div>
+<div class="sec">🌌 蒂卡波（D8 行程停留）</div>
+<div class="card">
+  <div class="shop-city">飯店：Distinction MacKenzie Country Hotel（Twizel）</div>
+  <span id="shop-tekapo" class="shop-anchor"></span>
+  <div class="store"><div class="store-name">🧀 蒂卡波特產店 <span class="badge badge-amber">D8 行程安排停留</span></div><div class="store-addr">蒂卡波湖畔 — 行程安排下車，領隊帶領進店</div><div class="store-hours">🕐 依行程安排（通常上午停留）</div><div style="font-size:12px;color:var(--kiwi);margin-top:4px;">✅ 推薦：Barker's果醬（$6-9）、羊毛香皂（$3-6）。注意：蜂蜜本身禁帶回台，喉糖可以。</div></div>
+</div>
+<div class="sec">🌊 奧克蘭（D2/D10/D11）</div>
+<div class="card">
+  <div class="shop-city">D10 飯店：Movenpick Hotel（8 Customs St East, CBD）</div>
+  <span id="shop-akl-life" class="shop-anchor"></span>
+  <div class="store"><div class="store-name">💊 Life Pharmacy Commercial Bay <span class="badge badge-blue">步行5分</span></div><div class="store-addr">Commercial Bay Level 1, 7 Queen St</div><div class="store-hours">🕐 週一-三 10:00-18:00；週四-六 10:00-19:00；週日 10:00-17:00</div></div>
+  <span id="shop-akl-icebreaker" class="shop-anchor"></span>
+  <div class="store"><div class="store-name">🎽 Icebreaker Commercial Bay <span class="badge badge-blue">步行5分</span></div><div class="store-addr">Commercial Bay Level 1, 21 Queen St</div><div class="store-hours">🕐 週一-三 10:00-18:00；週四-六 10:00-19:00；週日 10:00-17:00</div></div>
+  <div class="store"><div class="store-name">🔴 New World Metro Queen St <span class="badge badge-blue">步行8分</span></div><div class="store-addr">125 Queen St, Auckland CBD</div><div class="store-hours">🕐 週一-六 07:00-21:00</div></div>
+  <span id="shop-akl-dutyfree" class="shop-anchor"></span>
+  <div class="store"><div class="store-name">🎽 Icebreaker 奧克蘭機場免稅 <span class="badge badge-green">省13%！回程必逛</span></div><div class="store-addr">Auckland Airport 國際出境免稅區</div><div class="store-hours">🕐 05:00-24:00（D11 19:30 起飛前可逛）</div></div>
+</div>
+<div class="sec">🛒 超市 vs 藥妝：分類採買指南</div>
+<div class="card">
+  <table class="shop-table">
+    <thead><tr><th style="width:70px;">圖片<br><small style="font-weight:400;color:var(--text-muted);">點放大</small></th><th>品項</th><th>推薦地點</th><th style="white-space:nowrap;">NZD</th></tr></thead>
+    <tbody>
+      <tr><td><img class="shop-thumb" src="img/shop/whittakers_choc.jpg" alt="Whittaker's" onclick="openLightbox(this)"></td><td><strong>Whittaker's 巧克力</strong></td><td style="color:var(--kiwi);">PAK'nSave / New World（D9）</td><td>$4–$6.50</td></tr>
+      <tr><td><img class="shop-thumb" src="img/shop/cookietime_biscuits.jpg" alt="Cookie Time" onclick="openLightbox(this)"></td><td><strong>Cookie Time 餅乾</strong></td><td style="color:var(--kiwi);">各大超市均有</td><td>$1–$5</td></tr>
+      <tr><td><img class="shop-thumb" src="img/shop/red_seal_tea.jpg" alt="Red Seal" onclick="openLightbox(this)"></td><td><strong>Red Seal 茶包</strong></td><td style="color:var(--kiwi);">三家超市，約 $4 即可買</td><td>$3.50–$5</td></tr>
+      <tr><td><img class="shop-thumb" src="img/shop/manuka_drops.jpg" alt="Manuka Drops" onclick="openLightbox(this)"></td><td><strong>Manuka Honey 喉糖</strong></td><td style="color:var(--sky);">Chemist Warehouse（D9）</td><td>$10–$18</td></tr>
+      <tr><td><img class="shop-thumb" src="img/shop/alpine_silk_cream.jpg" alt="Alpine Silk" onclick="openLightbox(this)"></td><td><strong>Alpine Silk 綿羊油</strong></td><td style="color:var(--kiwi);">Woolworths / New World</td><td>$5–$12</td></tr>
+      <tr><td><img class="shop-thumb" src="img/shop/barkers_jam.jpg" alt="Barker's" onclick="openLightbox(this)"></td><td><strong>Barker's 果醬</strong></td><td style="color:var(--amber);">蒂卡波特產店 D8（產地）</td><td>$6–$9</td></tr>
+      <tr><td><img class="shop-thumb" src="img/shop/wool_soap.jpg" alt="Wool Soap" onclick="openLightbox(this)"></td><td><strong>羊毛香皂</strong></td><td style="color:var(--amber);">D8 蒂卡波特產店</td><td>$3–$6</td></tr>
+      <tr><td><img class="shop-thumb" src="img/shop/icebreaker_thermal.jpg" alt="Icebreaker" onclick="openLightbox(this)"></td><td><strong>Icebreaker Oasis / 脖圍</strong></td><td style="color:var(--purple);">D6 皇后鎮（85折以下）；D11 機場免稅省13%</td><td>$35–$150</td></tr>
+      <tr><td><img class="shop-thumb" src="img/shop/kathmandu_merino.jpg" alt="Kathmandu" onclick="openLightbox(this)"></td><td><strong>Kathmandu 排汗保暖衣</strong></td><td style="color:var(--purple);">D9 基督城 CBD（Colombo St，步行5分）</td><td>$28–$55</td></tr>
+    </tbody>
+  </table>
+  <div style="padding:10px 0 2px;font-size:12px;color:var(--text-muted);">💡 點縮圖可放大。酒類每人免稅限1公升，用毛巾包裹後託運。🚫 蜂蜜本身禁帶回台，喉糖、茶包、巧克力、果醬OK。</div>
+</div>
 </div>
 
-<div id="tab-budget" class="panel">
-  <div class="alert alert-amber">📌 匯率參考：1 NZD ≈ 台幣 18 元（略估）</div>
+<!-- TAB 5 HAUL -->
+<div id="tab-haul" class="panel">
+<div class="alert alert-kiwi">🧳 行程結束，來看看實際帶回了什麼！以下是這趟旅程的採購清單。</div>
+<div class="sec">🍫 食品 &amp; 飲料</div>
+<div class="card" style="padding:0;overflow:hidden">
+  <table class="buy-table">
+    <tr><th>品項</th><th>數量</th><th>說明</th></tr>
+    <tr><td><b>Whittaker's 巧克力</b><br><small style="color:var(--text-muted);">袋裝小片分享包</small></td><td>5 包</td><td>D9 基督城 New World 採購，適合分送同事的銅板伴手禮</td></tr>
+    <tr><td><b>Whittaker's 片裝巧克力</b><br><small style="color:var(--text-muted);">各種口味單片</small></td><td>9 片</td><td>嘗試限定口味，帶回給自己與親友品嚐</td></tr>
+    <tr><td><b>Cookie Time 餅乾</b></td><td>2 包</td><td>紐西蘭國民餅乾，微波10秒後更好吃</td></tr>
+    <tr><td><b>Red Seal 茶包</b></td><td>2 盒</td><td>天然無糖、冷熱泡皆宜，送禮輕巧方便</td></tr>
+    <tr><td><b>Avalanche Coffee</b><br><small style="color:var(--text-muted);">紐西蘭在地即溶咖啡</small></td><td>2 盒</td><td>在地品牌即溶咖啡，風味出乎意料地好</td></tr>
+  </table>
+</div>
+<div class="sec">🎽 服裝 &amp; 裝備</div>
+<div class="card" style="padding:0;overflow:hidden">
+  <table class="buy-table">
+    <tr><th>品項</th><th>數量</th><th>說明</th></tr>
+    <tr><td><b>Icebreaker Merino 保暖衣</b><br><small style="color:var(--text-muted);">100% 美利諾羊毛</small></td><td>1 件</td><td>D6 皇后鎮門市購入。輕薄保暖、透氣不臭，長途旅行必備</td></tr>
+    <tr><td><b>Kathmandu 底層保暖衣</b><br><small style="color:var(--text-muted);">Merino base layer</small></td><td>2 件</td><td>D9 基督城 Colombo St 門市。85折以下入手，性價比高</td></tr>
+    <tr><td><b>Andulo 防水防風外層</b><br><small style="color:var(--text-muted);">Hardshell 衝鋒衣</small></td><td>1 件</td><td>西海岸冰河區多雨全程派上用場，帶回後繼續日常使用</td></tr>
+    <tr><td><b>Macpac 毛帽</b></td><td>1 頂</td><td>蒂卡波觀星那晚的救命之物，低溫體感全靠它</td></tr>
+    <tr><td><b>CROSS 鞋</b></td><td>1 雙</td><td>紐西蘭在地鞋款，輕量舒適，步行景點時表現優異</td></tr>
+  </table>
+</div>
+<div class="alert alert-amber" style="margin-top:4px;">🚫 注意：蜂蜜相關製品（蜂蜜本身、蜂王漿、蜂膠等）禁止帶入台灣。喉糖、茶包、巧克力、咖啡、果醬均沒問題。</div>
+</div>
 
-  <div class="sec">族群一：同事40人＋家人5戶＋大學同學4人（銅板價）</div>
-  <div class="card" style="padding:0;overflow:hidden">
-    <table class="buy-table">
-      <tr><th>商品</th><th>對象</th><th>數量</th><th>NZD</th><th>台幣</th></tr>
-      <tr><td>Whittaker's 巧克力</td><td>同事40人</td><td>4袋</td><td>24</td><td>~$440</td></tr>
-      <tr><td>Whittaker's 巧克力</td><td>家人5戶</td><td>2袋</td><td>12</td><td>~$220</td></tr>
-      <tr><td>Red Seal 茶包</td><td>家人5戶</td><td>1盒</td><td>4</td><td>~$75</td></tr>
-      <tr><td>Red Seal 茶包</td><td>大學4人</td><td>4盒</td><td>16</td><td>~$300</td></tr>
-      <tr class="total"><td colspan="3">族群一小計</td><td>56 NZD</td><td>~$1,035</td></tr>
-    </table>
-  </div>
-
-  <div class="sec">族群二：高中朋友4人＋媽媽（經濟實惠）</div>
-  <div class="card" style="padding:0;overflow:hidden">
-    <table class="buy-table">
-      <tr><th>商品</th><th>對象</th><th>數量</th><th>台幣估</th></tr>
-      <tr><td>Red Seal 茶包</td><td>高中4人</td><td>各1-2盒</td><td>~$300-600</td></tr>
-      <tr><td>Manuka Honey Drops 喉糖</td><td>高中4人</td><td>各1包</td><td>~$400-600</td></tr>
-      <tr><td>Barker's of Geraldine 果醬</td><td>高中（部分）</td><td>2-4罐</td><td>~$300-600</td></tr>
-      <tr><td>Bruntwood Lane 羊毛香皂</td><td>高中（部分）</td><td>1-2個</td><td>~$300-500</td></tr>
-      <tr><td>Alpine Silk 美利諾綿羊油</td><td>媽媽</td><td>1罐</td><td>~$250-400</td></tr>
-      <tr class="total"><td colspan="3">族群二小計</td><td>~$1,550-2,700</td></tr>
-    </table>
-  </div>
-
-  <div class="sec">族群三：自己＋好朋友</div>
-  <div class="card" style="padding:0;overflow:hidden">
-    <table class="buy-table">
-      <tr><th>商品</th><th>對象</th><th>台幣估</th></tr>
-      <tr><td>Cookie Time 餅乾</td><td>自己+好友各1袋</td><td>~NZD 20-30 (~$360-540)</td></tr>
-      <tr><td>Whittaker's 巧克力</td><td>自己+好友</td><td>~NZD 6 (~$110)</td></tr>
-      <tr><td>Icebreaker 底層保暖衣</td><td>自己</td><td>NZD 80-140 (~$1,500-2,500)</td></tr>
-      <tr><td>Icebreaker/Smartwool 羊毛襪 2-3雙</td><td>自己</td><td>NZD 25-35/雙 (~$450-600)</td></tr>
-      <tr><td>Icebreaker 圍巾或頭巾</td><td>自己</td><td>NZD 40-70 (~$720-1,260)</td></tr>
-      <tr><td>好友綜合禮包（茶包+喉糖+果醬+羊毛皂）</td><td>好友 預算$800-1,200</td><td>~$800-1,200</td></tr>
-      <tr class="total"><td colspan="2">族群三自己裝備小計</td><td>~$2,700-4,400</td></tr>
-    </table>
-  </div>
-
-  <div class="sec">總預算一覽</div>
-  <div class="metrics">
-    <div class="metric"><div class="metric-val">~$5,285</div><div class="metric-lbl">保守估（低消費選項）</div></div>
-    <div class="metric"><div class="metric-val">~$8,135</div><div class="metric-lbl">積極估（含自用羊毛品牌）</div></div>
-  </div>
-
-  <div class="alert alert-amber">
-    ⚠️ <b>建議準備 NZD 350-450</b>（約台幣 6,500-8,000）購物預算。信用卡或現金均可。<br>
-    🚫 <b>蜂蜜製品禁止攜帶入台灣</b>，但喉糖、茶包、巧克力、果醬均沒問題。
-  </div>
-
-  <div class="sec">行李重量提醒</div>
-  <div class="card">
-    <div style="font-size:13px;line-height:1.9">
-      華航托運行李：<b>兩件各 23 公斤</b><br>
-      採購品預估增加重量：
-      <ul style="margin: 8px 0 0 18px">
-        <li>巧克力 6袋 × 約 250g ≈ 1.5 kg</li>
-        <li>茶包 5盒 × 約 200g ≈ 1 kg</li>
-        <li>果醬 4罐 × 300g ≈ 1.2 kg</li>
-        <li>Icebreaker 衣物 3件 ≈ 1 kg</li>
-        <li><b>採購品合計約 5-7 kg，記得出發時行李不要裝滿！</b></li>
-      </ul>
-    </div>
-  </div>
-
-  <div class="sec">NotebookLM 簡報生成提示詞</div>
-  <div class="card">
-    <div class="card-title">📋 點按鈕複製後貼到 NotebookLM</div>
-    <div id="notebooklm-prompt" style="background:#f8f9fa;border-radius:8px;padding:14px;font-size:12px;line-height:1.8;color:#2c3e50;border:1px solid #e8ecef;white-space:pre-wrap;font-family:monospace">以下是我一份紐西蘭12日跟團旅行的完整行前攻略，包含航班資訊、每日行程、南北島地理概念，以及購物採買計劃。請根據這些內容生成一份適合「出行前快速瀏覽的導覽簡報」，結構如下：
+<!-- TAB 6 PORTFOLIO -->
+<div id="tab-portfolio" class="panel">
+<div class="portfolio-hero">
+  <h2>⚙️ 這個網站是怎麼做出來的？</h2>
+  <p>一趟旅行、一份行程表，透過 AI 工具協作與前端開發，<br>從 Word 文件變成可分享的 GitHub Pages 網站。</p>
+</div>
+<div class="sec">製作流程</div>
+<div class="card" style="padding:12px 16px">
+  <div class="flow-step"><div class="flow-num">1</div><div class="flow-body"><div class="flow-title">取得原始行程資料</div><div class="flow-desc">從雄獅旅遊官網擷取行程單，以及領隊提供的 Word 版行前說明，作為所有內容的資料來源。</div><div class="flow-tools"><span class="tool-chip chip-data">雄獅旅遊行程單</span><span class="tool-chip chip-data">Word 行前說明文件</span></div></div></div>
+  <div class="flow-step"><div class="flow-num">2</div><div class="flow-body"><div class="flow-title">AI 彙整與資訊補強</div><div class="flow-desc">將行程單上傳至 Claude，請它解析每日行程、航班資訊、飯店位置，並對照 Google Maps 確認各店家距飯店的步行時間，以及4月氣溫與穿搭建議。</div><div class="flow-tools"><span class="tool-chip chip-ai">Claude (Anthropic)</span><span class="tool-chip chip-ai">Google Places API</span></div></div></div>
+  <div class="flow-step"><div class="flow-num">3</div><div class="flow-body"><div class="flow-title">採買策略研究</div><div class="flow-desc">將紐西蘭伴手禮相關部落格文章上傳至 NotebookLM，彙整「哪些在超市買」、「哪些在藥妝買」、「哪些在專賣店買」，產生結構化比較表。</div><div class="flow-tools"><span class="tool-chip chip-ai">NotebookLM (Google)</span><span class="tool-chip chip-data">旅遊部落格文章 ×3</span></div></div></div>
+  <div class="flow-step"><div class="flow-num">4</div><div class="flow-body"><div class="flow-title">前端開發：單頁式網站</div><div class="flow-desc">以 Claude 輔助撰寫 HTML/CSS/JavaScript，實作分頁導覽、Lightbox 圖片放大、每日備忘跳轉採買地圖的錨點連結，以及手機響應式排版。全部打包為單一 index.html，不依賴任何框架。</div><div class="flow-tools"><span class="tool-chip chip-dev">HTML5 / CSS3</span><span class="tool-chip chip-dev">Vanilla JavaScript</span><span class="tool-chip chip-design">SVG 地圖手繪</span><span class="tool-chip chip-ai">Claude 輔助開發</span></div></div></div>
+  <div class="flow-step"><div class="flow-num">5</div><div class="flow-body"><div class="flow-title">部署至 GitHub Pages</div><div class="flow-desc">建立 GitHub Repository，上傳 index.html 並開啟 Pages，讓爸爸與朋友不需登入帳號、直接以手機瀏覽器開啟分享連結即可閱讀全部內容。</div><div class="flow-tools"><span class="tool-chip chip-dev">GitHub Pages</span><span class="tool-chip chip-dev">Git Version Control</span></div></div></div>
+</div>
+<div class="sec">技術亮點</div>
+<div class="tech-grid">
+  <div class="tech-card"><div class="tech-card-icon">📱</div><div class="tech-card-title">手機優先設計</div><div class="tech-card-desc">Tab 橫向捲動、響應式表格、Lightbox 放大圖最大化至 94vw，在 6.6 吋手機上完整呈現。</div></div>
+  <div class="tech-card"><div class="tech-card-icon">🔗</div><div class="tech-card-title">跨分頁錨點導航</div><div class="tech-card-desc">每日備忘的「採買提醒」點擊後自動切換至採買地圖 Tab，並捲動至對應店家位置，黃色高亮提示。</div></div>
+  <div class="tech-card"><div class="tech-card-icon">🖼️</div><div class="tech-card-title">Lightbox 無框架實作</div><div class="tech-card-desc">純 JavaScript 實作圖片放大遮罩，修正 iOS 長按系統選單問題，點任意處關閉，不依賴套件。</div></div>
+  <div class="tech-card"><div class="tech-card-icon">🗺️</div><div class="tech-card-title">SVG 手繪路線圖</div><div class="tech-card-desc">以 SVG path 手繪南北島輪廓與旅行路線，呈現「8字型」動線，不依賴地圖 API。</div></div>
+</div>
+<div class="sec">AI 工具分工</div>
+<div class="card" style="padding:0;overflow:hidden">
+  <table class="buy-table">
+    <tr><th>工具</th><th>在這個專案中的角色</th></tr>
+    <tr><td><b>Claude (Anthropic)</b><br><small style="color:var(--text-muted);">claude.ai</small></td><td>行程解析、資訊交叉驗證、HTML/CSS/JS 程式碼撰寫與 Debug、回饋問卷潤飾</td></tr>
+    <tr><td><b>NotebookLM (Google)</b><br><small style="color:var(--text-muted);">notebooklm.google.com</small></td><td>上傳多份旅遊部落格文章後，彙整採買策略與比較表；生成簡報大綱提示詞</td></tr>
+    <tr><td><b>Google Maps / Places</b></td><td>驗證各店家的實際地址、與飯店的步行距離、營業時間</td></tr>
+  </table>
+</div>
+<div class="alert-dark">💬 <b>製作心得</b><br>這份網站的起點只是一份 Word 行程表，透過 AI 工具協作，最終變成任何人都能用手機直接瀏覽的旅遊指南。整個製作過程大約 3–4 天，主要時間花在資訊核實與 UI 細節調整上。AI 負責彙整與產出草稿，人工負責判斷、驗證與最終決策——這種人機協作的模式，讓個人也能做出以前需要一個團隊才能完成的事情。</div>
+<div class="card" style="margin-top:14px;">
+  <div class="card-title">📋 NotebookLM 簡報生成提示詞</div>
+  <div id="notebooklm-prompt" style="background:#f8f9fa;border-radius:8px;padding:14px;font-size:12px;line-height:1.8;color:#2c3e50;border:1px solid #e8ecef;white-space:pre-wrap;font-family:monospace">以下是我一份紐西蘭12日跟團旅行的完整行前攻略，包含航班資訊、每日行程、南北島地理概念，以及購物採買計劃。請根據這些內容生成一份適合「出行前快速瀏覽的導覽簡報」，結構如下：
 
 1. 封面頁：旅程標題、日期（2026/4/1-4/12）、主角（我和爸爸）
 2. 航班概覽頁：去回程時間表 + 轉機/中停說明 + 穿搭建議
 3. 南北島路線圖頁：以文字描述「8字型」移動路線，北島→南島→北島
 4. 每日行程摘要（分2-3頁）：每天1-2行重點，標註⭐亮點、🧊最冷、💊暈車藥、🛒採買機會
 5. 伴手禮採買策略頁：超市vs藥妝vs專賣店，各城市推薦店家與營業時間
-6. 採購預算頁：三個對象族群的商品清單與預算
+6. 實際採購清單頁：食品飲料與服裝裝備各項戰利品
 
 請使用簡潔條列格式，每頁不超過6個要點，字體適合簡報閱讀。</div>
-    <button onclick="copyPrompt(event)" style="margin-top:10px;padding:8px 16px;background:var(--kiwi);color:white;border:none;border-radius:8px;cursor:pointer;font-size:13px;font-weight:600">📋 複製提示詞</button>
-  </div>
+  <button onclick="copyPrompt(event)" style="margin-top:10px;padding:8px 16px;background:var(--kiwi);color:white;border:none;border-radius:8px;cursor:pointer;font-size:13px;font-weight:600">📋 複製提示詞</button>
+</div>
 </div>
 
 <script>
-/* ── Tab 切換 ── */
-function showTab(id, btn) {
-  document.querySelectorAll('.panel').forEach(function(p){ p.classList.remove('active'); });
-  document.querySelectorAll('.tab-btn').forEach(function(b){ b.classList.remove('active'); });
-  document.getElementById('tab-' + id).classList.add('active');
-  btn.classList.add('active');
-  window.scrollTo({ top: 0, behavior: 'smooth' });
-}
-
-/* ── 從每日備忘跳到採買地圖對應錨點 ── */
-function jumpShop(anchorId) {
-  // 先切換到採買地圖 tab
-  const shopBtn = document.querySelector('.tab-btn:nth-child(4)');
-  showTab('shop', shopBtn);
-  // 稍微延遲後捲到錨點
-  setTimeout(() => {
-    const el = document.getElementById(anchorId);
-    if (el) {
-      el.scrollIntoView({ behavior: 'smooth', block: 'center' });
-      // 高亮效果
-      const parent = el.nextElementSibling;
-      if (parent) {
-        parent.style.background = '#fff3cd';
-        setTimeout(() => { parent.style.background = ''; parent.style.transition = 'background 1s'; }, 1500);
-      }
-    }
-  }, 200);
-}
-
-/* ── Lightbox 開啟：複製 src 到放大圖，顯示遮罩 ── */
-function openLightbox(imgEl) {
-  var overlay = document.getElementById('img-overlay');
-  var big     = document.getElementById('overlay-img');
-  big.src = imgEl.src;
-  big.alt = imgEl.alt;
-  overlay.classList.add('open');
-  document.body.style.overflow = 'hidden';  /* 鎖背景捲動 */
-}
-
-/* ── Lightbox 關閉 ── */
-function closeLightbox() {
-  document.getElementById('img-overlay').classList.remove('open');
-  document.body.style.overflow = '';
-}
-
-/* ESC 關閉 */
-document.addEventListener('keydown', function(e) {
-  if (e.key === 'Escape') closeLightbox();
-});
-
-/* ── 複製提示詞（含 fallback） ── */
-function copyPrompt(e) {
-  var btn  = e.currentTarget;
-  var text = document.getElementById('notebooklm-prompt').textContent;
-  if (navigator.clipboard && navigator.clipboard.writeText) {
-    navigator.clipboard.writeText(text).then(function() {
-      btn.textContent = '✅ 已複製！';
-      setTimeout(function(){ btn.textContent = '📋 複製提示詞'; }, 2000);
-    });
-  } else {
-    /* 舊版瀏覽器 fallback */
-    var ta = document.createElement('textarea');
-    ta.value = text;
-    ta.style.position = 'fixed';
-    ta.style.opacity = '0';
-    document.body.appendChild(ta);
-    ta.focus(); ta.select();
-    document.execCommand('copy');
-    document.body.removeChild(ta);
-    btn.textContent = '✅ 已複製！';
-    setTimeout(function(){ btn.textContent = '📋 複製提示詞'; }, 2000);
-  }
-}
+function showTab(id,btn){document.querySelectorAll('.panel').forEach(function(p){p.classList.remove('active')});document.querySelectorAll('.tab-btn').forEach(function(b){b.classList.remove('active')});document.getElementById('tab-'+id).classList.add('active');btn.classList.add('active');window.scrollTo({top:0,behavior:'smooth'})}
+function jumpShop(anchorId){var shopBtn=document.querySelector('.tab-btn:nth-child(4)');showTab('shop',shopBtn);setTimeout(function(){var el=document.getElementById(anchorId);if(el){el.scrollIntoView({behavior:'smooth',block:'center'});var parent=el.nextElementSibling;if(parent){parent.style.background='#fff3cd';parent.style.transition='background 1.2s';setTimeout(function(){parent.style.background=''},1800)}}},220)}
+function openLightbox(imgEl){var overlay=document.getElementById('img-overlay');var big=document.getElementById('overlay-img');big.src=imgEl.src;big.alt=imgEl.alt;overlay.classList.add('open');document.body.style.overflow='hidden'}
+function closeLightbox(){document.getElementById('img-overlay').classList.remove('open');document.body.style.overflow=''}
+document.addEventListener('keydown',function(e){if(e.key==='Escape')closeLightbox()});
+function copyPrompt(e){var btn=e.currentTarget;var text=document.getElementById('notebooklm-prompt').textContent;if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(text).then(function(){btn.textContent='✅ 已複製！';setTimeout(function(){btn.textContent='📋 複製提示詞'},2000)})}else{var ta=document.createElement('textarea');ta.value=text;ta.style.position='fixed';ta.style.opacity='0';document.body.appendChild(ta);ta.focus();ta.select();document.execCommand('copy');document.body.removeChild(ta);btn.textContent='✅ 已複製！';setTimeout(function(){btn.textContent='📋 複製提示詞'},2000)}}
 </script>
 </body>
 </html>
