@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🇨🇭 2026 瑞士 11日行前攻略</title>
+    <style>
+        :root {
+            --primary-color: #e3000f; /* 瑞士紅 */
+            --bg-color: #f8f9fa;
+            --text-color: #333;
+            --light-gray: #e9ecef;
+        }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            background: white;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+        }
+        header {
+            text-align: center;
+            padding: 20px 0;
+            border-bottom: 2px solid var(--light-gray);
+        }
+        h1 { font-size: 1.8rem; margin-bottom: 5px; }
+        .subtitle { color: #666; font-size: 0.95rem; margin-bottom: 15px; }
+        .tags span {
+            display: inline-block;
+            background: var(--light-gray);
+            padding: 4px 8px;
+            border-radius: 12px;
+            font-size: 0.85rem;
+            margin: 2px;
+        }
+        .nav-links {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin: 20px 0;
+        }
+        .nav-links a {
+            text-decoration: none;
+            color: var(--primary-color);
+            font-weight: bold;
+            font-size: 0.95rem;
+        }
+        section { margin: 30px 0; }
+        h2 {
+            border-left: 4px solid var(--primary-color);
+            padding-left: 10px;
+            font-size: 1.3rem;
+            background: #fdf2f2;
+            padding: 8px 10px;
+        }
+        h3 { font-size: 1.1rem; color: #444; }
+        .highlight-box {
+            background: #fff8e1;
+            border: 1px solid #ffe082;
+            padding: 15px;
+            border-radius: 8px;
+            margin: 15px 0;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 15px 0;
+            font-size: 0.9rem;
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 10px;
+            text-align: left;
+        }
+        th { background-color: var(--light-gray); }
+        .day-card {
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            padding: 15px;
+            margin-bottom: 15px;
+        }
+        .day-title { font-weight: bold; font-size: 1.1rem; color: var(--primary-color); border-bottom: 1px dashed #ccc; padding-bottom: 5px; margin-bottom: 10px;}
+        .icon { font-size: 1.2rem; margin-right: 5px; }
+        .cost-tag { background: #d1fae5; color: #047857; padding: 2px 6px; border-radius: 4px; font-size: 0.85rem; }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <header>
+        <h1>🇨🇭 2026 瑞士 11日行前攻略</h1>
+        <div class="subtitle">自助大環線 · 2026年6月16日－6月26日</div>
+        <div class="tags">
+            <span>✈️ 長榮/瑞航</span>
+            <span>🗺️ 8字環線</span>
+            <span>🏔️ 少女峰與策馬特</span>
+            <span>🚞 瑞士半價卡</span>
+        </div>
+        <div class="nav-links">
+            <a href="#flight">✈️ 航班與準備</a> | 
+            <a href="#budget">💰 預算與策略</a> | 
+            <a href="#map">🗺️ 路線圖</a> | 
+            <a href="#daily">📅 每日備忘</a>
+        </div>
+    </header>
+
+    <!-- ✈️ 航班與準備 -->
+    <section id="flight">
+        <h2>✈️ 航班資訊、請假與生理時鐘</h2>
+        
+        <div class="highlight-box">
+            <strong>🗓️ 請假天數與節慶提醒：</strong><br>
+            2026年端午節為 6/19 (五) [1]。行程需請假日期為：6/16 (晚班機請半天)、6/17、6/18、6/22、6/23、6/24、6/25、6/26，<strong>總計只需請假 7.5 天</strong> [1]。
+        </div>
+
+        <div class="highlight-box">
+            <strong>⏰ 時差與生理時鐘對策：</strong><br>
+            瑞士夏季時差比台灣慢 6 小時 [2]。去程於清晨 06:10 抵達蘇黎世 [2] (台灣時間中午 12:10)，前往策馬特的火車上容易嚴重疲倦。<strong>對策：</strong>機上務必盡量睡，抵達當天撐到當地時間晚上 8 點後再就寢，可最快克服時差。
+        </div>
+
+        <h3>✈️ 去程：長榮 BR809 / 瑞航 LX139</h3>
+        <ul>
+            <li>06/16 (二) 19:00 桃園起飛 ➔ 20:45 抵達香港轉機 [2]。</li>
+            <li>06/16 (二) 23:05 香港起飛 ➔ 06/17 (三) 06:10 抵達蘇黎世 [2]。</li>
+            <li><strong>行李直掛：</strong> 轉機時間充足，行李於台灣直掛蘇黎世 [1]。</li>
+        </ul>
+
+        <h3>✈️ 回程：瑞航 LX138 / 長榮 BR872</h3>
+        <ul>
+            <li>06/25 (四) 22:30 蘇黎世起飛 ➔ 06/26 (五) 16:35 抵達香港轉機 [3]。</li>
+            <li>06/26 (五) 19:40 香港起飛 ➔ 21:30 抵達桃園 [3]。</li>
+        </ul>
+
+        <h3>👕 氣溫狀態 & 穿搭與高山症備忘</h3>
+        <table>
+            <tr><th>時段</th><th>氣溫 / 狀態</th><th>穿搭與準備建議</th></tr>
+            <tr><td><strong>飛行途中</strong></td><td>機艙冷乾、易渴</td><td>寬鬆長袖、頸枕，隨身帶薄外套、拖鞋 [2]。</td></tr>
+            <tr><td><strong>市區與湖區</strong></td><td>15-25°C 舒適</td><td>短袖/薄長袖＋防風薄外套，必備折疊傘 [2]。</td></tr>
+            <tr><td><strong>🧊 高山觀景台</strong><br>(冰川天堂/少女峰)</td><td>約 0°C 極寒</td><td><strong>洋蔥式穿法全套上陣：</strong>保暖發熱衣＋刷毛中層＋防風防水外套。<strong>毛帽、手套、墨鏡缺一不可</strong> [4][2]。</td></tr>
+            <tr><td><strong>💊 高山症防範</strong></td><td>海拔逾 3000m</td><td>行前準備高山症藥物 [1]。放慢腳步，不適時立刻搭車下撤。</td></tr>
+        </table>
+    </section>
+
+    <!-- 💰 預算與策略 -->
+    <section id="budget">
+        <h2>💰 預算成本與關鍵策略</h2>
+        
+        <h3>💳 交通票券試算結論：【瑞士半價卡 Half Fare Card 勝出】</h3>
+        <p>經綜合評估與試算範本，強烈建議購買 <strong>瑞士半價卡 (HF)</strong> [1][3]：</p>
+        <ol>
+            <li><strong>少女峰折扣致命傷：</strong> 持 STP 僅打 75 折，持半價卡為 <strong>5折</strong>，來回票價差近 60 CHF [3]。</li>
+            <li><strong>策馬特群山無差異：</strong> 冰川天堂與 Gornergrat，STP 與半價卡折扣皆為 5折 [3]。</li>
+            <li><strong>進階省錢法：</strong> 利用 SBB App 搭配半價卡，搶購早鳥票 (Supersaver) 進行長途移動最省 [5][3]。</li>
+        </ol>
+
+        <h3>🏨 住宿硬體限制應對策略與成本</h3>
+        <table>
+            <tr><th>地點/飯店</th><th>預算 (雙人) [4]</th><th>硬體限制與對策</th></tr>
+            <tr>
+                <td><strong>策馬特</strong><br>Bahnhof Zermatt</td>
+                <td>CHF 464<br><span class="cost-tag">約 $17,632 TWD</span></td>
+                <td><strong>雙人共衛 / 無早餐：</strong> 抵達第一天先去 Coop 採買隔天五湖健行早餐 [2]。共用衛浴建議避開尖峰時段使用 [1]。</td>
+            </tr>
+            <tr>
+                <td><strong>因特拉肯</strong><br>Villa Sonnenhof</td>
+                <td>CHF 474<br><span class="cost-tag">約 $18,572 TWD</span></td>
+                <td><strong>含早餐 / 私衛：</strong> 全程最舒適據點。上少女峰前務必在飯店享用豐盛早餐，節省山上高昂餐費 [1]。</td>
+            </tr>
+            <tr>
+                <td><strong>琉森</strong><br>Hotel Alpha, Garni</td>
+                <td>CHF 293<br><span class="cost-tag">約 $11,500 TWD</span></td>
+                <td><strong>含早餐 / 無廚房：</strong> 晚上無法自煮泡麵 [1]。晚餐建議於 Coop/Migros 買熟食烤雞或外食 [6]。</td>
+            </tr>
+            <tr>
+                <td colspan="2"><strong>✈️ 機票成本：</strong> <span class="cost-tag">約 $26,000 TWD / 人</span> [4]</td>
+                <td><strong>基本花費總計：</strong> 住宿($47,704/2) + 機票($26,000) ≒ <strong>$49,852 TWD / 人</strong></td>
+            </tr>
+        </table>
+    </section>
+
+    <!-- 🗺️ 路線圖 -->
+    <section id="map">
+        <h2>🗺️ 南北 8 字環線示意圖</h2>
+        <svg viewBox="0 0 800 450" xmlns="http://www.w3.org/2000/svg" style="background:#f4f7f6; border-radius:12px; width: 100%;">
+            <rect width="100%" height="100%" fill="#f4f7f6" rx="12"/>
+            <path d="M 150,200 Q 250,50 450,80 T 750,220 Q 780,380 550,420 T 150,420 Q 50,380 150,200 Z" fill="#e8eceb" stroke="#cbd5e1" stroke-width="2"/>
+            
+            <!-- Routes -->
+            <path d="M 520,120 Q 300,180 220,350" fill="none" stroke="#ef4444" stroke-width="4" stroke-dasharray="8,6"/>
+            <path d="M 220,350 Q 280,300 360,240" fill="none" stroke="#3b82f6" stroke-width="4" stroke-dasharray="8,6"/>
+            <path d="M 360,240 Q 420,220 480,180" fill="none" stroke="#10b981" stroke-width="4" stroke-dasharray="8,6"/>
+            <path d="M 480,180 Q 500,150 520,120" fill="none" stroke="#f59e0b" stroke-width="4" stroke-dasharray="8,6"/>
+
+            <!-- Nodes -->
+            <circle cx="520" cy="120" r="10" fill="#f59e0b" stroke="#fff" stroke-width="3"/>
+            <text x="540" y="115" font-family="sans-serif" font-weight="bold" font-size="16" fill="#333">蘇黎世 Zurich (D2/D10)</text>
+            
+            <circle cx="480" cy="180" r="10" fill="#10b981" stroke="#fff" stroke-width="3"/>
+            <text x="500" y="185" font-family="sans-serif" font-weight="bold" font-size="16" fill="#333">琉森 Luzern (D8-D9)</text>
+            
+            <circle cx="360" cy="240" r="10" fill="#3b82f6" stroke="#fff" stroke-width="3"/>
+            <text x="380" y="245" font-family="sans-serif" font-weight="bold" font-size="16" fill="#333">因特拉肯 Interlaken (D5-D7)</text>
+            
+            <circle cx="220" cy="350" r="10" fill="#ef4444" stroke="#fff" stroke-width="3"/>
+            <text x="240" y="355" font-family="sans-serif" font-weight="bold" font-size="16" fill="#333">策馬特 Zermatt (D2-D4)</text>
+
+            <text x="30" y="40" font-family="sans-serif" font-weight="bold" font-size="18" fill="#1e293b">🗺️ 瑞士經典環線：順時針玩法</text>
+        </svg>
+    </section>
+
+    <!-- 📅 每日備忘 -->
+    <section id="daily">
+        <h2>📅 每日備忘 (純依整理.doc規劃)</h2>
+        <p><strong>標注說明：</strong> ⭐亮點 | 🧊最冷保暖 | ☔雨天備案 | 🛒採買 | 🏨 住宿</p>
+
+        <div class="day-card">
+            <div class="day-title">D1 (6/16 二) ✈️ 台灣 → 出發</div>
+            19:00 長榮 BR809 桃園 T2 起飛 ➔ 20:45 抵香港轉機 [2]。23:05 瑞航 LX139 飛往蘇黎世 [2]。<br>
+            🏨 機上跨夜
+        </div>
+
+        <div class="day-card">
+            <div class="day-title">D2 (6/17 三) 🇨🇭 抵達蘇黎世 → 策馬特</div>
+            06:10 抵達蘇黎世。機場 Coop/Migros 買食物 [2]。搭 07:46 火車經 Visp，11:17 抵達策馬特 [2]。下午市區觀光，晚餐 Old Zermatt 起司鍋 [7]。<br>
+            🛒 <span style="color:#ef4444;">務必今晚採買明日健行早餐與乾糧</span>。<br>
+            🏨 Bahnhof Zermatt (共衛無早)
+        </div>
+
+        <div class="day-card">
+            <div class="day-title">D3 (6/18 四) 🏔️ 策馬特：五湖健行</div>
+            上午搭纜索鐵路至 Sunnegga 轉 Blauherd，開始 ⭐五湖健行 (約4-5H，幾乎下坡) [7]。下午搭纜車回市區，晚餐黑面羊料理或超市自煮 [8]。<br>
+            ☔ <strong>雨備：</strong> 馬特洪峰博物館 (Matterhorn Museum) [1][8]。<br>
+            🏨 Bahnhof Zermatt
+        </div>
+
+        <div class="day-card">
+            <div class="day-title">D4 (6/19 五) 🏔️ 策馬特：Gornergrat + 冰川天堂</div>
+            上午搭齒軌列車至 ⭐Gornergrat 觀景台 (坐右邊) [8]。於 Rotenboden 下車拍 Riffelsee 倒影，健行至 Riffelberg 吃午餐 [9]。下午搭纜車至 Furi 轉乘直上 🧊馬特洪峰冰川天堂 (3,883m) [9]。<br>
+            🏨 Bahnhof Zermatt
+        </div>
+
+        <div class="day-card">
+            <div class="day-title">D5 (6/20 六) 🚂 策馬特 → 因特拉肯</div>
+            12:06 搭火車離開，經 Visp、Spiez，14:21 抵達因特拉肯西站 (Interlaken West) [9]。下午市區漫步：阿勒河畔、Hoheweg 大道 [9, 10]。<br>
+            🏨 Villa Sonnenhof (私衛含早)
+        </div>
+
+        <div class="day-card">
+            <div class="day-title">D6 (6/21 日) 🏔️ 少女峰：歐洲之巔與瀑布鎮</div>
+            視天氣出發。東站搭 ⭐Eiger Express 艾格快線直上 🧊少女峰 [10]。下山改搭火車至 Kleine Scheidegg 健行至 Wengen，轉車至瀑布鎮 Lauterbrunnen 觀賞特呂默爾河瀑布與施陶河瀑布 [10]。<br>
+            ☔ <strong>雨備：</strong> 特呂默爾河瀑布 (岩洞瀑布不受雨天影響) [10]。<br>
+            🏨 Villa Sonnenhof
+        </div>
+
+        <div class="day-card">
+            <div class="day-title">D7 (6/22 一) 🚤 因特拉肯：遊湖、觀景台與秘境洞穴</div>
+            上午東站碼頭搭船遊 ⭐布里恩茨湖 (Brienzersee) 至終點，火車返回 [10]。轉搭纜車上 ⭐哈德昆觀景台 (Harder Kulm) [11]。下午轉搭 21 號公車前往圖恩湖畔的 ☔聖貝亞圖斯洞穴 (St Beatus Caves，完美雨備) [11]。<br>
+            🏨 Villa Sonnenhof
+        </div>
+
+        <div class="day-card">
+            <div class="day-title">D8 (6/23 二) 🚂 因特拉肯 → 琉森</div>
+            搭乘黃金快線路段前往琉森 (約2-3H) [11]。下午市區巡禮：卡貝爾橋、聖萊奧德伽爾教堂、垂死獅子像、古城區廣場、穆塞格城牆 [11]。<br>
+            🏨 Hotel Alpha (無廚房含早)
+        </div>
+
+        <div class="day-card">
+            <div class="day-title">D9 (6/24 三) ⛰️ 琉森：皮拉圖斯山 (金色環遊)</div>
+            碼頭搭船至 Alpnachstad ➔ 搭 48度世界最陡齒軌列車上 ⭐Pilatus Kulm 山頂 ➔ 全景觀大纜車下山至 Kriens ➔ 公車回琉森市區 [11, 12]。<br>
+            🏨 Hotel Alpha
+        </div>
+
+        <div class="day-card">
+            <div class="day-title">D10 (6/25 四) 🍫 琉森 → 蘇黎世 → ✈️ 返程</div>
+            上午前往蘇黎世寄放行李。搭公車至 ⭐瑞士蓮巧克力之家 (Lindt Home of Chocolate) [12]。下午漫步班霍夫大街、林登霍夫山丘 [3]。晚餐推薦軍火庫餐廳 [3]。22:30 瑞航 LX138 飛往香港 [3]。<br>
+            🏨 機上跨夜
+        </div>
+
+        <div class="day-card">
+            <div class="day-title">D11 (6/26 五) ✈️ 抵達台灣</div>
+            16:35 抵達香港轉機。19:40 轉長榮 BR872，21:30 抵達桃園 T2 [3]。旅程圓滿結束！
+        </div>
+    </section>
+</div>
+
+</body>
+</html>
