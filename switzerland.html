@@ -17,31 +17,6 @@
   --border:#e8ecef;--shadow:0 2px 12px rgba(0,0,0,0.08);--radius:12px
 }
 *{box-sizing:border-box;margin:0;padding:0}
-/* 返回按鈕樣式 */
-.back-btn {
-    position: absolute;
-    top: 15px;
-    left: 15px;
-    z-index: 10;
-    background: rgba(255, 255, 255, 0.2);
-    border: 1px solid rgba(255, 255, 255, 0.3);
-    border-radius: 20px;
-    padding: 6px 14px;
-    color: white;
-    text-decoration: none;
-    font-size: 12px;
-    font-weight: 500;
-    backdrop-filter: blur(4px); /* 背景模糊增加質感 */
-    display: flex;
-    align-items: center;
-    gap: 4px;
-    transition: all 0.2s;
-}
-
-.back-btn:hover {
-    background: rgba(255, 255, 255, 0.4);
-    transform: translateX(-3px);
-}
 body{font-family:'Noto Sans TC',sans-serif;background:#f5f0f0;color:var(--text);min-height:100vh}
 .hero{background:linear-gradient(135deg,var(--swiss-dark) 0%,var(--swiss) 50%,#e85d52 100%);color:white;padding:36px 24px 28px;text-align:center;position:relative;overflow:hidden}
 .hero::before{content:'';position:absolute;inset:0;background:url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.04'%3E%3Ccircle cx='30' cy='30' r='20'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")}
@@ -135,6 +110,26 @@ body{font-family:'Noto Sans TC',sans-serif;background:#f5f0f0;color:var(--text);
 .eval-icon{font-size:22px;margin-bottom:6px}
 .eval-title{font-size:13px;font-weight:700;margin-bottom:4px}
 .eval-desc{font-size:12px;color:var(--text-muted);line-height:1.5}
+/* 活動卡片 */
+.act-grid{display:grid;grid-template-columns:1fr;gap:12px;margin-bottom:14px}
+.act-card{background:white;border-radius:var(--radius);box-shadow:var(--shadow);border:1px solid var(--border);overflow:hidden}
+.act-header{padding:12px 16px;display:flex;align-items:flex-start;gap:12px}
+.act-emoji{font-size:28px;flex-shrink:0;margin-top:2px}
+.act-meta{flex:1}
+.act-name{font-size:15px;font-weight:700;color:var(--text);margin-bottom:2px}
+.act-where{font-size:11px;color:var(--text-muted);text-transform:uppercase;letter-spacing:.04em;margin-bottom:6px}
+.act-tags{display:flex;flex-wrap:wrap;gap:4px}
+.act-body{padding:0 16px 14px;font-size:13px;line-height:1.65;color:var(--text)}
+.act-table{width:100%;font-size:12.5px;border-collapse:collapse;margin-top:10px}
+.act-table th{background:#f5f0f0;color:var(--swiss-dark);padding:6px 10px;text-align:left;font-size:11px;font-weight:700}
+.act-table td{padding:7px 10px;border-bottom:1px solid var(--border);vertical-align:top;line-height:1.5}
+.act-table tr:last-child td{border-bottom:none}
+.act-rec{padding:8px 16px;background:#fef9e7;border-top:1px solid var(--border);font-size:12px;color:#7d6608;line-height:1.6}
+.act-rec b{color:var(--amber)}
+/* 建議標籤（嵌入每日時程） */
+.day-activity{font-size:12px;margin-top:7px;padding:7px 12px;background:#fef3e2;border-radius:8px;border-left:3px solid var(--amber);line-height:1.65;color:#5d4037}
+.day-activity-title{font-weight:700;color:var(--amber);margin-bottom:3px}
+.day-activity a{color:var(--amber);font-weight:700;text-decoration:underline dotted}
 /* AB方案 */
 .ab-wrap{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:8px}
 .ab-card{border-radius:8px;padding:10px 12px;font-size:12px;line-height:1.6}
@@ -146,7 +141,6 @@ body{font-family:'Noto Sans TC',sans-serif;background:#f5f0f0;color:var(--text);
 </head>
 <body>
 <div class="hero">
-  <a href="index.html" class="back-btn">⬅ 回首頁</a>
   <span class="hero-emoji">🇨🇭</span>
   <h1>瑞士自助旅行行程規劃</h1>
   <p>2026年6月16日（二）－ 6月26日（五）｜策馬特 × 茵特拉肯 × 琉森 × 蘇黎世</p>
@@ -165,6 +159,7 @@ body{font-family:'Noto Sans TC',sans-serif;background:#f5f0f0;color:var(--text);
   <button class="tab-btn" onclick="showTab('daily',this)">📅 每日時程</button>
   <button class="tab-btn" onclick="showTab('pass',this)">🎫 票卡試算</button>
   <button class="tab-btn" onclick="showTab('trains',this)">🚂 班車驗證</button>
+  <button class="tab-btn" onclick="showTab('activities',this)">⚡ 活動推薦</button>
 </nav>
 
 <!-- ===== TAB 1: 行程評估 ===== -->
@@ -307,47 +302,57 @@ body{font-family:'Noto Sans TC',sans-serif;background:#f5f0f0;color:var(--text);
 <div id="tab-flight" class="panel">
 <div class="sec">✈️ 去程航班</div>
 <div class="card">
-  <div class="card-title">長榮 BR809 + 瑞航 LX139（香港轉機）</div>
+  <div class="card-title">長榮 BR857 + 瑞航 LX139</div>
   <div style="padding:10px;line-height:1.75;font-size:14px;color:#2c3e50;">
-    <p style="margin-top:0;"><b>● 第一段：台北桃園T2 → 香港T1</b><br>
-    出發：06/16 (二) 19:00 | 抵達：06/16 (二) 20:45<br>
-    <span style="color:var(--sky);">⏱ 飛行：1小時45分（香港=台灣，無時差）</span></p>
-    <div style="background:var(--sky-light);border-left:4px solid var(--sky);padding:8px 12px;margin:10px 0;border-radius:6px;"><b>⏳ 香港候機轉機</b>：20:45 → 23:05（約2小時20分）代號 CS7K5B</div>
-    <p><b>● 第二段：香港T1 → 蘇黎世</b><br>
-    出發：06/16 (二) 23:05 | 抵達：06/17 (三) 06:10 蘇黎世時間<br>
-    <span style="color:var(--sky);">⏱ 飛行：13小時5分</span></p>
+    <p style="margin-top:0;"><b>● 第一段：台北桃園 (TPE) T2 ➔ 香港 (HKG) T1</b><br>
+    出發：06/16 (二) <b>18:10</b> | 抵達：06/16 (二) <b>19:55</b><br>
+    <span style="color:var(--sky);">⏱ 飛行：1小時45分</span></p>
+    
+    <div style="background:var(--sky-light);border-left:4px solid var(--sky);padding:8px 12px;margin:10px 0;border-radius:6px;">
+      <b>⏳ 香港轉機候機</b>：19:55 ➔ 23:05（<b>3小時10分</b>）<br>
+      <small>※ 轉機時間充裕，可從容前往 T1 瑞航登機口。</small>
+    </div>
+    
+    <p><b>● 第二段：香港 (HKG) T1 ➔ 蘇黎世 (ZRH)</b><br>
+    出發：06/16 (二) <b>23:05</b> | 抵達：06/17 (三) <b>06:10</b> 蘇黎世時間<br>
+    <span style="color:var(--sky);">⏱ 飛行：13小時05分</span></p>
     <hr style="border:0;border-top:1px dashed #ccc;margin:10px 0;">
-    <p style="font-size:13px;margin-bottom:0;">📌 <b>蘇黎世時差</b>：台灣 −6小時（6月 CEST = UTC+2）<br>
-    💡 抵達後建議搭 <b>07:46 首班快車</b> 至策馬特（Visp 轉車，約 11:20 抵達）</p>
+    <p style="font-size:13px;margin-bottom:0;">📌 <b>蘇黎世時差</b>：台灣 −6小時<br>
+    💡 抵達後建議搭 <b>07:46 首班快車</b> 至策馬特（約 11:20 抵達）</p>
   </div>
 </div>
+
 <div class="sec">✈️ 回程航班</div>
 <div class="card">
-  <div class="card-title">瑞航 LX138 + 長榮 BR872（香港轉機）</div>
+  <div class="card-title">瑞航 LX138 + 長榮 BR872</div>
   <div style="padding:10px;line-height:1.75;font-size:14px;color:#2c3e50;">
-    <p style="margin-top:0;"><b>● 第一段：蘇黎世 → 香港</b><br>
-    出發：06/25 (四) 22:30 | 抵達：06/26 (五) 16:35 香港時間<br>
-    <span style="color:var(--sky);">⏱ 飛行：12小時5分</span></p>
-    <div style="background:var(--sky-light);border-left:4px solid var(--sky);padding:8px 12px;margin:10px 0;border-radius:6px;"><b>⏳ 香港轉機</b>：16:35 → 19:40（3小時5分）</div>
-    <p><b>● 第二段：香港T1 → 台北桃園T2</b><br>
-    出發：06/26 (五) 19:40 | 抵達：06/26 (五) 21:30<br>
+    <p style="margin-top:0;"><b>● 第一段：蘇黎世 (ZRH) ➔ 香港 (HKG) T1</b><br>
+    出發：06/25 (四) <b>22:30</b> | 抵達：06/26 (五) <b>16:35</b> 香港時間<br>
+    <span style="color:var(--sky);">⏱ 飛行：12小時05分</span></p>
+    
+    <div style="background:var(--sky-light);border-left:4px solid var(--sky);padding:8px 12px;margin:10px 0;border-radius:6px;">
+      <b>⏳ 香港轉機候機</b>：16:35 ➔ 19:40（<b>3小時05分</b>）
+    </div>
+    
+    <p><b>● 第二段：香港 (HKG) T1 ➔ 台北桃園 (TPE) T2</b><br>
+    出發：06/26 (五) <b>19:40</b> | 抵達：06/26 (五) <b>21:30</b><br>
     <span style="color:var(--sky);">⏱ 飛行：1小時50分</span></p>
   </div>
 </div>
+
 <div class="sec">📅 請假天數 & 時差說明</div>
 <div class="card">
   <div style="font-size:13px;line-height:1.9">
-    <b>請假天數計算</b>（假設週一至週五上班）：<br>
+    <b>請假天數計算</b>：<br>
     6/16 (二) 出發 → 6/26 (五) 返台<br>
-    週末包含：6/20-21（週六日）、6/27-28（週六日）<br>
-    ➡ 需請假：<b>6/16 下午半天 + 6/17–25（7個工作天）= 約7.5天</b><br><br>
-    <b>⏰ 時差影響重點提醒</b>：<br>
-    • <b>去程</b>：搭機15小時後抵蘇黎世 06:10，等搭火車到策馬特約11:20，<b>身體已持續清醒超過20小時</b>。第一天只能輕鬆安排。<br>
-    • 台灣晚上10點 = 蘇黎世下午4點（CEST時區，夏令時間）<br>
-    • <b>回程</b>：6/26 抵台已是晚上9:30，正常睡一覺即可調整。
+    ➡ 需請假：<b>6/16 下午半天 + 7個工作天 = 約7.5天</b><br><br>
+    <b>⏰ 飛行總時長</b>：<br>
+    • 去程：約 18 小時 (含轉機)<br>
+    • 回程：約 17 小時 (含轉機)<br>
+    💡 <b>PM 提醒</b>：去程 BR857 提早至 18:10 發車，讓香港轉機時間來到 3 小時，對長途旅行來說壓力大減，非常理想！
   </div>
 </div>
-<div class="alert alert-amber">💡 <b>出發前必備清單</b>：護照（有效期6個月以上）｜ETIAS申請€7｜瑞士法郎現金｜萬用插頭（230V，兩腳圓柱型）｜SBB App｜MeteoSwiss App｜旅遊保險</div>
+<div class="alert alert-amber">💡 <b>出發前必備</b>：護照｜ETIAS授權｜瑞士法郎｜萬用插頭(兩腳圓)｜SBB App｜MeteoSwiss App</div>
 </div>
 
 <!-- ===== TAB 4: 路線圖 ===== -->
@@ -495,6 +500,13 @@ body{font-family:'Noto Sans TC',sans-serif;background:#f5f0f0;color:var(--text);
       <div class="tl-row"><div class="tl-time">14:00</div><div class="tl-content"><div class="tl-title">回飯店休息</div><div class="tl-sub">下午逛老城 → 晚餐自煮或外食</div></div></div>
       <div class="tl-row"><div class="tl-time">16:00-18:00</div><div class="tl-content"><div class="tl-title">可選：下午光線好，步行至 Gorner Gorge 峽谷（步行35分，免費）</div></div></div>
     </div>
+    <div class="day-activity">
+      <div class="day-activity-title">⚡ D2 活動機會：馬特洪峰滑翔傘</div>
+      五湖健行結束後約13:00下山，精力尚可的話，下午14:00-16:00是策馬特滑翔傘的黃金時段！<br>
+      → 直接去 <b>Bahnhofstrasse 19（Glacier Sport Shop地下）Matterhorn Paragliding 辦公室</b>（開放至19:00）報名當天班次，或提前預約。<br>
+      → 飛行20-25分，CHF 180-220/人，+CHF 40可加購 GoPro 影片。<br>
+      → <a href="#" onclick="showTab('activities',document.querySelector('.tab-btn:nth-child(8)'));return false;">查看活動詳情 →</a>
+    </div>
     <!-- D2 雨天備案：馬特洪峰冰川天堂 -->
     <div class="day-rain">
       <div class="day-rain-title">🌧️ D2 雨天備案：馬特洪峰冰川天堂（Klein Matterhorn，3,883m）</div>
@@ -535,6 +547,13 @@ body{font-family:'Noto Sans TC',sans-serif;background:#f5f0f0;color:var(--text);
       <div class="tl-row"><div class="tl-time">10:15</div><div class="tl-content"><div class="tl-title">Riffelberg 景觀餐廳午餐（或自備）</div><div class="tl-sub">餐廳有露天座位，馬特洪峰正面，CHF 20-35</div></div></div>
       <div class="tl-row"><div class="tl-time">12:00</div><div class="tl-content"><div class="tl-title">搭 Gornergrat Bahn 回 Zermatt</div></div></div>
       <div class="tl-row"><div class="tl-time">13:00</div><div class="tl-content"><div class="tl-title">下午自由：老城逛街 / 紀念品 / 咖啡廳休息</div></div></div>
+    </div>
+    <div class="day-activity">
+      <div class="day-activity-title">⚡ D3 活動機會：馬特洪峰滑翔傘（若D2未玩）</div>
+      Gornergrat + Riffelsee 健行約12:00下山，下午時間充裕。<br>
+      → 13:00前往 Matterhorn Paragliding 辦公室（Bahnhofstrasse 19），報名下午場（約 14:00-16:00 飛行）。<br>
+      → CHF 180-220/人，飛行20-25分，在空中與馬特洪峰正面相對！<br>
+      → 或今日先進 Glacier Sport Shop 詢問明天能否安排，依天氣彈性決定。
     </div>
     <!-- D3 馬特洪峰冰川天堂備案（若D2沒去） -->
     <div class="day-rain">
@@ -615,10 +634,19 @@ body{font-family:'Noto Sans TC',sans-serif;background:#f5f0f0;color:var(--text);
         <b>適合</b>：天氣好，想賞湖景優先。
       </div>
       <div class="ab-card ab-b">
-        <div class="ab-title">🅱️ 方案B：Kleine Scheidegg 健行至 Wengen</div>
-        08:30 Interlaken Ost → 搭車至 Kleine Scheidegg → 健行至 Wengen（約1.5-2h，俯瞰 Lauterbrunnen 山谷） → Wengen 吃午餐 → 搭纜車/火車回 Interlaken → 下午自由 → 晚上瀑布鎮（Lauterbrunnen）短遊。<br><br>
-        <b>適合</b>：D5少女峰沒走到 Wengernalp，想補健行段。
+        <div class="ab-title">🅱️ 方案B：⚡ Grindelwald First Adventure（強烈推薦）</div>
+        08:30 Interlaken Ost → 09:00 抵 Grindelwald → Firstbahn 纜車上山 → <b>Cliff Walk（免費）</b> → 排隊玩 <b>First Flyer</b>（84km/h！）→ 可選 <b>First Glider</b> → 健行 Bachalpsee 湖（1h來回）→ 午餐山頂餐廳 → 纜車下山 → 16:00 回因特拉肯。<br><br>
+        <b>費用</b>：纜車CHF30（半價卡）+ First Flyer CHF 31 = 約CHF 61/人<br>
+        <b>適合</b>：想要非hike的刺激活動！務必早去避開下午人潮。
       </div>
+    </div>
+    <div class="day-activity">
+      <div class="day-activity-title">⚡ D6 活動推薦：Grindelwald First Adventure（方案B）</div>
+      <b>First Cliff Walk（免費）</b> → 懸空岩壁棧道，Eiger 正面景觀，20分，必走！<br>
+      <b>First Flyer（CHF 31）</b> → 84km/h 滑索，10分鐘震撼，⚠️務必早上排隊！<br>
+      <b>Bachalpsee 健行（免費）</b> → 山頂倒映湖，60分來回，輕鬆愉快。<br>
+      全程建議：<b>09:00 搭首班纜車，下午不晚於15:30下山</b>（末班纜車通常17:00）<br>
+      → <a href="#" onclick="showTab('activities',document.querySelector('.tab-btn:nth-child(8)'));return false;">查看 First Adventure 完整資訊 →</a>
     </div>
   </div>
 </div>
@@ -666,6 +694,13 @@ body{font-family:'Noto Sans TC',sans-serif;background:#f5f0f0;color:var(--text);
       <div class="tl-row"><div class="tl-time">12:30</div><div class="tl-content"><div class="tl-title">🚡 全景纜車下山（Pilatus → Fräkmüntegg → Kriens）</div><div class="tl-sub">這段最壯觀！Pilatus→Fräkmüntegg幾乎垂直，可俯瞰整個中部瑞士</div></div></div>
       <div class="tl-row"><div class="tl-time">14:00</div><div class="tl-content"><div class="tl-title">搭1號公車回琉森市區（約25分）</div></div></div>
       <div class="tl-row"><div class="tl-time">15:30</div><div class="tl-content"><div class="tl-title">聖萊奧德伽爾教堂 / 琉森湖畔下午光線補拍</div></div></div>
+    </div>
+    <div class="day-activity">
+      <div class="day-activity-title">⚡ D8 活動機會：Dragon Ride 夏季滑道（Fräkmüntegg）</div>
+      從 Pilatus Kulm 搭大纜車下山時，在 <b>Fräkmüntegg 中途站</b>可短暫停留（纜車票允許中途下車再搭）。<br>
+      → Alpine Coaster（夏季滑道）：約CHF 8-12，坐小車沿軌道俯衝，自行控速，約5分鐘，CP值很高！<br>
+      → 建議 <b>12:30 下山</b>時在此停留約20-30分鐘玩一趟，再搭下一班纜車至 Kriens。<br>
+      ⚠️ 需確認夏季開放（5-10月），與主纜車時刻表配合。
     </div>
     <div class="day-rain">
       <div class="day-rain-title">🌧️ D8 皮拉圖斯雨天</div>
@@ -854,6 +889,273 @@ body{font-family:'Noto Sans TC',sans-serif;background:#f5f0f0;color:var(--text);
     <tr><td>2026/4/13–7/10</td><td>Lauterbrunnen → Grütschalp（電纜懸鐵）</td><td>搭公車 Lauterbrunnen → Stechelberg（10分）→ 換 LSMS 纜車至 Mürren</td><td>前往Mürren/Schilthorn路線受影響，少女峰和瀑布鎮完全不受影響</td></tr>
   </table>
   <div style="font-size:12px;color:var(--text-muted);padding:6px 10px;">✅ 6月行程我們的重點（少女峰、瀑布鎮、Grindelwald）均不受此停工影響。Mürren 若有興趣可走替代路線，多約20-30分鐘。</div>
+</div>
+
+</div>
+
+<!-- ===== TAB 8: 活動推薦 ===== -->
+<div id="tab-activities" class="panel">
+
+<div class="alert alert-amber">⚡ 瑞士不只是 hike！以下整理適合你行程的趣味活動，依「值得性」和「順路程度」排序。帶 ⭐⭐⭐ 的強烈推薦，時間允許絕對要玩。</div>
+
+<!-- ===== FIRST ADVENTURE ===== -->
+<div class="sec">🏔️ Grindelwald First Adventure（茵特拉肯基地，D5/D6）</div>
+
+<div class="alert alert-sky">📍 地點：Grindelwald First（2,168m）｜搭 Interlaken Ost → BOB 火車 → Grindelwald 站（30分），再步行10分到 Firstbahn 纜車站（25分上山）｜半價卡折扣50%纜車票</div>
+
+<div class="act-grid">
+
+  <div class="act-card">
+    <div class="act-header">
+      <div class="act-emoji">🪂</div>
+      <div class="act-meta">
+        <div class="act-name">⭐⭐⭐ First Cliff Walk by Tissot</div>
+        <div class="act-where">Grindelwald First，2,166m</div>
+        <div class="act-tags">
+          <span class="tag tag-alt">免費（含纜車票）</span>
+          <span class="tag tag-star">約20分</span>
+          <span class="tag tag-cold">高空棧道</span>
+        </div>
+      </div>
+    </div>
+    <div class="act-body">
+      沿岩壁延伸的懸空棧道，玻璃底板、鋼絲欄杆，腳下是深谷山景。不需要額外費用，只需纜車票就能走。棧道末端有懸臂觀景平台，七個角度看 Eiger、Mönch、Jungfrau 山群，是 Grindelwald First 的免費招牌亮點。<br><br>
+      <b>建議流程</b>：上山後第一件事先走 Cliff Walk（20分鐘），趁人少且天氣最清晰時拍照，之後再去玩 Flyer/Glider 等待隊伍。
+    </div>
+    <div class="act-rec">⭐ 強烈推薦！免費、短、景觀一流，必走。不用恐高症也能感受懸空感。</div>
+  </div>
+
+  <div class="act-card">
+    <div class="act-header">
+      <div class="act-emoji">💨</div>
+      <div class="act-meta">
+        <div class="act-name">⭐⭐⭐ First Flyer（高速滑索）</div>
+        <div class="act-where">First → Schreckfeld，800m 長，高差約200m</div>
+        <div class="act-tags">
+          <span class="tag tag-warn">CHF 31/人</span>
+          <span class="tag tag-star">約10分（含等待）</span>
+          <span class="tag tag-cold">最高 84 km/h</span>
+        </div>
+      </div>
+    </div>
+    <div class="act-body">
+      從 First（2,166m）坐在個人座椅飛衝而下，800公尺滑索最高時速 84 km/h！視野完全開放，正面朝向 Eiger 三山，是全瑞士最具代表性的 Zipline 體驗之一。<br><br>
+      <table class="act-table">
+        <tr><th>限制</th><th>條件</th></tr>
+        <tr><td>年齡</td><td>10歲以上，14歲以下需成人陪同</td></tr>
+        <tr><td>身高/體重</td><td>最低 140cm / 最重 120kg</td></tr>
+        <tr><td>費用</td><td>CHF 31/人（單次），含帽和安全帶</td></tr>
+        <tr><td>操作時間</td><td>11:00-15:30（夏季），天氣影響可能暫停</td></tr>
+      </table>
+    </div>
+    <div class="act-rec">⭐ 強烈推薦！只要10分鐘但感覺極度值得，<b>請早上開放就去排，下午等待時間1-2小時</b>。</div>
+  </div>
+
+  <div class="act-card">
+    <div class="act-header">
+      <div class="act-emoji">🦅</div>
+      <div class="act-meta">
+        <div class="act-name">⭐⭐ First Glider（仰臥式俯衝滑索）</div>
+        <div class="act-where">Schreckfeld ↔ First，800m，四人同飛</div>
+        <div class="act-tags">
+          <span class="tag tag-warn">CHF 31/人</span>
+          <span class="tag tag-star">約15分（含等待）</span>
+          <span class="tag tag-cold">最高 83 km/h</span>
+        </div>
+      </div>
+    </div>
+    <div class="act-body">
+      最多四人一起趴在鷹形滑翔機架上，先被 <b>倒拉以72km/h向上</b>到 First，再向前飛衝俯衝以83km/h飛回 Schreckfeld，整個過程宛如鳥類俯衝的飛翔感，比 First Flyer 更刺激但也更短暫。<br><br>
+      <b>🎯 First Flyer vs First Glider 選哪個？</b><br>
+      Flyer = 坐著，個人，速度快，視野正面；<br>
+      Glider = 趴著4人一起，仰俯感強，更有「飛行」感。<br>
+      時間有限選 <b>First Flyer</b>；預算夠或要更多刺激，兩個都試！
+    </div>
+    <div class="act-rec">⭐ 推薦！與 Flyer 不同體驗，可選 Adventure Package（1或2個活動）CP值更高。</div>
+  </div>
+
+  <div class="act-card">
+    <div class="act-header">
+      <div class="act-emoji">🛺</div>
+      <div class="act-meta">
+        <div class="act-name">⭐ Mountain Cart + Trottibike（山地滑車）</div>
+        <div class="act-where">Schreckfeld → Bort → Grindelwald</div>
+        <div class="act-tags">
+          <span class="tag tag-warn">CHF ~21/人 各別</span>
+          <span class="tag tag-alt">夏季5月-10月</span>
+        </div>
+      </div>
+    </div>
+    <div class="act-body">
+      Mountain Cart（三輪山地車）從 Schreckfeld 滑到 Bort（3km），Trottibike（站立式滑板車）從 Bort 騎到 Grindelwald。兩者都是下坡路段自行操控，適合時間充裕、想玩完整個下坡路線的人。<br><br>
+      <b>⏱ 時間估算</b>：兩個合計下山約45-60分鐘。Adventure Package（2 activities）CHF 69-99，含纜車無限次進出。
+    </div>
+    <div class="act-rec">💡 若沒有太多時間，可跳過這兩項，只玩 Cliff Walk + First Flyer 也非常精彩。</div>
+  </div>
+
+  <div class="act-card">
+    <div class="act-header">
+      <div class="act-emoji">🏔️</div>
+      <div class="act-meta">
+        <div class="act-name">⭐⭐ Bachalpsee 湖（輕鬆健行）</div>
+        <div class="act-where">First → Bachalpsee 來回，約2小時</div>
+        <div class="act-tags">
+          <span class="tag tag-alt">免費（含纜車票）</span>
+          <span class="tag tag-cold">2,265m</span>
+        </div>
+      </div>
+    </div>
+    <div class="act-body">
+      從 First 出發約60分鐘抵達高山湖泊 Bachalpsee，湖面倒映 Finsteraarhorn、Schreckhorn、Wetterhorn，景色如畫。路線輕鬆平坦，所有人都能走。清晨無風時湖面如鏡，攝影絕佳。
+    </div>
+    <div class="act-rec">💡 若 D6 選方案B（Grindelwald），與 First Adventure 組合成完整一天：上午 Cliff Walk + 健行 Bachalpsee，下午 First Flyer + 下山。</div>
+  </div>
+
+</div>
+
+<div class="sec">🏆 First Adventure 最佳組合建議（時間有限版）</div>
+<div class="card">
+  <div style="font-size:13px;line-height:1.85">
+    <b>只有半天（4-5小時，適合你的D6方案B）</b>：<br>
+    Interlaken Ost → Grindelwald（30分）→ Firstbahn 纜車上山（25分）→ <b>First Cliff Walk</b>（20分，免費）→ <b>First Flyer</b>（排隊+搭，60-90分）→ Bachalpsee 健行（可選，60分來回）→ 纜車下山 → 回因特拉肯<br><br>
+    <b>預算估算（每人）</b>：<br>
+    • Firstbahn 纜車來回：CHF ~60（半價卡後 ~CHF 30）<br>
+    • First Flyer 單次：CHF 31<br>
+    • Cliff Walk + 觀景台：免費<br>
+    • <b>總計約 CHF 61/人（半價卡後）</b><br><br>
+    ⚠️ <b>務必早上前往！</b>Flyer 等待時間下午可達1-2小時。建議 09:00 前抵 Grindelwald 搭首班纜車。
+  </div>
+</div>
+
+<!-- ===== 其他活動 ===== -->
+<div class="sec">🪂 其他推薦活動（依地點排序）</div>
+
+<div class="act-grid">
+
+  <!-- 策馬特滑翔傘 -->
+  <div class="act-card">
+    <div class="act-header">
+      <div class="act-emoji">🪂</div>
+      <div class="act-meta">
+        <div class="act-name">⭐⭐⭐ 策馬特馬特洪峰滑翔傘</div>
+        <div class="act-where">策馬特，D2 或 D3 下午（Gornergrat後）</div>
+        <div class="act-tags">
+          <span class="tag tag-warn">CHF ~180-220/人</span>
+          <span class="tag tag-star">飛行20-25分</span>
+          <span class="tag tag-cold">需預約</span>
+        </div>
+      </div>
+    </div>
+    <div class="act-body">
+      從 Blauherd（五湖纜車中途站，2,571m）或其他高點起飛，雙人滑翔傘與教練一起，馬特洪峰就在面前！飛行約20分鐘，在空中俯瞰整個策馬特山谷的壯闊景色，是許多人評為瑞士最難忘體驗之一。<br><br>
+      主要公司：<b>Matterhorn Paragliding</b>（Bahnhofstrasse 19，辦公室在策馬特主街）、<b>FlyZermatt</b>、<b>FlybYpara</b>（Bahnhofplatz 7）<br><br>
+      <table class="act-table">
+        <tr><th>飛行時間</th><th>費用（約）</th><th>出發點</th></tr>
+        <tr><td>Scenic Flight（20分）</td><td>CHF 180-200</td><td>Blauherd 2,571m</td></tr>
+        <tr><td>VIP Matterhorn Flight（25分）</td><td>CHF 200-230</td><td>更高起點</td></tr>
+        <tr><td>加購影片/照片</td><td>+CHF 40</td><td>GoPro 全程錄製</td></tr>
+      </table>
+    </div>
+    <div class="act-rec">⭐ 強烈推薦！與馬特洪峰面對面飛翔是無與倫比的體驗。<b>可安排在 D2 五湖健行下午（健行後體力OK）或 D3 Gornergrat 下山後下午</b>。當天辦公室預約或提前網路預約，天氣不好自動取消全額退費。</div>
+  </div>
+
+  <!-- 茵特拉肯滑翔傘 -->
+  <div class="act-card">
+    <div class="act-header">
+      <div class="act-emoji">🌤️</div>
+      <div class="act-meta">
+        <div class="act-name">⭐⭐ 茵特拉肯/勞特布魯嫩 滑翔傘</div>
+        <div class="act-where">茵特拉肯，D5/D6 下午</div>
+        <div class="act-tags">
+          <span class="tag tag-warn">CHF 160-200/人</span>
+          <span class="tag tag-star">飛行15-20分</span>
+        </div>
+      </div>
+    </div>
+    <div class="act-body">
+      從 Beatenberg 山頂（俯瞰圖恩湖）或 Mürren 附近起飛，滑翔傘俯瞰 Eiger-Mönch-Jungfrau 三山和兩個湛藍湖泊，降落在因特拉肯市區草地。無需任何經驗，全程由教練操控。<br><br>
+      <b>推薦公司</b>：Paragliding Interlaken（paragliding-interlaken.ch）、Airtime Paragliding（Lauterbrunnen起飛，飛越瀑布谷，非常壯觀）<br>
+      <b>Lauterbrunnen 起飛特色</b>：從 Mürren 高空起飛（2,677m），飛越72道瀑布和車輛禁止通行的山谷，降落 Stechelberg，景觀最獨特。
+    </div>
+    <div class="act-rec">💡 策馬特滑翔傘景觀（馬特洪峰）比因特拉肯更稀有，若只選一次，選策馬特。但預算充裕可兩地都試，景觀完全不同。</div>
+  </div>
+
+  <!-- 勞特布魯嫩瀑布 -->
+  <div class="act-card">
+    <div class="act-header">
+      <div class="act-emoji">💦</div>
+      <div class="act-meta">
+        <div class="act-name">⭐⭐ 勞特布魯嫩山谷 + 瀑布群</div>
+        <div class="act-where">茵特拉肯，D6 A方案 or 獨立一天</div>
+        <div class="act-tags">
+          <span class="tag tag-alt">免費（走路可達）</span>
+          <span class="tag tag-cold">半日</span>
+        </div>
+      </div>
+    </div>
+    <div class="act-body">
+      勞特布魯嫩是全瑞士最著名的 U 型冰河谷，谷壁高達300-400公尺，共有72道瀑布傾瀉而下。其中：<br>
+      • <b>施陶河瀑布 Staubbachfall</b>（免費，300m 落差，山谷中最高瀑布）<br>
+      • <b>特呂默爾巴赫瀑布 Trümmelbach Falls</b>（CHF 16，地下洞穴瀑布，電梯進入！）<br><br>
+      從因特拉肯 Ost 搭火車到 Lauterbrunnen（20分），步行谷中即可欣賞。
+    </div>
+    <div class="act-rec">💡 已在 D6 A方案中提及，順道前往即可。建議特呂默爾巴赫值得門票，洞穴水聲震撼！</div>
+  </div>
+
+  <!-- 皮拉圖斯龍道 -->
+  <div class="act-card">
+    <div class="act-header">
+      <div class="act-emoji">🐉</div>
+      <div class="act-meta">
+        <div class="act-name">⭐⭐ 皮拉圖斯 Dragon Ride（Fräkmüntegg 滑道）</div>
+        <div class="act-where">琉森皮拉圖斯，D8 下山途中</div>
+        <div class="act-tags">
+          <span class="tag tag-warn">CHF 8-12/人</span>
+          <span class="tag tag-star">約5分鐘</span>
+          <span class="tag tag-alt">夏季</span>
+        </div>
+      </div>
+    </div>
+    <div class="act-body">
+      在 Fräkmüntegg（大纜車下山的中途站）有一條 <b>夏季滑道（Alpine Coaster / Sommerrodelbahn）</b>，乘坐小車沿蜿蜒軌道滑行，可自行控制速度。全長約1km，俯瞰琉森湖的視野絕佳。這就是「Dragon Ride」的通稱，票價含在 Pilatus 票務中或另外購買。<br><br>
+      ⚠️ 皮拉圖斯山金色環遊的 Fräkmüntegg 纜車站停留時間短，需確認是否有時間安排。
+    </div>
+    <div class="act-rec">💡 若金色環遊行程中在 Fräkmüntegg 停留，可順道排一圈（约15-20分鐘含等待），費用不高，很好玩！</div>
+  </div>
+
+  <!-- 峽谷探險 -->
+  <div class="act-card">
+    <div class="act-header">
+      <div class="act-emoji">🏞️</div>
+      <div class="act-meta">
+        <div class="act-name">⭐ 峽谷探險 Canyoning（茵特拉肯）</div>
+        <div class="act-where">茵特拉肯，D5 或 D6 備選</div>
+        <div class="act-tags">
+          <span class="tag tag-warn">CHF 100-150/人</span>
+          <span class="tag tag-star">約3小時</span>
+          <span class="tag tag-cold">需體力</span>
+        </div>
+      </div>
+    </div>
+    <div class="act-body">
+      在阿爾卑斯山溪谷中降繩、跳水、滑行天然岩石滑梯、漂流，全程穿著防水衣，在急流峽谷中探索。提供全套裝備，無需經驗。是因特拉肯最受歡迎的極限戶外活動之一，5月到10月供應。<br><br>
+      <b>推薦公司</b>：Swiss Safari Canyoning（swisssafari.ch）、Outdoor Interlaken<br>
+      <b>適合</b>：不怕水、喜歡一點刺激、體能OK的旅客
+    </div>
+    <div class="act-rec">💡 行程已經很滿，若有空閒半天且不怕潑水，這是很獨特的體驗。需跟團（約3小時），建議提前網路預約。</div>
+  </div>
+
+</div>
+
+<div class="sec">📊 活動整合進行程建議</div>
+<div class="card">
+  <table class="act-table">
+    <tr><th>天</th><th>地點</th><th>建議活動</th><th>費用估算</th><th>插入時機</th></tr>
+    <tr><td><b>D2 或 D3</b></td><td>策馬特</td><td>⭐⭐⭐ 馬特洪峰滑翔傘</td><td>CHF 180-220/人</td><td>下午健行/Gornergrat後（約14:00-17:00，辦公室預約）</td></tr>
+    <tr><td><b>D6</b></td><td>Grindelwald</td><td>⭐⭐⭐ First Cliff Walk + First Flyer</td><td>CHF 61/人（半價後）</td><td>D6 B方案改為 Grindelwald First Adventure 全天</td></tr>
+    <tr><td><b>D6</b></td><td>Lauterbrunnen</td><td>⭐⭐ 瀑布群（施陶 + 特呂默爾巴赫洞穴）</td><td>CHF 16/人</td><td>D6 A方案下午，或搭配D5下山後</td></tr>
+    <tr><td><b>D8</b></td><td>皮拉圖斯</td><td>⭐⭐ Dragon Ride 夏季滑道</td><td>CHF 8-12/人</td><td>金色環遊 Fräkmüntegg 停留時順道</td></tr>
+  </table>
 </div>
 
 </div>
