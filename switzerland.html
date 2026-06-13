@@ -43,6 +43,25 @@ body{font-family:'Noto Sans TC',sans-serif;background:#f5f0f0;color:var(--text);
 .alert-amber{background:var(--amber-light);color:#7d6608;border-left:3px solid var(--amber)}
 .alert-sky{background:var(--sky-light);color:#1a5276;border-left:3px solid var(--sky)}
 .alert-kiwi{background:var(--kiwi-light);color:var(--kiwi-dark);border-left:3px solid var(--kiwi)}
+
+/* 用餐採購 */
+
+.region-table{width:100%;border-collapse:collapse;font-size:13px}
+.region-table th{background:var(--swiss-light);color:var(--swiss-dark);padding:9px 11px;text-align:left;font-size:12px;font-weight:700}
+.region-table td{padding:9px 11px;border-bottom:1px solid var(--border);vertical-align:top;line-height:1.5}
+.region-table tr:last-child td{border-bottom:none}
+.region-table tr:hover td{background:#fafafa}
+.region-table tr.total td{background:var(--swiss-light);font-weight:700;color:var(--swiss-dark)}
+.region-table tr.winner td{background:#e8f4ec;font-weight:700;color:#1b5e20}
+.region-table tr.highlight td{background:var(--amber-light);font-weight:700;color:#7d6608}
+  
+.shop-table {width:100%;border-collapse:collapse;font-size:13px}
+.shop-table th{padding:10px;border-bottom:2px solid var(--border);background:#f8f9fa;text-align:left}
+.shop-table td{padding:9px 10px;border-bottom:1px solid var(--border);vertical-align:middle}
+.shop-table tr:last-child td{border-bottom:none}
+.shop-thumb{width:58px;height:58px;object-fit:cover;border-radius:8px;cursor:zoom-in;display:block;-webkit-touch-callout:none;-webkit-user-select:none;user-select:none}
+#img-overlay{display:none;position:fixed;inset:0;z-index:9999;background:rgba(0,0,0,0.85);align-items:center;justify-content:center;cursor:pointer;-webkit-touch-callout:none;-webkit-user-select:none;user-select:none}
+#img-overlay.open{display:flex}
 /* 圖片與 Lightbox */
 .img-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin:12px 0}
 .img-thumb{border-radius:8px;overflow:hidden;cursor:pointer;border:1px solid var(--border);background:#f0f4f8;aspect-ratio:4/3;position:relative}
@@ -203,15 +222,15 @@ body{font-family:'Noto Sans TC',sans-serif;background:#f5f0f0;color:var(--text);
   <button class="tab-btn" onclick="showTab('flight',this)">✈️ 航班住宿</button>
   <button class="tab-btn" onclick="showTab('map',this)">🗺️ 路線圖</button>
   <button class="tab-btn" onclick="showTab('daily',this)">📅 每日時程</button>
-  <button class="tab-btn" onclick="showTab('pass',this)">🎫 票卡試算</button>
   <button class="tab-btn" onclick="showTab('trains',this)">🚂 班車驗證</button>
+  <button class="tab-btn" onclick="showTab('food',this)">🍽️ 用餐採購 </button>
   <button class="tab-btn" onclick="showTab('activities',this)">⚡ 活動推薦</button>
+  <button class="tab-btn" onclick="showTab('pass',this)">🎫 票卡試算</button>
 </nav>
 
 <!-- ===== TAB 1: 行程評估 ===== -->
 <div id="tab-eval" class="panel active">
 <div class="alert alert-red">📌 <b>行程概覽</b>：6/16（二）晚出發 → 6/17（三）早抵蘇黎世 → <b>策馬特3晚</b>（D1–D4）→ <b>茵特拉肯3晚</b>（D4–D7）→ <b>琉森1晚</b>（D7–D8）→ 蘇黎世半日 → 6/25（四）深夜離境。請假約 <b>7.5天</b>。</div>
-
 
 <div class="sec">🗺️ 瑞士車站與景點 中英對照表</div>
 <div class="card" style="padding:0;overflow:hidden">
@@ -1111,141 +1130,8 @@ Day 2：6/25可領件<br>
 </div>
 </div>
 
-<!-- ===== TAB 5: 票卡試算 ===== -->
-<div id="tab-pass" class="panel">
-<div class="alert alert-sky">💡 核心問題：本次行程跨多城市，各山岳纜車費用高，<b>購買半價卡（CHF 150）幾乎確定回本</b>。以下整合所有票務含少女峰早安票分析。Point-to-point「瑞士境內」出發之前可以改，去買票帳戶，找到退票的選項，全額退款之後再重買一張。SBB綁Dahow 4.5%(上限1.6萬)|Cube 3.3%(無上限)&Richart 3.3%(無上限)</div>
 
-<div class="sec">⭐ 少女峰早安票 Good Morning Ticket 2026 分析</div>
-<div class="ticket-box">
-  <div class="ticket-box-title">🌅 少女峰早安票（2026/5/1–10/31）</div>
-  <table class="ticket-table">
-    <tr><th>出發站</th><th>原價</th><th>半價卡 / STP 折扣後</th><th>備註</th></tr>
-    <tr><td>Interlaken Ost</td><td>CHF 175</td><td>CHF 95（半價卡）｜CHF 95（STP）</td><td>我們的出發站</td></tr>
-    <tr><td>Grindelwald / Lauterbrunnen / Wengen</td><td>CHF 165</td><td>CHF 85（半價卡/STP）</td><td>若住格林德瓦或瀑布鎮</td></tr>
-    <tr><td>Kleine Scheidegg / Eigergletscher</td><td>CHF 120</td><td>CHF 60（半價卡/STP）</td><td>較少旅客從此買</td></tr>
-    <tr class="highlight"><td><b>結論（我們：Interlaken Ost 出發）</b></td><td><b>CHF 175</b></td><td><b>CHF 95（持半價卡）</b></td><td>vs 一般半價票CHF 103，省CHF 8</td></tr>
-  </table>
-  <div style="font-size:12px;color:var(--text-muted);margin-top:8px">
-    <b>早安票限制</b>：每天僅前<b>3班</b>（約06:35、07:04、07:34 從 Interlaken Ost 出發）適用；<b>13:17前必須離開 Jungfraujoch</b>（可繼續留在 Kleine Scheidegg 不限時間）。2026年只有原價85折，<b>只適合沒有任何Pass券的遊客</b>；持半價卡者早安票CHF 95，比一般半價票（CHF 103）省CHF 8，但要犧牲一點睡眠時間早起。
-  </div>
-</div>
-
-<div class="alert alert-amber">
-  💡 <b>結論：持半價卡時，買「早安票（CHF 95）」vs「一般半價票（CHF 103）」只差 CHF 8</b>。早安票的最大優點是人較少（早班車）而非省很多錢。<b>建議</b>：若體力允許早起（07:04 車），買早安票順便避開旺季人潮；若不想那麼早，一般半價票也完全可以。<br>
-  ⚠️ <b>注意</b>：早安票請<b>出發當天</b>才購買（車站/官網），不建議提前購買，因山上天氣隨時可能取消。
-</div>
-
-<div class="sec">⚠️ Peak2Peak 票券分析（2026年6月行程）</div>
-<div class="alert alert-red" style="margin-bottom:14px">
-  ❗ <b>Peak2Peak 票券在本次行程期間不適用</b><br>
-  Peak2Peak 票券（連接 Gornergrat 系統與 Matterhorn Express 系統的捷徑）需透過 <b>Riffelberg Express 纜車</b>使用。<br>
-  <b>Riffelberg Express 2026年夏季開放日：6/27（六）– 8/16（日）</b><br>
-  我們的策馬特行程為 D1–D4（6/17–6/20），比開放日早整整一週。<br>
-  ✅ 結論：<b>分開購票</b>（五湖 CHF 25 + Gornergrat CHF 66 + 冰川天堂 CHF 92）是唯一選項，無需煩惱 Peak2Peak 或 Zermatt Peak Pass 的適用性。
-</div>
-<div class="sec">💳 票卡選項比較</div>
-<div class="eval-grid">
-  <div class="eval-card">
-    <div class="eval-icon">🎟️</div>
-    <div class="eval-title">Swiss Half Fare Card（半價卡）✅ 推薦</div>
-    <div class="eval-desc">CHF 150 / 人，1個月有效。幾乎全部火車、巴士、遊船、山岳纜車享50%折扣。最適合本次多城市+山岳行程。</div>
-  </div>
-  <div class="eval-card">
-    <div class="eval-icon">🚂</div>
-    <div class="eval-title">Swiss Travel Pass（全通）</div>
-    <div class="eval-desc">7日 CHF 418 起。火車/巴士/船免費，博物館免費。但Gornergrat、少女峰、冰川天堂仍僅5折，整體較貴。</div>
-  </div>
-  <div class="eval-card">
-    <div class="eval-icon">🏔️</div>
-    <div class="eval-title">Zermatt Peak Pass（策馬特通行證）</div>
-    <div class="eval-desc">1–4天，持半價卡享75折。覆蓋 Gornergrat + 五湖 + 冰川天堂三大路線無限搭乘。若天氣反覆、需要反覆嘗試，可考慮。</div>
-  </div>
-  <div class="eval-card">
-    <div class="eval-icon">🎿</div>
-    <div class="eval-title">Jungfrau Travel Pass</div>
-    <div class="eval-desc">3–8日，無限搭乘茵特拉肯區火車+纜車+遊船，但登頂 Jungfraujoch 仍需額外付 CHF 89（持Pass）。若在因特拉肯待超過3天+密集玩，可考慮。</div>
-  </div>
-</div>
-
-<div class="sec">🎫 策馬特景點票務</div>
-<div class="ticket-box">
-  <div class="ticket-box-title">🔵 五湖健行 — Sunnegga / Blauherd 纜車（2026）</div>
-  <table class="ticket-table">
-    <tr><th>路段</th><th>全票</th><th>半價卡後</th></tr>
-    <tr class="highlight"><td>Zermatt → Blauherd 來回（推薦）</td><td>CHF ~49</td><td>CHF ~25</td></tr>
-    <tr><td>Zermatt → Sunnegga 來回（只到第一站）</td><td>CHF ~26</td><td>CHF ~13</td></tr>
-  </table>
-  <div style="font-size:12px;color:var(--text-muted);margin-top:6px">💡 建議現場購票，彈性為主。首班約08:00。🕐 末班約18:00。</div>
-</div>
-<div class="ticket-box">
-  <div class="ticket-box-title">🔴 Gornergrat Bahn（2026年夏季）</div>
-  <table class="ticket-table">
-    <tr><th>路段</th><th>夏季全票</th><th>半價卡後</th><th>備註</th></tr>
-    <tr class="highlight"><td>Zermatt ↔ Gornergrat 來回</td><td>CHF 132</td><td>CHF 66</td><td>含 ZOOOM 互動展，各站限進出各一次</td></tr>
-    <tr><td>Priority Boarding（可選）</td><td>+CHF 7</td><td>+CHF 7</td><td>提早3分登車</td></tr>
-  </table>
-  <div style="font-size:12px;color:var(--text-muted);margin-top:6px">首班07:00，每24分一班，末班約19:24從Gornergrat下山。</div>
-</div>
-<div class="ticket-box">
-  <div class="ticket-box-title">🟡 冰川天堂 Matterhorn Glacier Paradise（2026）</div>
-  <table class="ticket-table">
-    <tr><th>季節</th><th>全票（來回）</th><th>半價卡後</th><th>備註</th></tr>
-    <tr class="highlight"><td>5–6月（肩季，6月適用）</td><td>CHF 183</td><td>CHF 92</td><td>含 Glacier Palace 冰宮</td></tr>
-    <tr><td>7–8月（旺季）</td><td>CHF 207</td><td>CHF 104</td><td></td></tr>
-  </table>
-  <div style="font-size:12px;color:var(--text-muted);margin-top:6px">⚠️ 末班下山約16:30–17:00，旺季18:30，當天在谷站確認！最晚建議14:00前開始上山。</div>
-</div>
-
-<div class="sec">🎫 少女峰票價（持半價卡，從 Interlaken Ost 出發）</div>
-<div class="ticket-box">
-  <div class="ticket-box-title">⭐ Jungfraujoch 少女峰（2026年夏季）</div>
-  <table class="ticket-table">
-    <tr><th>方案</th><th>費用</th><th>適合情況</th></tr>
-    <tr class="amber-hl"><td>早安票（Good Morning Ticket）+ 半價卡</td><td>CHF 95</td><td>願意早起（07:04班），避開人潮，省CHF 8</td></tr>
-    <tr class="highlight"><td>一般半價票（普通搭乘）</td><td>CHF ~103</td><td>彈性出發，不限時間下山，輕鬆</td></tr>
-    <tr><td>Swiss Travel Pass（STP）一般搭乘</td><td>CHF ~168（75折）</td><td>STP在少女峰僅25折，比半價卡貴，不推薦</td></tr>
-    <tr><td>持 STP 買早安票</td><td>CHF 95</td><td>STP持有者買早安票也是CHF 95，與半價卡相同</td></tr>
-  </table>
-  <div style="font-size:12px;color:var(--text-muted);margin-top:8px">
-    ⚠️ 5–10月強制座位預訂（CHF 10/人），請提前在 <a href="https://www.jungfrau.ch" target="_blank" style="color:var(--sky)">jungfrau.ch</a> 預訂！旺季排隊可達1小時。<br>
-    💡 早安票當天在車站或官網購買即可（不需提前），但天氣不確定時不要提前買。
-  </div>
-</div>
-
-<div class="sec">💰 全行程費用試算（每人）</div>
-<div class="card" style="padding:0;overflow:hidden">
-  <table class="pass-table">
-    <tr><th>票項</th><th>全票 CHF</th><th>半價卡後</th><th>Swiss Travel Pass</th></tr>
-    <tr><td>蘇黎世機場 → 策馬特</td><td>~110</td><td>~55</td><td>免費</td></tr>
-    <tr><td>策馬特 → 茵特拉肯</td><td>~82</td><td>~41</td><td>免費</td></tr>
-    <tr><td>茵特拉肯 → 琉森</td><td>~38</td><td>~19</td><td>免費</td></tr>
-    <tr><td>琉森 → 蘇黎世 + 機場</td><td>~33</td><td>~17</td><td>免費</td></tr>
-    <tr style="background:var(--gray-light)"><td><b>城市間小計</b></td><td><b>~263</b></td><td><b>~132</b></td><td><b>0</b></td></tr>
-    <tr><td>Gornergrat（6月）</td><td>132</td><td>66</td><td>66（50%折）</td></tr>
-    <tr><td>冰川天堂（6月肩季）</td><td>183</td><td>92</td><td>92（50%折）</td></tr>
-    <tr><td>Sunnegga-Blauherd（五湖）</td><td>~49</td><td>~25</td><td>~25</td></tr>
-    <tr><td>少女峰（早安票 CHF 95 / 一般 ~103）</td><td>~206</td><td>~95–103</td><td>~168（75折）</td></tr>
-    <tr><td>Harder Kulm 纜車（D6）</td><td>44</td><td>22</td><td>免費</td></tr>
-    <tr><td>聖貝亞圖斯洞穴（D6）</td><td>26</td><td>26（無折扣）</td><td>26（無折扣）</td></tr>
-    <tr><td>布里恩茨湖遊船（D6）</td><td>~39</td><td>~20</td><td>免費</td></tr>
-    <tr><td>Grindelwald First纜車 + First Flyer（D7）</td><td>~80（纜車49 + Flyer31）</td><td>~61（纜車30 + Flyer31）</td><td>~61（纜車免費+Flyer31）</td></tr>
-    <tr><td>皮拉圖斯金色環遊（D8）</td><td>~72</td><td>~36</td><td>船免費+36</td></tr>
-    <tr style="background:var(--gray-light)"><td><b>景點小計</b></td><td><b>~831</b></td><td><b>~446–454</b></td><td><b>~474</b></td></tr>
-    <tr class="winner"><td><b>✅ 半價卡方案總計（含CHF 150）</b></td><td></td><td><b>CHF 150 + 449 ≈ 599</b></td><td></td></tr>
-    <tr class="total"><td><b>Swiss Travel Pass（7日）方案</b></td><td></td><td></td><td><b>CHF 418 + 474 ≈ 892</b></td></tr>
-  </table>
-</div>
-<div class="card" style="background:var(--kiwi-light);border-left:4px solid var(--kiwi);">
-  <div style="font-size:14px;font-weight:700;color:var(--kiwi-dark);margin-bottom:6px">✅ 結論：強烈推薦 Swiss Half Fare Card（CHF 150 / 人）</div>
-  <div style="font-size:13px;line-height:1.75;color:var(--kiwi-dark)">
-    比無折扣省約 CHF 381，比 Swiss Travel Pass 省約 CHF 293。本行程山岳纜車均不免費（STP僅5折），半價卡最值。<br>
-    💡 <b>注意</b>：聖貝亞圖斯洞穴（CHF 26）與 First Flyer（CHF 31）均無半價折扣，無論持何種票券皆為原價。<br>
-    💡 <b>購買</b>：swissrailways.com，選啟用日期（建議6/17（三）），PDF電子卡手機出示。<b>2026年 CHF 150/人</b>。
-  </div>
-</div>
-</div>
-
-<!-- ===== TAB 6: 班車驗證 ===== -->
+<!-- ===== TAB 5: 班車驗證 ===== -->
 <div id="tab-trains" class="panel">
 <div class="alert alert-sky">🚂 <b>本表供人工核實用</b>。出發前請在 <b>sbb.ch</b> 或 <b>SBB App</b> 用正確日期再次確認。纜車時刻至各山岳官網核實。</div>
 
@@ -1393,6 +1279,96 @@ Day 2：6/25可領件<br>
 
 </div>
 
+<!-- ===== TAB 6: 用餐採購 ===== -->
+<div id="tab-food" class="panel">
+<div class="sec">🍽️ 各區餐廳 / 超市對照表</div>
+<div class="shop-city">🏔️ 策馬特（D1-D4）</div>
+<div class="card">
+  <table class="region-table">
+    <tr><th>類型</th><th>名稱/地點</th><th>營業時間</th><th>推薦/價位</th></tr>
+    <tr><td>🛒超市</td><td><strong>Coop Zermatt</strong>(Bahnhofplatz 6)<br><a href="https://www.google.com/maps/search/Coop+Supermarkt+Zermatt+Bahnhofplatz+6" target="_blank">📍Google地圖</a></td><td>每天08:00-20:00<br>(全週無休)</td><td>烤雞半隻6-9｜沙拉3-7｜麵包1-2｜優格1-2</td></tr>
+    <tr><td>🛒備用</td><td>Denner(車站北邊)</td><td>—</td><td>特價飲品、零食</td></tr>
+    <tr><td>🍽️體驗餐</td><td>D1晚餐：起司鍋(現場找評價OK小店)</td><td>晚餐約18:00起</td><td>含飲料約CHF35-45/人</td></tr>
+  </table>
+</div>
+
+<div class="shop-city">🪡 茵特拉肯（D4-D7）</div>
+<div class="card">
+  <table class="region-table">
+    <tr><th>類型</th><th>名稱/地點</th><th>營業時間</th><th>推薦/價位</th></tr>
+    <tr><td>🛒超市</td><td><strong>Coop Pronto</strong>(Höheweg 26)<br><a href="https://www.google.com/maps/search/Coop+Pronto+Höheweg+26+Interlaken" target="_blank">📍Google地圖</a></td><td>每天06:00-22:30<br>(365天)</td><td>同上熟食清單；D5上山前先買即食濃湯/泡麵</td></tr>
+    <tr><td>🍽️套裝</td><td>D6哈德昆纜車+餐飲券套裝</td><td>—</td><td>半價卡CHF34/人(含CHF25消費抵用券)，<b>建議採用</b></td></tr>
+    <tr><td>🍽️體驗餐(可選)</td><td>D5晚餐市區一般瑞士小館(Rösti)</td><td>現場找，無需預約</td><td>CHF20-30/人</td></tr>
+  </table>
+  <div class="alert alert-amber" style="margin-top:8px">⚠️ Husi Bierhaus(Postgasse 3)週一公休，D6剛好是週一不適合；若想去可改D5晚上(市中心步行約15分)</div>
+</div>
+
+<div class="shop-city">🌉 琉森（D7-D8）</div>
+<div class="card">
+  <table class="region-table">
+    <tr><th>類型</th><th>名稱/地點</th><th>營業時間</th><th>推薦/價位</th></tr>
+    <tr><td>🛒超市</td><td><strong>Coop Luzern Bahnhof</strong>(車站地下一樓)<br><a href="https://www.google.com/maps/search/Coop+Supermarkt+Luzern+Bahnhof" target="_blank">📍Google地圖</a></td><td>週一-六06:00-22:00<br>週日07:00-22:00</td><td>烤雞6.95(均一價)｜熟食沙拉｜三明治4-8</td></tr>
+    <tr><td>🍽️體驗餐</td><td><strong>Restaurant Fritschi</strong>(Sternenplatz 5)<br><a href="https://www.google.com/maps/search/Restaurant+Fritschi+Sternenplatz+5+Luzern" target="_blank">📍Google地圖</a></td><td>現場找，有中文菜單</td><td>起司鍋約35.9｜主餐含飲料約CHF40-50/人</td></tr>
+  </table>
+</div>
+
+<div class="shop-city">🍫 蘇黎世（D9）</div>
+<div class="card">
+  <table class="region-table">
+    <tr><th>類型</th><th>名稱/地點</th><th>營業時間</th><th>推薦/價位</th></tr>
+    <tr><td>🛒超市</td><td>Lindt巧克力之家附近 或 HB站內Coop/Migros</td><td>依館點不同</td><td>午晚餐簡食解決</td></tr>
+  </table>
+</div>
+
+<div class="sec">💰 每日餐費試算</div>
+<div class="card">
+  <table class="region-table">
+    <tr><th>天數</th><th>早餐</th><th>午餐</th><th>晚餐</th><th>預估CHF/人</th></tr>
+    <tr><td>D1</td><td>機上/機場</td><td>簡單</td><td>起司鍋體驗餐</td><td>~40</td></tr>
+    <tr><td>D2-D3</td><td>超市優格+麵包</td><td>健行帶三明治</td><td>超市烤雞+沙拉</td><td>~20-24</td></tr>
+    <tr><td>D4</td><td>超市</td><td>移動中簡食</td><td>飯店附近超市/小館</td><td>~20-25</td></tr>
+    <tr><td>D5</td><td>飯店早餐(免)</td><td>自備泡麵(山頂熱水)</td><td>一般小館Rösti(可選)</td><td>~15-30</td></tr>
+    <tr><td>D6</td><td>飯店早餐(免)</td><td>哈德昆套裝(已含CHF34內)</td><td>超市</td><td>~10-15</td></tr>
+    <tr><td>D7</td><td>飯店早餐(免)</td><td>簡食</td><td>琉森Fritschi體驗餐</td><td>~15-45</td></tr>
+    <tr><td>D8</td><td>飯店早餐(免)</td><td>山頂簡餐/自備</td><td>超市</td><td>~15-20</td></tr>
+    <tr><td>D9</td><td>飯店早餐(免)</td><td>Lindt附近/HB</td><td>機場前簡食</td><td>~15-20</td></tr>
+  </table>
+  <div class="collect-bar">平均每日約 CHF 20-30/人（含早餐天數較多，比原估算更省）</div>
+</div>
+
+<div class="sec">🛒 超市必買清單 TOP12（點圖放大）</div>
+<div class="card">
+  <table class="shop-table">
+    <thead><tr><th style="width:70px;">圖片<br><small style="font-weight:400;color:var(--text-muted);">點放大</small></th><th>品項</th><th>推薦/備註</th><th style="white-space:nowrap;">CHF</th></tr></thead>
+    <tbody>
+      <tr><td><img class="shop-thumb" src="img/shop/ch_coop_chicken.jpg" alt="Coop烤雞" onclick="openLightbox(this)"></td><td><strong>Coop烤雞</strong>(整隻/半隻/雞腿)</td><td style="color:var(--kiwi);">熱食最高頻No.1，⚠️非每間Coop都有</td><td>半隻6-9／腿3-5</td></tr>
+      <tr><td><img class="shop-thumb" src="img/shop/ch_halba_choc.jpg" alt="Halba巧克力" onclick="openLightbox(this)"></td><td><strong>Halba巧克力</strong>(瑞士風景包裝)</td><td style="color:var(--kiwi);">Coop自有，CP值最高伴手禮</td><td>1.95</td></tr>
+      <tr><td><img class="shop-thumb" src="img/shop/ch_frey_choc.jpg" alt="Frey巧克力" onclick="openLightbox(this)"></td><td><strong>Frey巧克力</strong></td><td style="color:var(--sky);">Migros自有，當地人推薦勝Lindt</td><td>數CHF</td></tr>
+      <tr><td><img class="shop-thumb" src="img/shop/ch_kambly_biscuit.jpg" alt="Kambly餅乾" onclick="openLightbox(this)"></td><td><strong>Kambly餅乾</strong>(Bretzeli/馬特洪峰造型)</td><td style="color:var(--kiwi);">瑞士最大餅乾品牌，機場也有</td><td>數CHF</td></tr>
+      <tr><td><img class="shop-thumb" src="img/shop/ch_cailler_choc.jpg" alt="Cailler巧克力" onclick="openLightbox(this)"></td><td><strong>Cailler巧克力</strong>(Rayon蜂蜜牛軋糖)</td><td style="color:var(--kiwi);">1819年老牌，Coop/Migros皆有</td><td>數CHF</td></tr>
+      <tr><td><img class="shop-thumb" src="img/shop/ch_sparkling_water.jpg" alt="氣泡水" onclick="openLightbox(this)"></td><td><strong>氣泡水</strong>(自有品牌)</td><td style="color:var(--sky);">解渴超划算</td><td>~0.5</td></tr>
+      <tr><td><img class="shop-thumb" src="img/shop/ch_zweifel_chips.jpg" alt="Zweifel洋芋片" onclick="openLightbox(this)"></td><td><strong>Zweifel Paprika洋芋片</strong></td><td style="color:var(--amber);">微辣帶甜，旅人推薦款</td><td>數CHF</td></tr>
+      <tr><td><img class="shop-thumb" src="img/shop/ch_beef_tartare.jpg" alt="生牛肉切盤" onclick="openLightbox(this)"></td><td><strong>生牛肉切盤</strong>+洋蔥奶酪醬</td><td style="color:var(--kiwi);">鮮嫩無腥味，熟食區常見</td><td>數CHF</td></tr>
+      <tr><td><img class="shop-thumb" src="img/shop/ch_instant_meal.jpg" alt="即食沙拉麵食" onclick="openLightbox(this)"></td><td><strong>即食沙拉/義大利麵/微波米食</strong></td><td style="color:var(--amber);">亞洲胃救星，先看標籤避雷</td><td>3-10</td></tr>
+      <tr><td><img class="shop-thumb" src="img/shop/ch_aromat.jpg" alt="Aromat雞精粉" onclick="openLightbox(this)"></td><td><strong>Aromat雞精粉</strong></td><td style="color:var(--purple);">瑞士家庭調味神器，輕便伴手禮</td><td>數CHF</td></tr>
+      <tr><td><img class="shop-thumb" src="img/shop/ch_movenpick_icecream.jpg" alt="莫凡彼冰淇淋" onclick="openLightbox(this)"></td><td><strong>莫凡彼冰淇淋</strong>(Swiss cream口味)</td><td style="color:var(--sky);">瑞士限定口味值得一試</td><td>數CHF</td></tr>
+      <tr><td><img class="shop-thumb" src="img/shop/ch_braided_bread.jpg" alt="辮子麵包" onclick="openLightbox(this)"></td><td><strong>辮子麵包</strong>+起司/火腿</td><td style="color:var(--kiwi);">隔天早餐組合，俗又大碗</td><td>1-2</td></tr>
+    </tbody>
+  </table>
+  <div style="padding:10px 0 2px;font-size:12px;color:var(--text-muted);">
+    💡 點縮圖可放大。<br>
+    ⚠️ <b>Toblerone三角巧克力</b>：現Logo已非馬特洪峰，台灣已買得到，不建議在瑞士買。<br>
+    🚫 <b>大麻冰茶(C-ICE)</b>：當地合法，但THC產品禁止帶回台灣，當地喝完即可。<br>
+    💡 微波食品普遍不如冷藏熟食/沙拉，期望值放低。
+  </div>
+</div>
+<div class="alert alert-kiwi">
+  📚 參考連結：<a href="https://pbear.tw/%E7%91%9E%E5%A3%ABcoop%E9%80%A3%E9%8E%96%E8%B6%85%E5%B8%82%E4%BB%8B%E7%B4%B9%E6%87%B6%E4%BA%BA%E5%8C%85/" target="_blank">Coop必買全攻略</a> ｜ <a href="https://twoslowbyron.com/switzerland-gift/" target="_blank">瑞士伴手禮全攻略</a> ｜ <a href="https://vivianexplore.tw/switzerland-souvenirs/" target="_blank">瑞士超市必買Top20</a> ｜ <a href="https://shin.tw/2026-switzerland-coop/" target="_blank">Coop自助結帳/巧克力攻略</a>
+</div>
+</div>  
+  
+
+  
 <!-- ===== TAB 7: 活動推薦 ===== -->
 <div id="tab-activities" class="panel">
 <div class="alert alert-amber">⚡ 瑞士不只是 hike！帶 ⭐⭐⭐ 的強烈推薦，時間允許絕對要玩。</div>
@@ -1444,9 +1420,144 @@ Day 2：6/25可領件<br>
     <tr><td><b>D6 方案A</b></td><td>⭐⭐ 哈德昆觀景台 + 聖貝亞圖斯洞穴</td><td>纜車CHF ~18 + 洞穴CHF 26</td><td>布里恩茨遊船後的下午</td></tr>
     <tr><td><b>D8</b></td><td>⭐⭐ Dragon Ride 夏季滑道</td><td>CHF 8–12/人</td><td>金色環遊 Fräkmüntegg 停留時順道</td></tr>
   </table>
+</div>  
+</div>
+
+<!-- ===== TAB 8: 票卡試算 ===== -->
+<div id="tab-pass" class="panel">
+<div class="alert alert-sky">💡 核心問題：本次行程跨多城市，各山岳纜車費用高，<b>購買半價卡（CHF 150）幾乎確定回本</b>。以下整合所有票務含少女峰早安票分析。Point-to-point「瑞士境內」出發之前可以改，去買票帳戶，找到退票的選項，全額退款之後再重買一張。SBB綁Dahow 4.5%(上限1.6萬)|Cube 3.3%(無上限)&Richart 3.3%(無上限)</div>
+
+<div class="sec">⭐ 少女峰早安票 Good Morning Ticket 2026 分析</div>
+<div class="ticket-box">
+  <div class="ticket-box-title">🌅 少女峰早安票（2026/5/1–10/31）</div>
+  <table class="ticket-table">
+    <tr><th>出發站</th><th>原價</th><th>半價卡 / STP 折扣後</th><th>備註</th></tr>
+    <tr><td>Interlaken Ost</td><td>CHF 175</td><td>CHF 95（半價卡）｜CHF 95（STP）</td><td>我們的出發站</td></tr>
+    <tr><td>Grindelwald / Lauterbrunnen / Wengen</td><td>CHF 165</td><td>CHF 85（半價卡/STP）</td><td>若住格林德瓦或瀑布鎮</td></tr>
+    <tr><td>Kleine Scheidegg / Eigergletscher</td><td>CHF 120</td><td>CHF 60（半價卡/STP）</td><td>較少旅客從此買</td></tr>
+    <tr class="highlight"><td><b>結論（我們：Interlaken Ost 出發）</b></td><td><b>CHF 175</b></td><td><b>CHF 95（持半價卡）</b></td><td>vs 一般半價票CHF 103，省CHF 8</td></tr>
+  </table>
+  <div style="font-size:12px;color:var(--text-muted);margin-top:8px">
+    <b>早安票限制</b>：每天僅前<b>3班</b>（約06:35、07:04、07:34 從 Interlaken Ost 出發）適用；<b>13:17前必須離開 Jungfraujoch</b>（可繼續留在 Kleine Scheidegg 不限時間）。2026年只有原價85折，<b>只適合沒有任何Pass券的遊客</b>；持半價卡者早安票CHF 95，比一般半價票（CHF 103）省CHF 8，但要犧牲一點睡眠時間早起。
+  </div>
+</div>
+
+<div class="alert alert-amber">
+  💡 <b>結論：持半價卡時，買「早安票（CHF 95）」vs「一般半價票（CHF 103）」只差 CHF 8</b>。早安票的最大優點是人較少（早班車）而非省很多錢。<b>建議</b>：若體力允許早起（07:04 車），買早安票順便避開旺季人潮；若不想那麼早，一般半價票也完全可以。<br>
+  ⚠️ <b>注意</b>：早安票請<b>出發當天</b>才購買（車站/官網），不建議提前購買，因山上天氣隨時可能取消。
+</div>
+
+<div class="sec">⚠️ Peak2Peak 票券分析（2026年6月行程）</div>
+<div class="alert alert-red" style="margin-bottom:14px">
+  ❗ <b>Peak2Peak 票券在本次行程期間不適用</b><br>
+  Peak2Peak 票券（連接 Gornergrat 系統與 Matterhorn Express 系統的捷徑）需透過 <b>Riffelberg Express 纜車</b>使用。<br>
+  <b>Riffelberg Express 2026年夏季開放日：6/27（六）– 8/16（日）</b><br>
+  我們的策馬特行程為 D1–D4（6/17–6/20），比開放日早整整一週。<br>
+  ✅ 結論：<b>分開購票</b>（五湖 CHF 25 + Gornergrat CHF 66 + 冰川天堂 CHF 92）是唯一選項，無需煩惱 Peak2Peak 或 Zermatt Peak Pass 的適用性。
+</div>
+<div class="sec">💳 票卡選項比較</div>
+<div class="eval-grid">
+  <div class="eval-card">
+    <div class="eval-icon">🎟️</div>
+    <div class="eval-title">Swiss Half Fare Card（半價卡）✅ 推薦</div>
+    <div class="eval-desc">CHF 150 / 人，1個月有效。幾乎全部火車、巴士、遊船、山岳纜車享50%折扣。最適合本次多城市+山岳行程。</div>
+  </div>
+  <div class="eval-card">
+    <div class="eval-icon">🚂</div>
+    <div class="eval-title">Swiss Travel Pass（全通）</div>
+    <div class="eval-desc">7日 CHF 418 起。火車/巴士/船免費，博物館免費。但Gornergrat、少女峰、冰川天堂仍僅5折，整體較貴。</div>
+  </div>
+  <div class="eval-card">
+    <div class="eval-icon">🏔️</div>
+    <div class="eval-title">Zermatt Peak Pass（策馬特通行證）</div>
+    <div class="eval-desc">1–4天，持半價卡享75折。覆蓋 Gornergrat + 五湖 + 冰川天堂三大路線無限搭乘。若天氣反覆、需要反覆嘗試，可考慮。</div>
+  </div>
+  <div class="eval-card">
+    <div class="eval-icon">🎿</div>
+    <div class="eval-title">Jungfrau Travel Pass</div>
+    <div class="eval-desc">3–8日，無限搭乘茵特拉肯區火車+纜車+遊船，但登頂 Jungfraujoch 仍需額外付 CHF 89（持Pass）。若在因特拉肯待超過3天+密集玩，可考慮。</div>
+  </div>
+</div>
+
+<div class="sec">🎫 策馬特景點票務</div>
+<div class="ticket-box">
+  <div class="ticket-box-title">🔵 五湖健行 — Sunnegga / Blauherd 纜車（2026）</div>
+  <table class="ticket-table">
+    <tr><th>路段</th><th>全票</th><th>半價卡後</th></tr>
+    <tr class="highlight"><td>Zermatt → Blauherd 來回（推薦）</td><td>CHF ~49</td><td>CHF ~25</td></tr>
+    <tr><td>Zermatt → Sunnegga 來回（只到第一站）</td><td>CHF ~26</td><td>CHF ~13</td></tr>
+  </table>
+  <div style="font-size:12px;color:var(--text-muted);margin-top:6px">💡 建議現場購票，彈性為主。首班約08:00。🕐 末班約18:00。</div>
+</div>
+<div class="ticket-box">
+  <div class="ticket-box-title">🔴 Gornergrat Bahn（2026年夏季）</div>
+  <table class="ticket-table">
+    <tr><th>路段</th><th>夏季全票</th><th>半價卡後</th><th>備註</th></tr>
+    <tr class="highlight"><td>Zermatt ↔ Gornergrat 來回</td><td>CHF 132</td><td>CHF 66</td><td>含 ZOOOM 互動展，各站限進出各一次</td></tr>
+    <tr><td>Priority Boarding（可選）</td><td>+CHF 7</td><td>+CHF 7</td><td>提早3分登車</td></tr>
+  </table>
+  <div style="font-size:12px;color:var(--text-muted);margin-top:6px">首班07:00，每24分一班，末班約19:24從Gornergrat下山。</div>
+</div>
+<div class="ticket-box">
+  <div class="ticket-box-title">🟡 冰川天堂 Matterhorn Glacier Paradise（2026）</div>
+  <table class="ticket-table">
+    <tr><th>季節</th><th>全票（來回）</th><th>半價卡後</th><th>備註</th></tr>
+    <tr class="highlight"><td>5–6月（肩季，6月適用）</td><td>CHF 183</td><td>CHF 92</td><td>含 Glacier Palace 冰宮</td></tr>
+    <tr><td>7–8月（旺季）</td><td>CHF 207</td><td>CHF 104</td><td></td></tr>
+  </table>
+  <div style="font-size:12px;color:var(--text-muted);margin-top:6px">⚠️ 末班下山約16:30–17:00，旺季18:30，當天在谷站確認！最晚建議14:00前開始上山。</div>
+</div>
+
+<div class="sec">🎫 少女峰票價（持半價卡，從 Interlaken Ost 出發）</div>
+<div class="ticket-box">
+  <div class="ticket-box-title">⭐ Jungfraujoch 少女峰（2026年夏季）</div>
+  <table class="ticket-table">
+    <tr><th>方案</th><th>費用</th><th>適合情況</th></tr>
+    <tr class="amber-hl"><td>早安票（Good Morning Ticket）+ 半價卡</td><td>CHF 95</td><td>願意早起（07:04班），避開人潮，省CHF 8</td></tr>
+    <tr class="highlight"><td>一般半價票（普通搭乘）</td><td>CHF ~103</td><td>彈性出發，不限時間下山，輕鬆</td></tr>
+    <tr><td>Swiss Travel Pass（STP）一般搭乘</td><td>CHF ~168（75折）</td><td>STP在少女峰僅25折，比半價卡貴，不推薦</td></tr>
+    <tr><td>持 STP 買早安票</td><td>CHF 95</td><td>STP持有者買早安票也是CHF 95，與半價卡相同</td></tr>
+  </table>
+  <div style="font-size:12px;color:var(--text-muted);margin-top:8px">
+    ⚠️ 5–10月強制座位預訂（CHF 10/人），請提前在 <a href="https://www.jungfrau.ch" target="_blank" style="color:var(--sky)">jungfrau.ch</a> 預訂！旺季排隊可達1小時。<br>
+    💡 早安票當天在車站或官網購買即可（不需提前），但天氣不確定時不要提前買。
+  </div>
+</div>
+
+<div class="sec">💰 全行程費用試算（每人）</div>
+<div class="card" style="padding:0;overflow:hidden">
+  <table class="pass-table">
+    <tr><th>票項</th><th>全票 CHF</th><th>半價卡後</th><th>Swiss Travel Pass</th></tr>
+    <tr><td>蘇黎世機場 → 策馬特</td><td>~110</td><td>~55</td><td>免費</td></tr>
+    <tr><td>策馬特 → 茵特拉肯</td><td>~82</td><td>~41</td><td>免費</td></tr>
+    <tr><td>茵特拉肯 → 琉森</td><td>~38</td><td>~19</td><td>免費</td></tr>
+    <tr><td>琉森 → 蘇黎世 + 機場</td><td>~33</td><td>~17</td><td>免費</td></tr>
+    <tr style="background:var(--gray-light)"><td><b>城市間小計</b></td><td><b>~263</b></td><td><b>~132</b></td><td><b>0</b></td></tr>
+    <tr><td>Gornergrat（6月）</td><td>132</td><td>66</td><td>66（50%折）</td></tr>
+    <tr><td>冰川天堂（6月肩季）</td><td>183</td><td>92</td><td>92（50%折）</td></tr>
+    <tr><td>Sunnegga-Blauherd（五湖）</td><td>~49</td><td>~25</td><td>~25</td></tr>
+    <tr><td>少女峰（早安票 CHF 95 / 一般 ~103）</td><td>~206</td><td>~95–103</td><td>~168（75折）</td></tr>
+    <tr><td>Harder Kulm 纜車（D6）</td><td>44</td><td>22</td><td>免費</td></tr>
+    <tr><td>聖貝亞圖斯洞穴（D6）</td><td>26</td><td>26（無折扣）</td><td>26（無折扣）</td></tr>
+    <tr><td>布里恩茨湖遊船（D6）</td><td>~39</td><td>~20</td><td>免費</td></tr>
+    <tr><td>Grindelwald First纜車 + First Flyer（D7）</td><td>~80（纜車49 + Flyer31）</td><td>~61（纜車30 + Flyer31）</td><td>~61（纜車免費+Flyer31）</td></tr>
+    <tr><td>皮拉圖斯金色環遊（D8）</td><td>~72</td><td>~36</td><td>船免費+36</td></tr>
+    <tr style="background:var(--gray-light)"><td><b>景點小計</b></td><td><b>~831</b></td><td><b>~446–454</b></td><td><b>~474</b></td></tr>
+    <tr class="winner"><td><b>✅ 半價卡方案總計（含CHF 150）</b></td><td></td><td><b>CHF 150 + 449 ≈ 599</b></td><td></td></tr>
+    <tr class="total"><td><b>Swiss Travel Pass（7日）方案</b></td><td></td><td></td><td><b>CHF 418 + 474 ≈ 892</b></td></tr>
+  </table>
+</div>
+<div class="card" style="background:var(--kiwi-light);border-left:4px solid var(--kiwi);">
+  <div style="font-size:14px;font-weight:700;color:var(--kiwi-dark);margin-bottom:6px">✅ 結論：強烈推薦 Swiss Half Fare Card（CHF 150 / 人）</div>
+  <div style="font-size:13px;line-height:1.75;color:var(--kiwi-dark)">
+    比無折扣省約 CHF 381，比 Swiss Travel Pass 省約 CHF 293。本行程山岳纜車均不免費（STP僅5折），半價卡最值。<br>
+    💡 <b>注意</b>：聖貝亞圖斯洞穴（CHF 26）與 First Flyer（CHF 31）均無半價折扣，無論持何種票券皆為原價。<br>
+    💡 <b>購買</b>：swissrailways.com，選啟用日期（建議6/17（三）），PDF電子卡手機出示。<b>2026年 CHF 150/人</b>。
+  </div>
 </div>
 </div>
 
+  
 <script>
 function showTab(id,btn){
   document.querySelectorAll('.panel').forEach(function(p){p.classList.remove('active')});
